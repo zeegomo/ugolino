@@ -29,7 +29,7 @@ import static com.example.android.guittone.MainActivity.devices;
 public class DeviceActivity extends AppCompatActivity {
 
 
-    int position = 5;
+    int position = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
