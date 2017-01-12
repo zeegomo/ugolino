@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="23"
+    density="560dpi"
+    format="8"
+    plugin-version="2.2.2"
+    timestamp="35182075560858"
+    token="-6811697708832997587"
+    verifier="COLD_SWAP_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="333" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="8" />
+    <task
+        name="verifier"
+        duration="2" />
+
+    <artifact
+        location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+        type="DEX" />
+
+    <build
+        timestamp="34716900105403"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="35182075560858"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+            type="DEX" />
+    </build>
+
+</instant-run>
