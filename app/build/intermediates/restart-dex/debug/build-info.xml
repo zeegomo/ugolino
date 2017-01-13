@@ -5,40 +5,40 @@
     density="560dpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="35182075560858"
+    timestamp="114150977588562"
     token="-6811697708832997587"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="333" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="8" />
+        duration="0" />
     <task
         name="verifier"
-        duration="2" />
+        duration="0" />
 
     <artifact
-        location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
-        type="DEX" />
+        location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+        type="RESOURCES" />
 
     <build
-        timestamp="34716900105403"
+        timestamp="112101090695678"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="35182075560858"
-        verifier="COLD_SWAP_REQUESTED" >
+        timestamp="114150977588562"
+        verifier="COMPATIBLE" >
         <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
-            type="DEX" />
+            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
     </build>
 
 </instant-run>

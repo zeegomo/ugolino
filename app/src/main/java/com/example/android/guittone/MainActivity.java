@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     public void AddDevice() {
         android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(this);
         alert.setMessage("Make sure you are connected to GuittoneWiFi");
-        alert.setTitle("Wifi Credentials");
+        alert.setTitle("Add new device");
 
         alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {

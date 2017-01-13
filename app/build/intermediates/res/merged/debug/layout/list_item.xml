@@ -39,6 +39,7 @@
             android:layout_height="68dp"
             android:textSize="18dp"
             android:textStyle="bold"
+            android:fontFamily="sans-serif"
             android:id="@+id/device_name"
             android:textColor="@android:color/darker_gray" />
         <!-- INSERIRE PUNTINO COLORATO PER ONLINE STATUS -->
