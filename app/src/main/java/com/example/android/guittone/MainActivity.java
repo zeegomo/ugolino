@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     public static WebView webView;
     ListView listView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         webView = (WebView) findViewById(R.id.webview);
+
 
         ImageView sirup = (ImageView) findViewById(R.id.button);
         sirup.setClickable(true);
@@ -286,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
             // Perform HTTP request to the URL and receive a JSON response back
             String jsonResponse = "";
             try {
-                url = createUrl("http://192.168.1.1");//devices.get(e).getCheckUrl
+                url = createUrl("http://piblock.altervista.org/prova.html");//devices.get(e).getCheckUrl
                 jsonResponse = makeHttpRequest(url);
             } catch (IOException e) {
                 // TODO Handle the IOException
