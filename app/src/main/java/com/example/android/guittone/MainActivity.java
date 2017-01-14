@@ -288,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
             // Perform HTTP request to the URL and receive a JSON response back
             String jsonResponse = "";
             try {
-                url = createUrl("http://piblock.altervista.org/prova.html");//devices.get(e).getCheckUrl
+                url = createUrl("192.168.1.1");//devices.get(e).getCheckUrl
                 jsonResponse = makeHttpRequest(url);
             } catch (IOException e) {
                 // TODO Handle the IOException

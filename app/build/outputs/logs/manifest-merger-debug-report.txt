@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:2:1-25:12
+ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:2:1-32:12
 	package
 		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:3:5-43
 		INJECTED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml
@@ -18,7 +18,7 @@ ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidMani
 	android:name
 		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:5:22-64
 application
-ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:6:5-23:19
+ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:6:5-30:19
 MERGED from [com.android.support:appcompat-v7:24.1.0] C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:animated-vector-drawable:24.1.0] C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.1.0\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-vector-drawable:24.1.0] C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.1.0\AndroidManifest.xml:23:5-20
@@ -34,27 +34,33 @@ MERGED from [com.android.support:support-v4:24.1.0] C:\Users\Giacomo\Downloads\G
 	android:theme
 		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:11:9-40
 activity#com.example.android.guittone.MainActivity
-ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:12:9-18:20
+ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:12:9-14:20
 	android:name
 		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:12:19-47
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:13:13-17:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:14:17-69
-	android:name
-		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:14:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:16:17-77
-	android:name
-		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:16:27-74
 activity#com.example.android.guittone.DeviceActivity
-ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:19:9-22:57
+ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:16:9-19:57
 	android:label
-		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:21:13-35
+		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:18:13-35
 	android:parentActivityName
-		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:22:13-55
+		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:19:13-55
 	android:name
-		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:20:13-43
+		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:17:13-43
+activity#com.example.android.guittone.Splash
+ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:21:9-29:20
+	android:theme
+		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:22:13-47
+	android:name
+		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:21:19-41
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:23:13-27:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:24:17-69
+	android:name
+		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:24:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:26:17-77
+	android:name
+		ADDED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml:26:27-74
 uses-sdk
 INJECTED from C:\Users\Giacomo\Downloads\Guittone\Guittone\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:24.1.0] C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.1.0\AndroidManifest.xml:21:5-23:78

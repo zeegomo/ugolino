@@ -7119,8 +7119,29 @@
                     "startLine": 1386,
                     "startColumn": 4,
                     "startOffset": 106281,
+                    "endLine": 1388,
+                    "endColumn": 12,
+                    "endOffset": 106438
+                },
+                "from": {
+                    "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 694,
+                        "endLine": 20,
+                        "endColumn": 12,
+                        "endOffset": 853
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 1389,
+                    "startColumn": 4,
+                    "startOffset": 106443,
                     "endColumn": 83,
-                    "endOffset": 106360
+                    "endOffset": 106522
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7135,11 +7156,11 @@
             },
             {
                 "to": {
-                    "startLine": 1387,
+                    "startLine": 1390,
                     "startColumn": 4,
-                    "startOffset": 106365,
+                    "startOffset": 106527,
                     "endColumn": 95,
-                    "endOffset": 106456
+                    "endOffset": 106618
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7154,11 +7175,11 @@
             },
             {
                 "to": {
-                    "startLine": 1388,
+                    "startLine": 1391,
                     "startColumn": 4,
-                    "startOffset": 106461,
+                    "startOffset": 106623,
                     "endColumn": 95,
-                    "endOffset": 106552
+                    "endOffset": 106714
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7173,11 +7194,11 @@
             },
             {
                 "to": {
-                    "startLine": 1389,
+                    "startLine": 1392,
                     "startColumn": 4,
-                    "startOffset": 106557,
+                    "startOffset": 106719,
                     "endColumn": 97,
-                    "endOffset": 106650
+                    "endOffset": 106812
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7192,11 +7213,11 @@
             },
             {
                 "to": {
-                    "startLine": 1390,
+                    "startLine": 1393,
                     "startColumn": 4,
-                    "startOffset": 106655,
+                    "startOffset": 106817,
                     "endColumn": 99,
-                    "endOffset": 106750
+                    "endOffset": 106912
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7211,11 +7232,11 @@
             },
             {
                 "to": {
-                    "startLine": 1391,
+                    "startLine": 1394,
                     "startColumn": 4,
-                    "startOffset": 106755,
+                    "startOffset": 106917,
                     "endColumn": 101,
-                    "endOffset": 106852
+                    "endOffset": 107014
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7230,11 +7251,11 @@
             },
             {
                 "to": {
-                    "startLine": 1392,
+                    "startLine": 1395,
                     "startColumn": 4,
-                    "startOffset": 106857,
+                    "startOffset": 107019,
                     "endColumn": 101,
-                    "endOffset": 106954
+                    "endOffset": 107116
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7249,11 +7270,11 @@
             },
             {
                 "to": {
-                    "startLine": 1393,
+                    "startLine": 1396,
                     "startColumn": 4,
-                    "startOffset": 106959,
+                    "startOffset": 107121,
                     "endColumn": 101,
-                    "endOffset": 107056
+                    "endOffset": 107218
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7268,11 +7289,11 @@
             },
             {
                 "to": {
-                    "startLine": 1394,
+                    "startLine": 1397,
                     "startColumn": 4,
-                    "startOffset": 107061,
+                    "startOffset": 107223,
                     "endColumn": 101,
-                    "endOffset": 107158
+                    "endOffset": 107320
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7287,11 +7308,11 @@
             },
             {
                 "to": {
-                    "startLine": 1395,
+                    "startLine": 1398,
                     "startColumn": 4,
-                    "startOffset": 107163,
+                    "startOffset": 107325,
                     "endColumn": 101,
-                    "endOffset": 107260
+                    "endOffset": 107422
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7306,11 +7327,11 @@
             },
             {
                 "to": {
-                    "startLine": 1396,
+                    "startLine": 1399,
                     "startColumn": 4,
-                    "startOffset": 107265,
+                    "startOffset": 107427,
                     "endColumn": 99,
-                    "endOffset": 107360
+                    "endOffset": 107522
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7325,11 +7346,11 @@
             },
             {
                 "to": {
-                    "startLine": 1397,
+                    "startLine": 1400,
                     "startColumn": 4,
-                    "startOffset": 107365,
+                    "startOffset": 107527,
                     "endColumn": 95,
-                    "endOffset": 107456
+                    "endOffset": 107618
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7344,11 +7365,11 @@
             },
             {
                 "to": {
-                    "startLine": 1398,
+                    "startLine": 1401,
                     "startColumn": 4,
-                    "startOffset": 107461,
+                    "startOffset": 107623,
                     "endColumn": 111,
-                    "endOffset": 107568
+                    "endOffset": 107730
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7363,11 +7384,11 @@
             },
             {
                 "to": {
-                    "startLine": 1399,
+                    "startLine": 1402,
                     "startColumn": 4,
-                    "startOffset": 107573,
+                    "startOffset": 107735,
                     "endColumn": 128,
-                    "endOffset": 107697
+                    "endOffset": 107859
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7382,11 +7403,11 @@
             },
             {
                 "to": {
-                    "startLine": 1400,
+                    "startLine": 1403,
                     "startColumn": 4,
-                    "startOffset": 107702,
+                    "startOffset": 107864,
                     "endColumn": 122,
-                    "endOffset": 107820
+                    "endOffset": 107982
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7401,11 +7422,11 @@
             },
             {
                 "to": {
-                    "startLine": 1401,
+                    "startLine": 1404,
                     "startColumn": 4,
-                    "startOffset": 107825,
+                    "startOffset": 107987,
                     "endColumn": 130,
-                    "endOffset": 107951
+                    "endOffset": 108113
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7420,11 +7441,11 @@
             },
             {
                 "to": {
-                    "startLine": 1402,
+                    "startLine": 1405,
                     "startColumn": 4,
-                    "startOffset": 107956,
+                    "startOffset": 108118,
                     "endColumn": 130,
-                    "endOffset": 108082
+                    "endOffset": 108244
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7439,11 +7460,11 @@
             },
             {
                 "to": {
-                    "startLine": 1403,
+                    "startLine": 1406,
                     "startColumn": 4,
-                    "startOffset": 108087,
+                    "startOffset": 108249,
                     "endColumn": 97,
-                    "endOffset": 108180
+                    "endOffset": 108342
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7458,11 +7479,11 @@
             },
             {
                 "to": {
-                    "startLine": 1404,
+                    "startLine": 1407,
                     "startColumn": 4,
-                    "startOffset": 108185,
+                    "startOffset": 108347,
                     "endColumn": 113,
-                    "endOffset": 108294
+                    "endOffset": 108456
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7477,11 +7498,11 @@
             },
             {
                 "to": {
-                    "startLine": 1405,
+                    "startLine": 1408,
                     "startColumn": 4,
-                    "startOffset": 108299,
+                    "startOffset": 108461,
                     "endColumn": 93,
-                    "endOffset": 108388
+                    "endOffset": 108550
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7496,12 +7517,12 @@
             },
             {
                 "to": {
-                    "startLine": 1406,
+                    "startLine": 1409,
                     "startColumn": 4,
-                    "startOffset": 108393,
-                    "endLine": 1407,
+                    "startOffset": 108555,
+                    "endLine": 1410,
                     "endColumn": 12,
-                    "endOffset": 108528
+                    "endOffset": 108690
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7517,12 +7538,12 @@
             },
             {
                 "to": {
-                    "startLine": 1408,
+                    "startLine": 1411,
                     "startColumn": 4,
-                    "startOffset": 108533,
-                    "endLine": 1409,
+                    "startOffset": 108695,
+                    "endLine": 1412,
                     "endColumn": 12,
-                    "endOffset": 108662
+                    "endOffset": 108824
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7538,11 +7559,11 @@
             },
             {
                 "to": {
-                    "startLine": 1410,
+                    "startLine": 1413,
                     "startColumn": 4,
-                    "startOffset": 108667,
+                    "startOffset": 108829,
                     "endColumn": 95,
-                    "endOffset": 108758
+                    "endOffset": 108920
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7557,11 +7578,11 @@
             },
             {
                 "to": {
-                    "startLine": 1411,
+                    "startLine": 1414,
                     "startColumn": 4,
-                    "startOffset": 108763,
+                    "startOffset": 108925,
                     "endColumn": 111,
-                    "endOffset": 108870
+                    "endOffset": 109032
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7576,11 +7597,11 @@
             },
             {
                 "to": {
-                    "startLine": 1412,
+                    "startLine": 1415,
                     "startColumn": 4,
-                    "startOffset": 108875,
+                    "startOffset": 109037,
                     "endColumn": 99,
-                    "endOffset": 108970
+                    "endOffset": 109132
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7595,11 +7616,11 @@
             },
             {
                 "to": {
-                    "startLine": 1413,
+                    "startLine": 1416,
                     "startColumn": 4,
-                    "startOffset": 108975,
+                    "startOffset": 109137,
                     "endColumn": 115,
-                    "endOffset": 109086
+                    "endOffset": 109248
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7614,11 +7635,11 @@
             },
             {
                 "to": {
-                    "startLine": 1414,
+                    "startLine": 1417,
                     "startColumn": 4,
-                    "startOffset": 109091,
+                    "startOffset": 109253,
                     "endColumn": 95,
-                    "endOffset": 109182
+                    "endOffset": 109344
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7633,11 +7654,11 @@
             },
             {
                 "to": {
-                    "startLine": 1415,
+                    "startLine": 1418,
                     "startColumn": 4,
-                    "startOffset": 109187,
+                    "startOffset": 109349,
                     "endColumn": 111,
-                    "endOffset": 109294
+                    "endOffset": 109456
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7652,12 +7673,12 @@
             },
             {
                 "to": {
-                    "startLine": 1416,
+                    "startLine": 1419,
                     "startColumn": 4,
-                    "startOffset": 109299,
-                    "endLine": 1417,
+                    "startOffset": 109461,
+                    "endLine": 1420,
                     "endColumn": 12,
-                    "endOffset": 109434
+                    "endOffset": 109596
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7673,11 +7694,11 @@
             },
             {
                 "to": {
-                    "startLine": 1418,
+                    "startLine": 1421,
                     "startColumn": 4,
-                    "startOffset": 109439,
+                    "startOffset": 109601,
                     "endColumn": 135,
-                    "endOffset": 109570
+                    "endOffset": 109732
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7692,12 +7713,12 @@
             },
             {
                 "to": {
-                    "startLine": 1419,
+                    "startLine": 1422,
                     "startColumn": 4,
-                    "startOffset": 109575,
-                    "endLine": 1420,
+                    "startOffset": 109737,
+                    "endLine": 1423,
                     "endColumn": 12,
-                    "endOffset": 109734
+                    "endOffset": 109896
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7713,11 +7734,11 @@
             },
             {
                 "to": {
-                    "startLine": 1421,
+                    "startLine": 1424,
                     "startColumn": 4,
-                    "startOffset": 109739,
+                    "startOffset": 109901,
                     "endColumn": 129,
-                    "endOffset": 109864
+                    "endOffset": 110026
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7732,12 +7753,12 @@
             },
             {
                 "to": {
-                    "startLine": 1422,
+                    "startLine": 1425,
                     "startColumn": 4,
-                    "startOffset": 109869,
-                    "endLine": 1423,
+                    "startOffset": 110031,
+                    "endLine": 1426,
                     "endColumn": 12,
-                    "endOffset": 110022
+                    "endOffset": 110184
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7753,12 +7774,12 @@
             },
             {
                 "to": {
-                    "startLine": 1424,
+                    "startLine": 1427,
                     "startColumn": 4,
-                    "startOffset": 110027,
-                    "endLine": 1425,
+                    "startOffset": 110189,
+                    "endLine": 1428,
                     "endColumn": 12,
-                    "endOffset": 110172
+                    "endOffset": 110334
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7774,11 +7795,11 @@
             },
             {
                 "to": {
-                    "startLine": 1426,
+                    "startLine": 1429,
                     "startColumn": 4,
-                    "startOffset": 110177,
+                    "startOffset": 110339,
                     "endColumn": 140,
-                    "endOffset": 110313
+                    "endOffset": 110475
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7793,12 +7814,12 @@
             },
             {
                 "to": {
-                    "startLine": 1427,
+                    "startLine": 1430,
                     "startColumn": 4,
-                    "startOffset": 110318,
-                    "endLine": 1428,
+                    "startOffset": 110480,
+                    "endLine": 1431,
                     "endColumn": 12,
-                    "endOffset": 110457
+                    "endOffset": 110619
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7814,11 +7835,11 @@
             },
             {
                 "to": {
-                    "startLine": 1429,
+                    "startLine": 1432,
                     "startColumn": 4,
-                    "startOffset": 110462,
+                    "startOffset": 110624,
                     "endColumn": 134,
-                    "endOffset": 110592
+                    "endOffset": 110754
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7833,11 +7854,11 @@
             },
             {
                 "to": {
-                    "startLine": 1430,
+                    "startLine": 1433,
                     "startColumn": 4,
-                    "startOffset": 110597,
+                    "startOffset": 110759,
                     "endColumn": 111,
-                    "endOffset": 110704
+                    "endOffset": 110866
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7852,11 +7873,11 @@
             },
             {
                 "to": {
-                    "startLine": 1431,
+                    "startLine": 1434,
                     "startColumn": 4,
-                    "startOffset": 110709,
+                    "startOffset": 110871,
                     "endColumn": 127,
-                    "endOffset": 110832
+                    "endOffset": 110994
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7871,12 +7892,12 @@
             },
             {
                 "to": {
-                    "startLine": 1432,
+                    "startLine": 1435,
                     "startColumn": 4,
-                    "startOffset": 110837,
-                    "endLine": 1433,
+                    "startOffset": 110999,
+                    "endLine": 1436,
                     "endColumn": 12,
-                    "endOffset": 110968
+                    "endOffset": 111130
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7892,11 +7913,11 @@
             },
             {
                 "to": {
-                    "startLine": 1434,
+                    "startLine": 1437,
                     "startColumn": 4,
-                    "startOffset": 110973,
+                    "startOffset": 111135,
                     "endColumn": 131,
-                    "endOffset": 111100
+                    "endOffset": 111262
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7911,11 +7932,11 @@
             },
             {
                 "to": {
-                    "startLine": 1435,
+                    "startLine": 1438,
                     "startColumn": 4,
-                    "startOffset": 111105,
+                    "startOffset": 111267,
                     "endColumn": 129,
-                    "endOffset": 111230
+                    "endOffset": 111392
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7930,11 +7951,11 @@
             },
             {
                 "to": {
-                    "startLine": 1436,
+                    "startLine": 1439,
                     "startColumn": 4,
-                    "startOffset": 111235,
+                    "startOffset": 111397,
                     "endColumn": 129,
-                    "endOffset": 111360
+                    "endOffset": 111522
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7949,11 +7970,11 @@
             },
             {
                 "to": {
-                    "startLine": 1437,
+                    "startLine": 1440,
                     "startColumn": 4,
-                    "startOffset": 111365,
+                    "startOffset": 111527,
                     "endColumn": 111,
-                    "endOffset": 111472
+                    "endOffset": 111634
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7968,11 +7989,11 @@
             },
             {
                 "to": {
-                    "startLine": 1438,
+                    "startLine": 1441,
                     "startColumn": 4,
-                    "startOffset": 111477,
+                    "startOffset": 111639,
                     "endColumn": 139,
-                    "endOffset": 111612
+                    "endOffset": 111774
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -7987,11 +8008,11 @@
             },
             {
                 "to": {
-                    "startLine": 1439,
+                    "startLine": 1442,
                     "startColumn": 4,
-                    "startOffset": 111617,
+                    "startOffset": 111779,
                     "endColumn": 67,
-                    "endOffset": 111680
+                    "endOffset": 111842
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8006,11 +8027,11 @@
             },
             {
                 "to": {
-                    "startLine": 1440,
+                    "startLine": 1443,
                     "startColumn": 4,
-                    "startOffset": 111685,
+                    "startOffset": 111847,
                     "endColumn": 72,
-                    "endOffset": 111753
+                    "endOffset": 111915
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8025,11 +8046,11 @@
             },
             {
                 "to": {
-                    "startLine": 1441,
+                    "startLine": 1444,
                     "startColumn": 4,
-                    "startOffset": 111758,
+                    "startOffset": 111920,
                     "endColumn": 73,
-                    "endOffset": 111827
+                    "endOffset": 111989
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8044,11 +8065,11 @@
             },
             {
                 "to": {
-                    "startLine": 1442,
+                    "startLine": 1445,
                     "startColumn": 4,
-                    "startOffset": 111832,
+                    "startOffset": 111994,
                     "endColumn": 72,
-                    "endOffset": 111900
+                    "endOffset": 112062
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8063,11 +8084,11 @@
             },
             {
                 "to": {
-                    "startLine": 1443,
+                    "startLine": 1446,
                     "startColumn": 4,
-                    "startOffset": 111905,
+                    "startOffset": 112067,
                     "endColumn": 73,
-                    "endOffset": 111974
+                    "endOffset": 112136
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8082,12 +8103,12 @@
             },
             {
                 "to": {
-                    "startLine": 1444,
+                    "startLine": 1447,
                     "startColumn": 4,
-                    "startOffset": 111979,
-                    "endLine": 1445,
+                    "startOffset": 112141,
+                    "endLine": 1448,
                     "endColumn": 12,
-                    "endOffset": 112120
+                    "endOffset": 112282
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8103,12 +8124,12 @@
             },
             {
                 "to": {
-                    "startLine": 1446,
+                    "startLine": 1449,
                     "startColumn": 4,
-                    "startOffset": 112125,
-                    "endLine": 1447,
+                    "startOffset": 112287,
+                    "endLine": 1450,
                     "endColumn": 12,
-                    "endOffset": 112264
+                    "endOffset": 112426
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8124,12 +8145,12 @@
             },
             {
                 "to": {
-                    "startLine": 1448,
+                    "startLine": 1451,
                     "startColumn": 4,
-                    "startOffset": 112269,
-                    "endLine": 1449,
+                    "startOffset": 112431,
+                    "endLine": 1452,
                     "endColumn": 12,
-                    "endOffset": 112402
+                    "endOffset": 112564
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8145,11 +8166,11 @@
             },
             {
                 "to": {
-                    "startLine": 1450,
+                    "startLine": 1453,
                     "startColumn": 4,
-                    "startOffset": 112407,
+                    "startOffset": 112569,
                     "endColumn": 65,
-                    "endOffset": 112468
+                    "endOffset": 112630
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8164,11 +8185,11 @@
             },
             {
                 "to": {
-                    "startLine": 1451,
+                    "startLine": 1454,
                     "startColumn": 4,
-                    "startOffset": 112473,
+                    "startOffset": 112635,
                     "endColumn": 89,
-                    "endOffset": 112558
+                    "endOffset": 112720
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8183,11 +8204,11 @@
             },
             {
                 "to": {
-                    "startLine": 1452,
+                    "startLine": 1455,
                     "startColumn": 4,
-                    "startOffset": 112563,
+                    "startOffset": 112725,
                     "endColumn": 75,
-                    "endOffset": 112634
+                    "endOffset": 112796
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8202,11 +8223,11 @@
             },
             {
                 "to": {
-                    "startLine": 1453,
+                    "startLine": 1456,
                     "startColumn": 4,
-                    "startOffset": 112639,
+                    "startOffset": 112801,
                     "endColumn": 103,
-                    "endOffset": 112738
+                    "endOffset": 112900
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8221,11 +8242,11 @@
             },
             {
                 "to": {
-                    "startLine": 1454,
+                    "startLine": 1457,
                     "startColumn": 4,
-                    "startOffset": 112743,
+                    "startOffset": 112905,
                     "endColumn": 89,
-                    "endOffset": 112828
+                    "endOffset": 112990
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8240,11 +8261,11 @@
             },
             {
                 "to": {
-                    "startLine": 1455,
+                    "startLine": 1458,
                     "startColumn": 4,
-                    "startOffset": 112833,
+                    "startOffset": 112995,
                     "endColumn": 101,
-                    "endOffset": 112930
+                    "endOffset": 113092
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8259,11 +8280,11 @@
             },
             {
                 "to": {
-                    "startLine": 1456,
+                    "startLine": 1459,
                     "startColumn": 4,
-                    "startOffset": 112935,
+                    "startOffset": 113097,
                     "endColumn": 107,
-                    "endOffset": 113038
+                    "endOffset": 113200
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8278,11 +8299,11 @@
             },
             {
                 "to": {
-                    "startLine": 1457,
+                    "startLine": 1460,
                     "startColumn": 4,
-                    "startOffset": 113043,
+                    "startOffset": 113205,
                     "endColumn": 107,
-                    "endOffset": 113146
+                    "endOffset": 113308
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8297,11 +8318,11 @@
             },
             {
                 "to": {
-                    "startLine": 1458,
+                    "startLine": 1461,
                     "startColumn": 4,
-                    "startOffset": 113151,
+                    "startOffset": 113313,
                     "endColumn": 99,
-                    "endOffset": 113246
+                    "endOffset": 113408
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8316,11 +8337,11 @@
             },
             {
                 "to": {
-                    "startLine": 1459,
+                    "startLine": 1462,
                     "startColumn": 4,
-                    "startOffset": 113251,
+                    "startOffset": 113413,
                     "endColumn": 79,
-                    "endOffset": 113326
+                    "endOffset": 113488
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8335,11 +8356,11 @@
             },
             {
                 "to": {
-                    "startLine": 1460,
+                    "startLine": 1463,
                     "startColumn": 4,
-                    "startOffset": 113331,
+                    "startOffset": 113493,
                     "endColumn": 91,
-                    "endOffset": 113418
+                    "endOffset": 113580
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8354,11 +8375,11 @@
             },
             {
                 "to": {
-                    "startLine": 1461,
+                    "startLine": 1464,
                     "startColumn": 4,
-                    "startOffset": 113423,
+                    "startOffset": 113585,
                     "endColumn": 97,
-                    "endOffset": 113516
+                    "endOffset": 113678
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8373,12 +8394,12 @@
             },
             {
                 "to": {
-                    "startLine": 1462,
+                    "startLine": 1465,
                     "startColumn": 4,
-                    "startOffset": 113521,
-                    "endLine": 1463,
+                    "startOffset": 113683,
+                    "endLine": 1466,
                     "endColumn": 12,
-                    "endOffset": 113626
+                    "endOffset": 113788
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8394,11 +8415,11 @@
             },
             {
                 "to": {
-                    "startLine": 1464,
+                    "startLine": 1467,
                     "startColumn": 4,
-                    "startOffset": 113631,
+                    "startOffset": 113793,
                     "endColumn": 77,
-                    "endOffset": 113704
+                    "endOffset": 113866
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8413,11 +8434,11 @@
             },
             {
                 "to": {
-                    "startLine": 1465,
+                    "startLine": 1468,
                     "startColumn": 4,
-                    "startOffset": 113709,
+                    "startOffset": 113871,
                     "endColumn": 105,
-                    "endOffset": 113810
+                    "endOffset": 113972
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8432,11 +8453,11 @@
             },
             {
                 "to": {
-                    "startLine": 1466,
+                    "startLine": 1469,
                     "startColumn": 4,
-                    "startOffset": 113815,
+                    "startOffset": 113977,
                     "endColumn": 91,
-                    "endOffset": 113902
+                    "endOffset": 114064
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8451,11 +8472,11 @@
             },
             {
                 "to": {
-                    "startLine": 1467,
+                    "startLine": 1470,
                     "startColumn": 4,
-                    "startOffset": 113907,
+                    "startOffset": 114069,
                     "endColumn": 103,
-                    "endOffset": 114006
+                    "endOffset": 114168
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8470,11 +8491,11 @@
             },
             {
                 "to": {
-                    "startLine": 1468,
+                    "startLine": 1471,
                     "startColumn": 4,
-                    "startOffset": 114011,
+                    "startOffset": 114173,
                     "endColumn": 109,
-                    "endOffset": 114116
+                    "endOffset": 114278
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8489,12 +8510,12 @@
             },
             {
                 "to": {
-                    "startLine": 1469,
+                    "startLine": 1472,
                     "startColumn": 4,
-                    "startOffset": 114121,
-                    "endLine": 1470,
+                    "startOffset": 114283,
+                    "endLine": 1473,
                     "endColumn": 12,
-                    "endOffset": 114238
+                    "endOffset": 114400
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8510,12 +8531,12 @@
             },
             {
                 "to": {
-                    "startLine": 1471,
+                    "startLine": 1474,
                     "startColumn": 4,
-                    "startOffset": 114243,
-                    "endLine": 1474,
+                    "startOffset": 114405,
+                    "endLine": 1477,
                     "endColumn": 12,
-                    "endOffset": 114401
+                    "endOffset": 114563
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8531,12 +8552,12 @@
             },
             {
                 "to": {
-                    "startLine": 1475,
+                    "startLine": 1478,
                     "startColumn": 4,
-                    "startOffset": 114406,
-                    "endLine": 1478,
+                    "startOffset": 114568,
+                    "endLine": 1481,
                     "endColumn": 12,
-                    "endOffset": 114558
+                    "endOffset": 114720
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8552,11 +8573,11 @@
             },
             {
                 "to": {
-                    "startLine": 1479,
+                    "startLine": 1482,
                     "startColumn": 4,
-                    "startOffset": 114563,
+                    "startOffset": 114725,
                     "endColumn": 79,
-                    "endOffset": 114638
+                    "endOffset": 114800
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8571,11 +8592,11 @@
             },
             {
                 "to": {
-                    "startLine": 1480,
+                    "startLine": 1483,
                     "startColumn": 4,
-                    "startOffset": 114643,
+                    "startOffset": 114805,
                     "endColumn": 99,
-                    "endOffset": 114738
+                    "endOffset": 114900
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8590,11 +8611,11 @@
             },
             {
                 "to": {
-                    "startLine": 1481,
+                    "startLine": 1484,
                     "startColumn": 4,
-                    "startOffset": 114743,
+                    "startOffset": 114905,
                     "endColumn": 89,
-                    "endOffset": 114828
+                    "endOffset": 114990
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8609,11 +8630,11 @@
             },
             {
                 "to": {
-                    "startLine": 1482,
+                    "startLine": 1485,
                     "startColumn": 4,
-                    "startOffset": 114833,
+                    "startOffset": 114995,
                     "endColumn": 109,
-                    "endOffset": 114938
+                    "endOffset": 115100
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8628,11 +8649,11 @@
             },
             {
                 "to": {
-                    "startLine": 1483,
+                    "startLine": 1486,
                     "startColumn": 4,
-                    "startOffset": 114943,
+                    "startOffset": 115105,
                     "endColumn": 93,
-                    "endOffset": 115032
+                    "endOffset": 115194
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8647,11 +8668,11 @@
             },
             {
                 "to": {
-                    "startLine": 1484,
+                    "startLine": 1487,
                     "startColumn": 4,
-                    "startOffset": 115037,
+                    "startOffset": 115199,
                     "endColumn": 105,
-                    "endOffset": 115138
+                    "endOffset": 115300
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8666,11 +8687,11 @@
             },
             {
                 "to": {
-                    "startLine": 1485,
+                    "startLine": 1488,
                     "startColumn": 4,
-                    "startOffset": 115143,
+                    "startOffset": 115305,
                     "endColumn": 91,
-                    "endOffset": 115230
+                    "endOffset": 115392
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8685,12 +8706,12 @@
             },
             {
                 "to": {
-                    "startLine": 1486,
+                    "startLine": 1489,
                     "startColumn": 4,
-                    "startOffset": 115235,
-                    "endLine": 1487,
+                    "startOffset": 115397,
+                    "endLine": 1490,
                     "endColumn": 12,
-                    "endOffset": 115330
+                    "endOffset": 115492
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8706,12 +8727,12 @@
             },
             {
                 "to": {
-                    "startLine": 1488,
+                    "startLine": 1491,
                     "startColumn": 4,
-                    "startOffset": 115335,
-                    "endLine": 1489,
+                    "startOffset": 115497,
+                    "endLine": 1492,
                     "endColumn": 12,
-                    "endOffset": 115442
+                    "endOffset": 115604
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8727,12 +8748,12 @@
             },
             {
                 "to": {
-                    "startLine": 1490,
+                    "startLine": 1493,
                     "startColumn": 4,
-                    "startOffset": 115447,
-                    "endLine": 1491,
+                    "startOffset": 115609,
+                    "endLine": 1494,
                     "endColumn": 12,
-                    "endOffset": 115556
+                    "endOffset": 115718
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8748,12 +8769,12 @@
             },
             {
                 "to": {
-                    "startLine": 1492,
+                    "startLine": 1495,
                     "startColumn": 4,
-                    "startOffset": 115561,
-                    "endLine": 1493,
+                    "startOffset": 115723,
+                    "endLine": 1496,
                     "endColumn": 12,
-                    "endOffset": 115672
+                    "endOffset": 115834
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8769,12 +8790,12 @@
             },
             {
                 "to": {
-                    "startLine": 1494,
+                    "startLine": 1497,
                     "startColumn": 4,
-                    "startOffset": 115677,
-                    "endLine": 1495,
+                    "startOffset": 115839,
+                    "endLine": 1498,
                     "endColumn": 12,
-                    "endOffset": 115788
+                    "endOffset": 115950
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8790,11 +8811,11 @@
             },
             {
                 "to": {
-                    "startLine": 1496,
+                    "startLine": 1499,
                     "startColumn": 4,
-                    "startOffset": 115793,
+                    "startOffset": 115955,
                     "endColumn": 93,
-                    "endOffset": 115882
+                    "endOffset": 116044
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8809,11 +8830,11 @@
             },
             {
                 "to": {
-                    "startLine": 1497,
+                    "startLine": 1500,
                     "startColumn": 4,
-                    "startOffset": 115887,
+                    "startOffset": 116049,
                     "endColumn": 113,
-                    "endOffset": 115996
+                    "endOffset": 116158
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8828,11 +8849,11 @@
             },
             {
                 "to": {
-                    "startLine": 1498,
+                    "startLine": 1501,
                     "startColumn": 4,
-                    "startOffset": 116001,
+                    "startOffset": 116163,
                     "endColumn": 111,
-                    "endOffset": 116108
+                    "endOffset": 116270
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8847,12 +8868,12 @@
             },
             {
                 "to": {
-                    "startLine": 1499,
+                    "startLine": 1502,
                     "startColumn": 4,
-                    "startOffset": 116113,
-                    "endLine": 1500,
+                    "startOffset": 116275,
+                    "endLine": 1503,
                     "endColumn": 12,
-                    "endOffset": 116210
+                    "endOffset": 116372
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8868,12 +8889,12 @@
             },
             {
                 "to": {
-                    "startLine": 1501,
+                    "startLine": 1504,
                     "startColumn": 4,
-                    "startOffset": 116215,
-                    "endLine": 1502,
+                    "startOffset": 116377,
+                    "endLine": 1505,
                     "endColumn": 12,
-                    "endOffset": 116330
+                    "endOffset": 116492
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8889,12 +8910,12 @@
             },
             {
                 "to": {
-                    "startLine": 1503,
+                    "startLine": 1506,
                     "startColumn": 4,
-                    "startOffset": 116335,
-                    "endLine": 1504,
+                    "startOffset": 116497,
+                    "endLine": 1507,
                     "endColumn": 12,
-                    "endOffset": 116452
+                    "endOffset": 116614
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8910,11 +8931,11 @@
             },
             {
                 "to": {
-                    "startLine": 1505,
+                    "startLine": 1508,
                     "startColumn": 4,
-                    "startOffset": 116457,
+                    "startOffset": 116619,
                     "endColumn": 81,
-                    "endOffset": 116534
+                    "endOffset": 116696
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8929,11 +8950,11 @@
             },
             {
                 "to": {
-                    "startLine": 1506,
+                    "startLine": 1509,
                     "startColumn": 4,
-                    "startOffset": 116539,
+                    "startOffset": 116701,
                     "endColumn": 103,
-                    "endOffset": 116638
+                    "endOffset": 116800
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8948,11 +8969,11 @@
             },
             {
                 "to": {
-                    "startLine": 1507,
+                    "startLine": 1510,
                     "startColumn": 4,
-                    "startOffset": 116643,
+                    "startOffset": 116805,
                     "endColumn": 119,
-                    "endOffset": 116758
+                    "endOffset": 116920
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8967,11 +8988,11 @@
             },
             {
                 "to": {
-                    "startLine": 1508,
+                    "startLine": 1511,
                     "startColumn": 4,
-                    "startOffset": 116763,
+                    "startOffset": 116925,
                     "endColumn": 125,
-                    "endOffset": 116884
+                    "endOffset": 117046
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -8986,11 +9007,11 @@
             },
             {
                 "to": {
-                    "startLine": 1509,
+                    "startLine": 1512,
                     "startColumn": 4,
-                    "startOffset": 116889,
+                    "startOffset": 117051,
                     "endColumn": 97,
-                    "endOffset": 116982
+                    "endOffset": 117144
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9005,11 +9026,11 @@
             },
             {
                 "to": {
-                    "startLine": 1510,
+                    "startLine": 1513,
                     "startColumn": 4,
-                    "startOffset": 116987,
+                    "startOffset": 117149,
                     "endColumn": 93,
-                    "endOffset": 117076
+                    "endOffset": 117238
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9024,11 +9045,11 @@
             },
             {
                 "to": {
-                    "startLine": 1511,
+                    "startLine": 1514,
                     "startColumn": 4,
-                    "startOffset": 117081,
+                    "startOffset": 117243,
                     "endColumn": 87,
-                    "endOffset": 117164
+                    "endOffset": 117326
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9043,11 +9064,11 @@
             },
             {
                 "to": {
-                    "startLine": 1512,
+                    "startLine": 1515,
                     "startColumn": 4,
-                    "startOffset": 117169,
+                    "startOffset": 117331,
                     "endColumn": 111,
-                    "endOffset": 117276
+                    "endOffset": 117438
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9062,11 +9083,11 @@
             },
             {
                 "to": {
-                    "startLine": 1513,
+                    "startLine": 1516,
                     "startColumn": 4,
-                    "startOffset": 117281,
+                    "startOffset": 117443,
                     "endColumn": 115,
-                    "endOffset": 117392
+                    "endOffset": 117554
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9081,11 +9102,11 @@
             },
             {
                 "to": {
-                    "startLine": 1514,
+                    "startLine": 1517,
                     "startColumn": 4,
-                    "startOffset": 117397,
+                    "startOffset": 117559,
                     "endColumn": 121,
-                    "endOffset": 117514
+                    "endOffset": 117676
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9100,11 +9121,11 @@
             },
             {
                 "to": {
-                    "startLine": 1515,
+                    "startLine": 1518,
                     "startColumn": 4,
-                    "startOffset": 117519,
+                    "startOffset": 117681,
                     "endColumn": 111,
-                    "endOffset": 117626
+                    "endOffset": 117788
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9119,12 +9140,12 @@
             },
             {
                 "to": {
-                    "startLine": 1516,
+                    "startLine": 1519,
                     "startColumn": 4,
-                    "startOffset": 117631,
-                    "endLine": 1518,
+                    "startOffset": 117793,
+                    "endLine": 1521,
                     "endColumn": 12,
-                    "endOffset": 117801
+                    "endOffset": 117963
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9140,11 +9161,11 @@
             },
             {
                 "to": {
-                    "startLine": 1519,
+                    "startLine": 1522,
                     "startColumn": 4,
-                    "startOffset": 117806,
+                    "startOffset": 117968,
                     "endColumn": 115,
-                    "endOffset": 117917
+                    "endOffset": 118079
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9159,11 +9180,11 @@
             },
             {
                 "to": {
-                    "startLine": 1520,
+                    "startLine": 1523,
                     "startColumn": 4,
-                    "startOffset": 117922,
+                    "startOffset": 118084,
                     "endColumn": 85,
-                    "endOffset": 118003
+                    "endOffset": 118165
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9178,11 +9199,11 @@
             },
             {
                 "to": {
-                    "startLine": 1521,
+                    "startLine": 1524,
                     "startColumn": 4,
-                    "startOffset": 118008,
+                    "startOffset": 118170,
                     "endColumn": 91,
-                    "endOffset": 118095
+                    "endOffset": 118257
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9197,12 +9218,12 @@
             },
             {
                 "to": {
-                    "startLine": 1522,
+                    "startLine": 1525,
                     "startColumn": 4,
-                    "startOffset": 118100,
-                    "endLine": 1523,
+                    "startOffset": 118262,
+                    "endLine": 1526,
                     "endColumn": 12,
-                    "endOffset": 118207
+                    "endOffset": 118369
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9218,12 +9239,12 @@
             },
             {
                 "to": {
-                    "startLine": 1524,
+                    "startLine": 1527,
                     "startColumn": 4,
-                    "startOffset": 118212,
-                    "endLine": 1525,
+                    "startOffset": 118374,
+                    "endLine": 1528,
                     "endColumn": 12,
-                    "endOffset": 118331
+                    "endOffset": 118493
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9239,11 +9260,11 @@
             },
             {
                 "to": {
-                    "startLine": 1526,
+                    "startLine": 1529,
                     "startColumn": 4,
-                    "startOffset": 118336,
+                    "startOffset": 118498,
                     "endColumn": 66,
-                    "endOffset": 118398
+                    "endOffset": 118560
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9258,12 +9279,12 @@
             },
             {
                 "to": {
-                    "startLine": 1527,
+                    "startLine": 1530,
                     "startColumn": 4,
-                    "startOffset": 118403,
-                    "endLine": 1528,
+                    "startOffset": 118565,
+                    "endLine": 1531,
                     "endColumn": 12,
-                    "endOffset": 118524
+                    "endOffset": 118686
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9279,11 +9300,11 @@
             },
             {
                 "to": {
-                    "startLine": 1529,
+                    "startLine": 1532,
                     "startColumn": 4,
-                    "startOffset": 118529,
+                    "startOffset": 118691,
                     "endColumn": 67,
-                    "endOffset": 118592
+                    "endOffset": 118754
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9298,12 +9319,12 @@
             },
             {
                 "to": {
-                    "startLine": 1530,
+                    "startLine": 1533,
                     "startColumn": 4,
-                    "startOffset": 118597,
-                    "endLine": 1531,
+                    "startOffset": 118759,
+                    "endLine": 1534,
                     "endColumn": 12,
-                    "endOffset": 118720
+                    "endOffset": 118882
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9319,12 +9340,12 @@
             },
             {
                 "to": {
-                    "startLine": 1532,
+                    "startLine": 1535,
                     "startColumn": 4,
-                    "startOffset": 118725,
-                    "endLine": 1533,
+                    "startOffset": 118887,
+                    "endLine": 1536,
                     "endColumn": 12,
-                    "endOffset": 118864
+                    "endOffset": 119026
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9340,12 +9361,12 @@
             },
             {
                 "to": {
-                    "startLine": 1534,
+                    "startLine": 1537,
                     "startColumn": 4,
-                    "startOffset": 118869,
-                    "endLine": 1535,
+                    "startOffset": 119031,
+                    "endLine": 1538,
                     "endColumn": 12,
-                    "endOffset": 118992
+                    "endOffset": 119154
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9361,11 +9382,11 @@
             },
             {
                 "to": {
-                    "startLine": 1536,
+                    "startLine": 1539,
                     "startColumn": 4,
-                    "startOffset": 118997,
+                    "startOffset": 119159,
                     "endColumn": 68,
-                    "endOffset": 119061
+                    "endOffset": 119223
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9380,11 +9401,11 @@
             },
             {
                 "to": {
-                    "startLine": 1537,
+                    "startLine": 1540,
                     "startColumn": 4,
-                    "startOffset": 119066,
+                    "startOffset": 119228,
                     "endColumn": 94,
-                    "endOffset": 119156
+                    "endOffset": 119318
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9399,11 +9420,11 @@
             },
             {
                 "to": {
-                    "startLine": 1538,
+                    "startLine": 1541,
                     "startColumn": 4,
-                    "startOffset": 119161,
+                    "startOffset": 119323,
                     "endColumn": 114,
-                    "endOffset": 119271
+                    "endOffset": 119433
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9418,11 +9439,11 @@
             },
             {
                 "to": {
-                    "startLine": 1539,
+                    "startLine": 1542,
                     "startColumn": 4,
-                    "startOffset": 119276,
+                    "startOffset": 119438,
                     "endColumn": 112,
-                    "endOffset": 119384
+                    "endOffset": 119546
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9437,11 +9458,11 @@
             },
             {
                 "to": {
-                    "startLine": 1540,
+                    "startLine": 1543,
                     "startColumn": 4,
-                    "startOffset": 119389,
+                    "startOffset": 119551,
                     "endColumn": 98,
-                    "endOffset": 119483
+                    "endOffset": 119645
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9456,11 +9477,11 @@
             },
             {
                 "to": {
-                    "startLine": 1541,
+                    "startLine": 1544,
                     "startColumn": 4,
-                    "startOffset": 119488,
+                    "startOffset": 119650,
                     "endColumn": 108,
-                    "endOffset": 119592
+                    "endOffset": 119754
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9475,11 +9496,11 @@
             },
             {
                 "to": {
-                    "startLine": 1542,
+                    "startLine": 1545,
                     "startColumn": 4,
-                    "startOffset": 119597,
+                    "startOffset": 119759,
                     "endColumn": 110,
-                    "endOffset": 119703
+                    "endOffset": 119865
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9494,11 +9515,11 @@
             },
             {
                 "to": {
-                    "startLine": 1543,
+                    "startLine": 1546,
                     "startColumn": 4,
-                    "startOffset": 119708,
+                    "startOffset": 119870,
                     "endColumn": 110,
-                    "endOffset": 119814
+                    "endOffset": 119976
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9513,11 +9534,11 @@
             },
             {
                 "to": {
-                    "startLine": 1544,
+                    "startLine": 1547,
                     "startColumn": 4,
-                    "startOffset": 119819,
+                    "startOffset": 119981,
                     "endColumn": 100,
-                    "endOffset": 119915
+                    "endOffset": 120077
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9532,11 +9553,11 @@
             },
             {
                 "to": {
-                    "startLine": 1545,
+                    "startLine": 1548,
                     "startColumn": 4,
-                    "startOffset": 119920,
+                    "startOffset": 120082,
                     "endColumn": 104,
-                    "endOffset": 120020
+                    "endOffset": 120182
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9551,11 +9572,11 @@
             },
             {
                 "to": {
-                    "startLine": 1546,
+                    "startLine": 1549,
                     "startColumn": 4,
-                    "startOffset": 120025,
+                    "startOffset": 120187,
                     "endColumn": 99,
-                    "endOffset": 120120
+                    "endOffset": 120282
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9570,12 +9591,12 @@
             },
             {
                 "to": {
-                    "startLine": 1547,
+                    "startLine": 1550,
                     "startColumn": 4,
-                    "startOffset": 120125,
-                    "endLine": 1548,
+                    "startOffset": 120287,
+                    "endLine": 1551,
                     "endColumn": 12,
-                    "endOffset": 120250
+                    "endOffset": 120412
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9591,11 +9612,11 @@
             },
             {
                 "to": {
-                    "startLine": 1549,
+                    "startLine": 1552,
                     "startColumn": 4,
-                    "startOffset": 120255,
+                    "startOffset": 120417,
                     "endColumn": 90,
-                    "endOffset": 120341
+                    "endOffset": 120503
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9610,11 +9631,11 @@
             },
             {
                 "to": {
-                    "startLine": 1550,
+                    "startLine": 1553,
                     "startColumn": 4,
-                    "startOffset": 120346,
+                    "startOffset": 120508,
                     "endColumn": 122,
-                    "endOffset": 120464
+                    "endOffset": 120626
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9629,11 +9650,11 @@
             },
             {
                 "to": {
-                    "startLine": 1551,
+                    "startLine": 1554,
                     "startColumn": 4,
-                    "startOffset": 120469,
+                    "startOffset": 120631,
                     "endColumn": 93,
-                    "endOffset": 120558
+                    "endOffset": 120720
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9648,12 +9669,12 @@
             },
             {
                 "to": {
-                    "startLine": 1552,
+                    "startLine": 1555,
                     "startColumn": 4,
-                    "startOffset": 120563,
-                    "endLine": 1553,
+                    "startOffset": 120725,
+                    "endLine": 1556,
                     "endColumn": 12,
-                    "endOffset": 120670
+                    "endOffset": 120832
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9669,11 +9690,11 @@
             },
             {
                 "to": {
-                    "startLine": 1554,
+                    "startLine": 1557,
                     "startColumn": 4,
-                    "startOffset": 120675,
+                    "startOffset": 120837,
                     "endColumn": 85,
-                    "endOffset": 120756
+                    "endOffset": 120918
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9688,11 +9709,11 @@
             },
             {
                 "to": {
-                    "startLine": 1555,
+                    "startLine": 1558,
                     "startColumn": 4,
-                    "startOffset": 120761,
+                    "startOffset": 120923,
                     "endColumn": 103,
-                    "endOffset": 120860
+                    "endOffset": 121022
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9707,11 +9728,11 @@
             },
             {
                 "to": {
-                    "startLine": 1556,
+                    "startLine": 1559,
                     "startColumn": 4,
-                    "startOffset": 120865,
+                    "startOffset": 121027,
                     "endColumn": 95,
-                    "endOffset": 120956
+                    "endOffset": 121118
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9726,11 +9747,11 @@
             },
             {
                 "to": {
-                    "startLine": 1557,
+                    "startLine": 1560,
                     "startColumn": 4,
-                    "startOffset": 120961,
+                    "startOffset": 121123,
                     "endColumn": 87,
-                    "endOffset": 121044
+                    "endOffset": 121206
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9745,12 +9766,12 @@
             },
             {
                 "to": {
-                    "startLine": 1558,
+                    "startLine": 1561,
                     "startColumn": 4,
-                    "startOffset": 121049,
-                    "endLine": 1559,
+                    "startOffset": 121211,
+                    "endLine": 1562,
                     "endColumn": 12,
-                    "endOffset": 121162
+                    "endOffset": 121324
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9766,12 +9787,12 @@
             },
             {
                 "to": {
-                    "startLine": 1560,
+                    "startLine": 1563,
                     "startColumn": 4,
-                    "startOffset": 121167,
-                    "endLine": 1561,
+                    "startOffset": 121329,
+                    "endLine": 1564,
                     "endColumn": 12,
-                    "endOffset": 121266
+                    "endOffset": 121428
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9787,12 +9808,12 @@
             },
             {
                 "to": {
-                    "startLine": 1562,
+                    "startLine": 1565,
                     "startColumn": 4,
-                    "startOffset": 121271,
-                    "endLine": 1563,
+                    "startOffset": 121433,
+                    "endLine": 1566,
                     "endColumn": 12,
-                    "endOffset": 121370
+                    "endOffset": 121532
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9808,12 +9829,12 @@
             },
             {
                 "to": {
-                    "startLine": 1564,
+                    "startLine": 1567,
                     "startColumn": 4,
-                    "startOffset": 121375,
-                    "endLine": 1565,
+                    "startOffset": 121537,
+                    "endLine": 1568,
                     "endColumn": 12,
-                    "endOffset": 121496
+                    "endOffset": 121658
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9829,11 +9850,11 @@
             },
             {
                 "to": {
-                    "startLine": 1566,
+                    "startLine": 1569,
                     "startColumn": 4,
-                    "startOffset": 121501,
+                    "startOffset": 121663,
                     "endColumn": 87,
-                    "endOffset": 121584
+                    "endOffset": 121746
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9848,11 +9869,11 @@
             },
             {
                 "to": {
-                    "startLine": 1567,
+                    "startLine": 1570,
                     "startColumn": 4,
-                    "startOffset": 121589,
+                    "startOffset": 121751,
                     "endColumn": 107,
-                    "endOffset": 121692
+                    "endOffset": 121854
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9867,11 +9888,11 @@
             },
             {
                 "to": {
-                    "startLine": 1568,
+                    "startLine": 1571,
                     "startColumn": 4,
-                    "startOffset": 121697,
+                    "startOffset": 121859,
                     "endColumn": 99,
-                    "endOffset": 121792
+                    "endOffset": 121954
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9886,11 +9907,11 @@
             },
             {
                 "to": {
-                    "startLine": 1569,
+                    "startLine": 1572,
                     "startColumn": 4,
-                    "startOffset": 121797,
+                    "startOffset": 121959,
                     "endColumn": 89,
-                    "endOffset": 121882
+                    "endOffset": 122044
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9905,11 +9926,11 @@
             },
             {
                 "to": {
-                    "startLine": 1570,
+                    "startLine": 1573,
                     "startColumn": 4,
-                    "startOffset": 121887,
+                    "startOffset": 122049,
                     "endColumn": 109,
-                    "endOffset": 121992
+                    "endOffset": 122154
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9924,11 +9945,11 @@
             },
             {
                 "to": {
-                    "startLine": 1571,
+                    "startLine": 1574,
                     "startColumn": 4,
-                    "startOffset": 121997,
+                    "startOffset": 122159,
                     "endColumn": 83,
-                    "endOffset": 122076
+                    "endOffset": 122238
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9943,11 +9964,11 @@
             },
             {
                 "to": {
-                    "startLine": 1572,
+                    "startLine": 1575,
                     "startColumn": 4,
-                    "startOffset": 122081,
+                    "startOffset": 122243,
                     "endColumn": 101,
-                    "endOffset": 122178
+                    "endOffset": 122340
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9962,11 +9983,11 @@
             },
             {
                 "to": {
-                    "startLine": 1573,
+                    "startLine": 1576,
                     "startColumn": 4,
-                    "startOffset": 122183,
+                    "startOffset": 122345,
                     "endColumn": 83,
-                    "endOffset": 122262
+                    "endOffset": 122424
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -9981,11 +10002,11 @@
             },
             {
                 "to": {
-                    "startLine": 1574,
+                    "startLine": 1577,
                     "startColumn": 4,
-                    "startOffset": 122267,
+                    "startOffset": 122429,
                     "endColumn": 53,
-                    "endOffset": 122316
+                    "endOffset": 122478
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -10000,11 +10021,11 @@
             },
             {
                 "to": {
-                    "startLine": 1575,
+                    "startLine": 1578,
                     "startColumn": 4,
-                    "startOffset": 122321,
+                    "startOffset": 122483,
                     "endColumn": 63,
-                    "endOffset": 122380
+                    "endOffset": 122542
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -10019,11 +10040,11 @@
             },
             {
                 "to": {
-                    "startLine": 1576,
+                    "startLine": 1579,
                     "startColumn": 4,
-                    "startOffset": 122385,
+                    "startOffset": 122547,
                     "endColumn": 105,
-                    "endOffset": 122486
+                    "endOffset": 122648
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -10038,11 +10059,11 @@
             },
             {
                 "to": {
-                    "startLine": 1577,
+                    "startLine": 1580,
                     "startColumn": 4,
-                    "startOffset": 122491,
+                    "startOffset": 122653,
                     "endColumn": 109,
-                    "endOffset": 122596
+                    "endOffset": 122758
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -10057,11 +10078,11 @@
             },
             {
                 "to": {
-                    "startLine": 1578,
+                    "startLine": 1581,
                     "startColumn": 4,
-                    "startOffset": 122601,
+                    "startOffset": 122763,
                     "endColumn": 83,
-                    "endOffset": 122680
+                    "endOffset": 122842
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -10076,11 +10097,11 @@
             },
             {
                 "to": {
-                    "startLine": 1579,
+                    "startLine": 1582,
                     "startColumn": 4,
-                    "startOffset": 122685,
+                    "startOffset": 122847,
                     "endColumn": 119,
-                    "endOffset": 122800
+                    "endOffset": 122962
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.1.0\\res\\values\\values.xml",
@@ -10095,12 +10116,12 @@
             },
             {
                 "to": {
-                    "startLine": 1580,
+                    "startLine": 1583,
                     "startColumn": 4,
-                    "startOffset": 122805,
-                    "endLine": 1586,
+                    "startOffset": 122967,
+                    "endLine": 1589,
                     "endColumn": 12,
-                    "endOffset": 123068
+                    "endOffset": 123230
                 },
                 "from": {
                     "file": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\src\\main\\res\\values\\styles.xml",
