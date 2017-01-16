@@ -10,7 +10,7 @@
 
         <bitmap
             android:gravity="center"
-            android:src="@drawable/phone" />
+            android:src="@drawable/chuka" />
     </item>
 
 </layer-list>

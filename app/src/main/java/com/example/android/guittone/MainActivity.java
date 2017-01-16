@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
@@ -20,6 +22,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -34,7 +38,10 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import static android.R.attr.data;
+import static android.R.attr.duration;
+import static android.R.attr.handle;
 import static android.R.id.list;
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 import static android.os.Build.VERSION_CODES.M;
 import static android.webkit.WebSettings.PluginState.ON;
 
@@ -153,11 +160,21 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.list_item);
         listView.setClickable(true);
         listView.setAdapter(adapter);
-        CheckAsyncTask task = new CheckAsyncTask();
-        task.execute();
+        if(isNetworkAvailable()){
+            CheckAsyncTask task = new CheckAsyncTask();
+            task.execute();
+        }else{
+            Toast toast = Toast.makeText(this, "Could not connect to server - Check your internet connection", Toast.LENGTH_SHORT);
+            toast.show();
+        }
         adapter.notifyDataSetChanged();
         listView.requestFocus();
     }
+     private boolean isNetworkAvailable() {
+         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+      }
 
     private class CheckAsyncTask extends AsyncTask<URL, Void, ArrayList<Device>> {
 
@@ -173,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                 String jsonResponse = "";
                 try {
                     url = createUrl(devices.get(z).getCheckUrl());
-                    jsonResponse = makeHttpRequest(url);
+                    if(url == null){}else{jsonResponse = makeHttpRequest(url);}
                 } catch (IOException e) {
                     // TODO Handle the IOException
                 }
@@ -226,28 +243,32 @@ public class MainActivity extends AppCompatActivity {
                 urlConnection = (HttpURLConnection) url.openConnection();
                 //urlConnection.setRequestMethod("GET");
                 //urlConnection.setReadTimeout(10000 /* milliseconds */);
-                //urlConnection.setConnectTimeout(15000 /* milliseconds */);
+                urlConnection.setConnectTimeout(15000 /* milliseconds */);
                 urlConnection.connect();
 
                  if(urlConnection.getResponseCode()==200){
                        inputStream = urlConnection.getInputStream();
                         jsonResponse = readFromStream(inputStream);
                    } else {
-                       Log.e("MainActivity","" + urlConnection.getResponseCode());
+                        Log.e("MainActivity","" + urlConnection.getResponseCode());
+                     Toast toast = Toast.makeText(getApplicationContext(),"Could not connect to server", Toast.LENGTH_SHORT);
+                     toast.show();
                   }
 
 
             } catch (IOException e) {
                 // TODO: Handle the exception
                 Log.e("MainActivity", e.getMessage());
+                Toast toast = Toast.makeText(getApplicationContext(),"Could not connect to server", Toast.LENGTH_SHORT);
+                toast.show();
             } finally {
                 if (urlConnection != null) {
                     urlConnection.disconnect();
                 }
-                // if (inputStream != null) {
-                //   // function must handle java.io.IOException here
-                //   inputStream.close();
-                //}
+                //if (inputStream != null) {
+                    //function must handle java.io.IOException here
+                  //  inputStream.close();
+               // }
             }
             return jsonResponse;
 

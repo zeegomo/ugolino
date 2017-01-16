@@ -5,29 +5,29 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="224528948801273"
+    timestamp="377474018453258"
     token="-6811697708832997587"
     verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="327" />
+        duration="900" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="204" />
+        duration="888" />
     <task
         name="verifier"
-        duration="70" />
+        duration="220" />
 
     <artifact
         location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\outputs\apk\app-debug.apk"
         type="MAIN" />
 
     <build
-        timestamp="224528948801273"
+        timestamp="377474018453258"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\outputs\apk\app-debug.apk"
