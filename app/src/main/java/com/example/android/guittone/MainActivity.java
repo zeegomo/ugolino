@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public String newName = "";
-    public static ArrayList<Device> devices = new ArrayList<>();
+    public static ArrayList <Device> devices = new ArrayList<>();
     String SAVE = "sirup";
     public static DeviceAdapter adapter;
     public static WebView webView;
