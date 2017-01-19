@@ -14,10 +14,12 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Guittone"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name="com.example.android.guittone.MainActivity" >
+        <activity
+            android:name="com.example.android.guittone.MainActivity"
+            android:label="Device Manager" >
         </activity>
         <activity
             android:name="com.example.android.guittone.DeviceActivity"

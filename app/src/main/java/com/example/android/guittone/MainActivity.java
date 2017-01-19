@@ -12,7 +12,11 @@ import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.AdapterView;
@@ -23,10 +27,8 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,13 +39,7 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
-import static android.R.attr.data;
-import static android.R.attr.duration;
-import static android.R.attr.handle;
-import static android.R.id.list;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
-import static android.os.Build.VERSION_CODES.M;
-import static android.webkit.WebSettings.PluginState.ON;
+import static com.example.android.guittone.R.menu.toolbar;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -55,12 +51,17 @@ public class MainActivity extends AppCompatActivity {
     public static DeviceAdapter adapter;
     public static WebView webView;
     ListView listView;
+    TextView instructionsTextView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.setTitleTextAppearance(this, R.style.MyTitleTextAppearance);
+        setSupportActionBar(myToolbar);
 
 
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
@@ -73,27 +74,46 @@ public class MainActivity extends AppCompatActivity {
             }.getType());
         }
 
+        //View initialization
         webView = (WebView) findViewById(R.id.webview);
-
-
-        ImageView sirup = (ImageView) findViewById(R.id.button);
-        sirup.setClickable(true);
-        sirup.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the numbers View is clicked on.
-            @Override
-            public void onClick(View view) {
-                GetUrlAsyncTask url = new GetUrlAsyncTask();
-                url.execute();
-                AddDevice();
-            }
-        });
-
-
         adapter = new DeviceAdapter(this, devices);
         listView = (ListView) findViewById(R.id.list_item);
         listView.setAdapter(adapter);
+        instructionsTextView = (TextView) findViewById(R.id.instructions_textView);
 
 
+
+
+
+
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(toolbar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_add:
+                GetUrlAsyncTask url = new GetUrlAsyncTask();
+                url.execute();
+                AddDevice();
+                return true;
+
+            case R.id.more:
+
+                //return true;
+
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 
 
@@ -122,13 +142,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
-        SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(devices);
-        Log.w("" + devices.size(), "array size on pause");
-        prefsEditor.putString("Devices", json);
-        prefsEditor.commit();
+        Save();
         super.onPause();
     }
 
@@ -169,6 +183,13 @@ public class MainActivity extends AppCompatActivity {
         }
         adapter.notifyDataSetChanged();
         listView.requestFocus();
+        if(devices.size()>0){
+            listView.setVisibility(View.VISIBLE);
+            instructionsTextView.setVisibility(View.GONE);
+        }else{
+            listView.setVisibility(View.GONE);
+            instructionsTextView.setVisibility(View.VISIBLE);
+        }
     }
      private boolean isNetworkAvailable() {
          ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -370,6 +391,14 @@ public class MainActivity extends AppCompatActivity {
                 devices.add(new Device("New Guittone",OnUrl.get(i),OffUrl.get(i),CheckUrl.get(i)));
                 adapter.notifyDataSetChanged();
                 Save();
+            }
+
+            if(devices.size()>0){
+                listView.setVisibility(View.VISIBLE);
+                instructionsTextView.setVisibility(View.GONE);
+            }else{
+                listView.setVisibility(View.GONE);
+                instructionsTextView.setVisibility(View.VISIBLE);
             }
 
         }

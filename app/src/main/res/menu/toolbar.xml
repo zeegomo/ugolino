@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:Guittone="http://schemas.android.com/apk/res-auto/res-auto">
+
+    <!-- "Mark Favorite", should appear as action button if possible -->
+    <item android:title="addDevice"
+        android:id="@+id/action_add"
+        android:icon="@drawable/ic_add_white_36dp"
+        Guittone:showAsAction="ifRoom"/>
+
+    <item android:title="more"
+        android:id="@+id/more"
+        Guittone:showAsAction="never"/>
+
+
+</menu>
