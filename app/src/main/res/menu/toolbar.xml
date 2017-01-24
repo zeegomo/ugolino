@@ -5,11 +5,16 @@
     <item android:title="addDevice"
         android:id="@+id/action_add"
         android:icon="@drawable/ic_add_white_36dp"
-        Guittone:showAsAction="ifRoom"/>
+        Guittone:showAsAction="always"/>
 
-    <item android:title="more"
-        android:id="@+id/more"
+    <item android:title="Reconnect device"
+        android:id="@+id/action_reconnect"
         Guittone:showAsAction="never"/>
+
+    <item android:title="Info"
+        android:id="@+id/action_info"
+        Guittone:showAsAction="never"/>
+
 
 
 </menu>

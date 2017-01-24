@@ -1243,6 +1243,7 @@
     <style name="MyTitleTextAppearance" parent="@android:style/TextAppearance.Medium">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">20sp</item>
+
     </style>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
@@ -1498,9 +1499,12 @@
     <style name="ToolBarStyle.Base" parent="">
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+
     </style>
     <style name="ToolBarStyle.Event" parent="ToolBarStyle">
         <item name="titleTextAppearance">@style/TextAppearance.Widget.Event.Toolbar.Title</item>
+        <item name="android:textColor">@android:color/black</item>
+
     </style>
     <style name="Widget.AppCompat.ActionBar" parent="Base.Widget.AppCompat.ActionBar">
     </style>

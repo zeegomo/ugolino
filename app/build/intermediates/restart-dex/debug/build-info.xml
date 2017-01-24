@@ -1,54 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="x86"
+    abi="arm64-v8a,armeabi-v7a,armeabi"
     api-level="23"
-    density="560dpi"
+    density="xhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="80352036999912"
+    timestamp="3774459156713"
     token="-6811697708832997587"
-    verifier="COMPATIBLE" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="618" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="281" />
     <task
         name="verifier"
-        duration="0" />
+        duration="171" />
 
     <artifact
-        location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-        type="RESOURCES" />
+        location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\outputs\apk\app-debug.apk"
+        type="MAIN" />
 
     <build
-        timestamp="79719999440654"
+        timestamp="3774459156713"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
-    </build>
-    <build
-        timestamp="80292540099231"
-        verifier="FIELD_ADDED" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
-            type="DEX" />
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
-            type="DEX" />
-    </build>
-    <build
-        timestamp="80352036999912"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-            type="RESOURCES" />
     </build>
 
 </instant-run>

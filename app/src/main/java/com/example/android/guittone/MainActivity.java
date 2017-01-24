@@ -20,10 +20,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setTitleTextAppearance(this, R.style.MyTitleTextAppearance);
         setSupportActionBar(myToolbar);
-
+        //myToolbar.setcolo
 
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
         Gson gson = new Gson();
@@ -103,10 +105,31 @@ public class MainActivity extends AppCompatActivity {
                 AddDevice();
                 return true;
 
-            case R.id.more:
+            case R.id.action_info:
 
-                //return true;
+                return true;
 
+            case R.id.action_reconnect:
+                android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(this);
+                alert.setMessage("Make sure you are connected to GuittoneWiFi");
+                alert.setTitle("Reconnect device");
+
+                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String url = "http://192.168.1.1";
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW);
+                        browserIntent.setData(Uri.parse(url));
+                        startActivity(browserIntent);
+                    }
+                });
+
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // what ever you want to do with No option.
+                    }
+                });
+                alert.show();
+                return true;
 
             default:
                 // If we got here, the user's action was not recognized.
@@ -118,25 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void AddDevice() {
-        android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(this);
-        alert.setMessage("Make sure you are connected to GuittoneWiFi");
-        alert.setTitle("Add new device");
 
-        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                String url = "http://192.168.1.1";
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW);
-                browserIntent.setData(Uri.parse(url));
-                startActivity(browserIntent);
-            }
-        });
-
-        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                // what ever you want to do with No option.
-            }
-        });
-        alert.show();
 
     }
 
@@ -330,7 +335,7 @@ public class MainActivity extends AppCompatActivity {
             // Perform HTTP request to the URL and receive a JSON response back
             String jsonResponse = "";
             try {
-                url = createUrl("192.168.1.1");//devices.get(e).getCheckUrl
+                url = createUrl("http://192.168.1.1");//devices.get(e).getCheckUrl
                 jsonResponse = makeHttpRequest(url);
             } catch (IOException e) {
                 // TODO Handle the IOException
