@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\plug.png",
+        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\src\\main\\res\\mipmap-xxxhdpi\\plug.png"
+    },
+    {
         "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher.png",
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     }

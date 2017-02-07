@@ -78,9 +78,11 @@ public class DeviceAdapter extends ArrayAdapter<Device> {
                     if (isChecked) {
                         currentDevice.on(OnUrl);
                         Log.d("on","MainActivity");
+                        Log.e(OnUrl,"onurl");
                     } else {
                         currentDevice.off(OffUrl);
                         Log.d("off","MainActivity");
+                        Log.e(OffUrl,"onurl");
                     }
                 }
             });
