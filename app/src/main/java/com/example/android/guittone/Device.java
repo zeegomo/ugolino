@@ -64,14 +64,14 @@ public class Device {
 
 
     public void on(String url) {
-        MainActivity.webView.loadUrl(url);
-        MainActivity.webView.setVisibility(GONE);
+        MainFragment.webView.loadUrl(url);
+        MainFragment.webView.setVisibility(GONE);
         setmStatus(true);
     }
 
     public void off(String url) {
-        MainActivity.webView.loadUrl(url);
-        MainActivity.webView.setVisibility(GONE);
+        MainFragment.webView.loadUrl(url);
+        MainFragment.webView.setVisibility(GONE);
         setmStatus(false);
     }
 

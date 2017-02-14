@@ -12,13 +12,18 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="Device Manager">
+            android:label="Guittone">
 
         </activity>
 
         <activity
             android:name=".DeviceActivity"
             android:label="Device"
+            android:parentActivityName=".MainActivity"/>
+
+        <activity
+            android:name=".PowerActivity"
+            android:label="Power"
             android:parentActivityName=".MainActivity"/>
 
         <activity android:name=".Splash"

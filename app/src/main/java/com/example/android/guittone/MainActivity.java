@@ -10,6 +10,9 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -41,32 +44,45 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
+import static android.R.attr.fragment;
+import static com.example.android.guittone.MainFragment.adapter;
+import static com.example.android.guittone.MainFragment.devices;
+import static com.example.android.guittone.MainFragment.webView;
 import static com.example.android.guittone.R.menu.toolbar;
+import static java.security.AccessController.getContext;
 
 
 public class MainActivity extends AppCompatActivity {
 
 
     public String newName = "";
-    public static ArrayList <Device> devices = new ArrayList<>();
+    public static ArrayList <Device> devices = MainFragment.devices;
     String SAVE = "sirup";
-    public static DeviceAdapter adapter;
+    //DeviceAdapter adapter = MainFragment.adapter;
     public static WebView webView;
-    ListView listView;
-    TextView instructionsTextView;
+    //ListView listView = MainFragment.listView;
+    //TextView instructionsTextView = MainFragment.instructionsTextView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setTitleTextAppearance(this, R.style.MyTitleTextAppearance);
+        setContentView(R.layout.activity_viewpager);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar3);
+        myToolbar.setTitleTextAppearance(getApplicationContext(), R.style.MyTitleTextAppearance);
         setSupportActionBar(myToolbar);
         //myToolbar.setcolo
 
-        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        GuittoneFragmentPagerAdapter gadapter = new GuittoneFragmentPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(gadapter);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+        tabLayout.setupWithViewPager(viewPager);
+
+
+        //myToolbar.setcolo
+
+        /*SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
         Gson gson = new Gson();
         String json = appSharedPrefs.getString("Devices", "");
         devices.clear();
@@ -74,14 +90,14 @@ public class MainActivity extends AppCompatActivity {
         } else {
             devices = gson.fromJson(json, new TypeToken<ArrayList<Device>>() {
             }.getType());
-        }
+        }*/
 
         //View initialization
         webView = (WebView) findViewById(R.id.webview);
-        adapter = new DeviceAdapter(this, devices);
-        listView = (ListView) findViewById(R.id.list_item);
-        listView.setAdapter(adapter);
-        instructionsTextView = (TextView) findViewById(R.id.instructions_textView);
+        //adapter = new DeviceAdapter(this, devices);
+        //listView = (ListView) findViewById(R.id.list_item);
+        //listView.setAdapter(adapter);
+        //instructionsTextView = (TextView) findViewById(R.id.instructions_textView);
 
 
 
@@ -89,6 +105,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
+
+
+
 
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
@@ -100,8 +122,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add:
-                GetUrlAsyncTask url = new GetUrlAsyncTask();
-                url.execute();
+
                 AddDevice();
                 return true;
 
@@ -131,6 +152,10 @@ public class MainActivity extends AppCompatActivity {
                 alert.show();
                 return true;
 
+            case R.id.power:
+                Intent deviceIntent = new Intent(this, PowerActivity.class);
+                this.startActivity(deviceIntent);
+
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
@@ -141,6 +166,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void AddDevice() {
+        GetUrlAsyncTask url = new GetUrlAsyncTask();
+        url.execute();
         android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(this);
         alert.setMessage("Make sure you are connected to GuittoneWiFi");
         alert.setTitle("Connect device");
@@ -183,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.e("asoi", " forze non va una pe");
-        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
+        /*SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
         Gson gson = new Gson();
         String json = appSharedPrefs.getString("Devices", "");
         devices.clear();
@@ -193,13 +220,13 @@ public class MainActivity extends AppCompatActivity {
             }.getType());
         }
         Log.w("" + devices.size(), "array size on resume");
-        adapter = new DeviceAdapter(this, devices);
-        ListView listView = (ListView) findViewById(R.id.list_item);
+        //adapter = new DeviceAdapter(this, devices);
+        //ListView listView = (ListView) findViewById(R.id.list_item);
         listView.setClickable(true);
         listView.setAdapter(adapter);
         if(isNetworkAvailable()){
-            CheckAsyncTask task = new CheckAsyncTask();
-            task.execute();
+            //CheckAsyncTask task = new CheckAsyncTask();
+            //task.execute();
         }else{
             Toast toast = Toast.makeText(this, "Could not connect to server - Check your internet connection", Toast.LENGTH_SHORT);
             toast.show();
@@ -212,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             listView.setVisibility(View.GONE);
             instructionsTextView.setVisibility(View.VISIBLE);
-        }
+        }*/
     }
      private boolean isNetworkAvailable() {
          ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -258,8 +285,8 @@ public class MainActivity extends AppCompatActivity {
             if (earthquake == null) {
                 return;
             }
-            listView.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
+
+            //MainFragment.dataNotify();
         }
 
         private URL createUrl(String stringUrl) {
@@ -273,9 +300,7 @@ public class MainActivity extends AppCompatActivity {
             return url;
         }
 
-        /**
-         * Make an HTTP request to the given URL and return a String as the response.
-         */
+
         private String makeHttpRequest(URL url) throws IOException {
             String jsonResponse = "";
             //if (url == null){
@@ -287,7 +312,7 @@ public class MainActivity extends AppCompatActivity {
                 urlConnection = (HttpURLConnection) url.openConnection();
                 //urlConnection.setRequestMethod("GET");
                 //urlConnection.setReadTimeout(10000 /* milliseconds */);
-                urlConnection.setConnectTimeout(15000 /* milliseconds */);
+              // /* urlConnection.setConnectTimeout(15000 /* milliseconds */);
                 urlConnection.connect();
 
                  if(urlConnection.getResponseCode()==200){
@@ -353,7 +378,7 @@ public class MainActivity extends AppCompatActivity {
             // Perform HTTP request to the URL and receive a JSON response back
             String jsonResponse = "";
             try {
-                url = createUrl("http://192.168.1.1");//devices.get(e).getCheckUrl
+                url = createUrl("http://piblock.altervista.org/prova.html");//devices.get(e).getCheckUrl
                 jsonResponse = makeHttpRequest(url);
             } catch (IOException e) {
                 // TODO Handle the IOException
@@ -412,17 +437,18 @@ public class MainActivity extends AppCompatActivity {
 
             for (int i = 0;i<OffUrl.size();i++){
                 devices.add(new Device("New Guittone",OnUrl.get(i),OffUrl.get(i),CheckUrl.get(i)));
-                adapter.notifyDataSetChanged();
+                //MainFragment.dataNotify(devices);
                 Save();
             }
-
-            if(devices.size()>0){
+            Log.e("finitop","sono a posto così grazie");
+            MainFragment.dataNotify(devices);
+            /*if(devices.size()>0){
                 listView.setVisibility(View.VISIBLE);
                 instructionsTextView.setVisibility(View.GONE);
             }else{
                 listView.setVisibility(View.GONE);
                 instructionsTextView.setVisibility(View.VISIBLE);
-            }
+            }*/
 
         }
 
@@ -440,6 +466,7 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Make an HTTP request to the given URL and return a String as the response.
          */
+
         private String makeHttpRequest(URL url) throws IOException {
             String jsonResponse = "";
             if (url == null){

@@ -4,4 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="subheading">24sp</dimen>
     <dimen name="list_item_height">68dp</dimen>
+    <dimen name="power">72sp</dimen>
 </resources>

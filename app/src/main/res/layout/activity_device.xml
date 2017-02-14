@@ -36,6 +36,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/button_layout"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/device_name_activity">
         <Button
@@ -50,8 +51,6 @@
             android:id="@+id/modify_button"
             android:text="Rename"/>
     </LinearLayout>
-
-
 
 
 </RelativeLayout>

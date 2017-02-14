@@ -11,17 +11,7 @@
     android:paddingTop="0dp"
     android:descendantFocusability="blocksDescendants"
     tools:context="com.example.android.guittone.MainActivity">
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ToolBarStyle.Event"
-        android:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-
-    </android.support.v7.widget.Toolbar>
 
     <WebView
         android:layout_width="0dp"

@@ -15,6 +15,10 @@
         android:id="@+id/action_info"
         Guittone:showAsAction="never"/>
 
+    <item android:title="Power"
+        android:id="@+id/power"
+        Guittone:showAsAction="never"/>
+
 
 
 </menu>
