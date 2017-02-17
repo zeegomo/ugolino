@@ -277,8 +277,8 @@ public class DeviceActivity extends AppCompatActivity {
             int size = baseJsonResponse.length();
             for (int i=0; i<size; i++) {
                 object = baseJsonResponse.getJSONObject(i);
-                power.add(new PowerChart(Double.parseDouble(object.getJSONArray("value").getString(0)),Long.parseLong(object.getString("_id"))));
-                Log.e("powerchart",object.getJSONArray("value").getString(0)+object.getString("_id")+ "ss" );
+                //power.add(new PowerChart(Double.parseDouble(object.getJSONArray("value").getString(0)),Long.parseLong(object.getString("_id"))));
+                //Log.e("powerchart",object.getJSONArray("value").getString(0)+object.getString("_id")+ "ss" );
             }
             //Log.e("powerchart", power + "");
         }catch (JSONException e){Log.e("1","d");}

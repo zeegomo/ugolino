@@ -7,18 +7,24 @@ package com.example.android.guittone;
 public class PowerChart {
 
     private double power;
-    private  long time;
+    private int day;
+    private int month;
 
-    public PowerChart(double pow, long date) {
+    public PowerChart(double pow, int mday, int mmonth) {
         power = pow;
-        time = date;
+        day = mday;
+        month = mmonth;
     }
 
     public double getPower() {
         return power;
     }
 
-    public long getTime() {
-        return time;
+    public int getDay() {
+        return day;
+    }
+
+    public int getMonth() {
+        return month;
     }
 }

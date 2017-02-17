@@ -24,12 +24,12 @@
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color\\abc_tint_switch_thumb.xml"
     },
     {
-        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_spinner.xml",
-        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color\\abc_tint_spinner.xml"
-    },
-    {
         "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_spinner.xml",
+        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\color\\abc_tint_spinner.xml"
     },
     {
         "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_edittext.xml",

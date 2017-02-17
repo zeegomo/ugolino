@@ -1,6 +1,9 @@
 package com.example.android.guittone;
 
 
+import android.content.pm.LabeledIntent;
+import android.graphics.Color;
+import android.icu.text.AlphabeticIndex;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,13 +18,23 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
+import java.text.ParseException;
+import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
+import java.text.DateFormat;
+import java.util.Date;
 import com.github.mikephil.charting.charts.BarChart;
-
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import java.text.SimpleDateFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,6 +45,13 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
+
+import static android.R.attr.data;
+import static android.R.attr.id;
+import static android.R.attr.y;
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
+import static android.media.CamcorderProfile.get;
+import static com.example.android.guittone.R.id.chart;
 import static com.example.android.guittone.R.menu.toolbar;
 
 
@@ -46,6 +66,7 @@ public class PowerFragment extends Fragment {
     }
 
     ArrayList<PowerChart> power = new ArrayList<>();
+    BarChart chart;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,7 +77,7 @@ public class PowerFragment extends Fragment {
         //myToolbar1.setTitleTextAppearance(this.getActivity(), R.style.MyTitleTextAppearance);
         //((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Home");
 
-        BarChart chart = (BarChart) rootView.findViewById(R.id.chart);
+        chart = (BarChart) rootView.findViewById(R.id.chart);
         JSONAsyncTask task = new JSONAsyncTask();
         task.execute();
         return rootView;
@@ -97,6 +118,7 @@ public class PowerFragment extends Fragment {
             }
             Log.e("pow",pow + "");
             JSONparser(pow);
+            Draw();
             //Log.e("power",power + "");
             //powerTextView.setText(power);
             //Log.e("power",JSONparser(pow));
@@ -182,7 +204,7 @@ public class PowerFragment extends Fragment {
 
     }
     public void JSONparser(String json){
-
+        List<BarEntry> entries = new ArrayList<>();
         if (TextUtils.isEmpty(json)) {
             Log.e("null","ss");
             return;
@@ -196,9 +218,12 @@ public class PowerFragment extends Fragment {
             int size = baseJsonResponse.length();
             for (int i=0; i<size; i++) {
                 object = baseJsonResponse.getJSONObject(i);
-                power.add(new PowerChart(Double.parseDouble(object.getJSONArray("value").getString(0)), Long.parseLong(object.getString("_id"))));
-                Log.e("powerchart", object.getJSONArray("value").getString(0) + object.getString("_id") + "ss");
+                JSONObject _id = object.getJSONObject("_id");
+                power.add(new PowerChart(object.getDouble("totalPower"), _id.getInt("day"),_id.getInt("month")));
+                Log.e("powerchart", object.getDouble("totalPower") + "ss");
                 Log.e("powerchart", power + "");
+                Log.e("id", _id+ " id");
+                Log.e("id", _id.getInt("day") + "day" + _id.getInt("month") +"month" );
             }
         }catch (JSONException e){Log.e("1","d");}
 
@@ -207,9 +232,66 @@ public class PowerFragment extends Fragment {
         //Log.e("powerarray",value + "");
         //Log.e("powerss",pow);
         //return pow ;
+
+
         return;
 
 
     }
 
-}
+    public void Draw(){
+        List<BarEntry> entries = new ArrayList<>();
+        int a = 0;
+        for (int zz = 0; zz<30; zz++){
+            entries.add(new BarEntry( (float) zz, (float) zz*4+1/*power.get(a).getPower()*/));
+            Log.e("a", (float) zz +  "  x  " + (float) zz*4 );
+            Log.e("entrie", entries.get(zz).getY() + "y" + entries.get(zz).getX() );
+
+        }
+
+        Description desc = new Description();
+        desc.setText("");
+
+        // Data Configuration
+        BarDataSet set = new BarDataSet(entries, "Power");
+        BarData data = new BarData(set);
+        data.setValueTextSize(0f);
+        data.setValueTextColor(Color.WHITE);
+        data.setBarWidth(0.9f);
+
+        // Y Axis
+        YAxis left = chart.getAxisLeft();
+        left.setDrawLabels(true); // no axis labels
+        left.setDrawAxisLine(true); // no axis line
+        left.setDrawGridLines(false); // no grid lines
+        left.setDrawZeroLine(true); // draw a zero line
+        chart.getAxisRight().setEnabled(false);
+
+        // X Axis
+        XAxis xAxis = chart.getXAxis();
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setTextSize(0f);
+        xAxis.setTextColor(Color.WHITE);
+        xAxis.setDrawAxisLine(true);
+        xAxis.setDrawGridLines(false);
+
+        // Chart Setting
+        chart.setTouchEnabled(false);
+        chart.setDragEnabled(false);
+        chart.setScaleEnabled(false);
+        chart.setScaleXEnabled(false);
+        chart.setScaleYEnabled(false);
+        chart.setPinchZoom(false);
+        chart.setDoubleTapToZoomEnabled(false);
+        chart.setDescription(desc);
+        chart.setData(data);
+        chart.setFitBars(true); // make the x-axis fit exactly all bars
+        chart.invalidate();
+    }
+
+
+
+
+    }
+
+

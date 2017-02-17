@@ -29,6 +29,12 @@ import java.util.ArrayList;
  * Created by Giacomo on 13/02/2017.
  */
 
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import com.example.android.guittone.PowerFragment;
+import com.example.android.guittone.R;
+
 public class PowerActivity extends AppCompatActivity {
 
 

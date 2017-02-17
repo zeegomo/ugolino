@@ -4,20 +4,20 @@
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\src\\main\\res\\drawable\\chuka.png"
     },
     {
-        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
-        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_ic_menu_overflow_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_list_selector_holo_dark.xml"
     },
     {
-        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
-        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_tab_indicator_material.xml"
+        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
+        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_ic_menu_overflow_material.xml"
     },
     {
         "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\background_splash.xml",
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\src\\main\\res\\drawable\\background_splash.xml"
+    },
+    {
+        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_tab_indicator_material.xml"
     },
     {
         "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
@@ -56,24 +56,24 @@
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\src\\main\\res\\drawable\\plug.png"
     },
     {
-        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
-        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
+        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\24.2.1\\res\\drawable\\navigation_empty_icon.xml"
     },
     {
         "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\unnamed.png",
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\src\\main\\res\\drawable\\unnamed.png"
     },
     {
-        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\navigation_empty_icon.xml",
-        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\24.2.1\\res\\drawable\\navigation_empty_icon.xml"
-    },
-    {
-        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
-        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
         "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
+        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_ic_voice_search_api_material.xml"
     },
     {
         "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\plug1.png",
@@ -92,24 +92,24 @@
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\src\\main\\res\\drawable\\plug21.png"
     },
     {
-        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
-        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_ratingbar_small_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_btn_check_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
+        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_ratingbar_small_material.xml"
     },
     {
         "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
-        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\phone.png",
-        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\src\\main\\res\\drawable\\phone.png"
-    },
-    {
         "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_snackbar_background.xml",
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\24.2.1\\res\\drawable\\design_snackbar_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\phone.png",
+        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\src\\main\\res\\drawable\\phone.png"
     },
     {
         "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
@@ -172,11 +172,11 @@
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_ic_ab_back_material.xml"
     },
     {
-        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
-        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_ic_search_api_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
         "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
+        "source": "C:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\drawable\\abc_ic_search_api_material.xml"
     }
 ]
