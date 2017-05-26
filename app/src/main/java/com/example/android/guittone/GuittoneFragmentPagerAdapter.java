@@ -1,28 +1,23 @@
 package com.example.android.guittone;
 
 /**
- * Created by Giacomo on 14/02/2017.
+ * Created by ${Giacomo} on ${14/02/2017}
  */
+
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
-
-/**
- * Created by Giacomo on 14/02/2017.
- */
 
 
 
 /**
  * Provides the appropriate {@link Fragment} for a view pager.
  */
-public class GuittoneFragmentPagerAdapter extends FragmentStatePagerAdapter {
+class GuittoneFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
     private String tabTitles[] = new String[] { "Plugs", "Power Consumption"};
-    public GuittoneFragmentPagerAdapter(FragmentManager fm) {
+    GuittoneFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 

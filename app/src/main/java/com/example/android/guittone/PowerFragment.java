@@ -1,29 +1,19 @@
 package com.example.android.guittone;
 
 
-import android.content.pm.LabeledIntent;
+
 import android.graphics.Color;
-import android.icu.text.AlphabeticIndex;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.NavUtils;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-import java.text.ParseException;
+import android.widget.TextView;
 import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
-import java.text.DateFormat;
-import java.util.Date;
+import android.os.Handler;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
@@ -31,7 +21,6 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import java.text.SimpleDateFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,16 +33,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
-
-import static android.R.attr.data;
-import static android.R.attr.id;
-import static android.R.attr.y;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
-import static android.media.CamcorderProfile.get;
-import static com.example.android.guittone.R.id.chart;
-import static com.example.android.guittone.R.menu.toolbar;
-
+import static android.R.attr.entries;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -67,22 +50,54 @@ public class PowerFragment extends Fragment {
 
     ArrayList<PowerChart> power = new ArrayList<>();
     BarChart chart;
+    TextView today_textview;
+    TextView last30_textview;
+    int totalpower;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.activity_power, container, false);
         super.onCreate(savedInstanceState);
-        //Toolbar myToolbar1 = (Toolbar) rootView.findViewById(R.id.my_toolbar1);
-        //myToolbar1.setTitleTextAppearance(this.getActivity(), R.style.MyTitleTextAppearance);
-        //((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Home");
 
+        //Initialize the power chart used to represent Arduino data
         chart = (BarChart) rootView.findViewById(R.id.chart);
-        JSONAsyncTask task = new JSONAsyncTask();
-        task.execute();
+        today_textview = (TextView) rootView.findViewById(R.id.today_textview);
+        last30_textview = (TextView) rootView.findViewById(R.id.last30_textview);
+        //API JSON request to retrieve Arduino data
+        //JSONAsyncTask task = new JSONAsyncTask();
+        //task.execute();
+        callAsynchronousTask();
+
         return rootView;
     }
 
+
+
+
+    public void callAsynchronousTask() {
+        final Handler handler = new Handler();
+        Timer timer = new Timer();
+        TimerTask doAsynchronousTask = new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    public void run() {
+                        try {
+                            power.clear();
+                            JSONAsyncTask performBackgroundTask = new JSONAsyncTask();
+                            // PerformBackgroundTask this class is the class that extends AsynchTask
+                            performBackgroundTask.execute();
+                        } catch (Exception e) {
+                            // TODO Auto-generated catch block
+                        }
+                    }
+                });
+            }
+        };
+        timer.schedule(doAsynchronousTask, 0, 100000); //execute in every 50000 ms
+    }
 
 
 
@@ -95,40 +110,46 @@ public class PowerFragment extends Fragment {
             // Create URL object
             URL url ;
 
-
-            // Extract relevant fields from the JSON response and create an {@link Event} object
-
+            // Extract relevant fields from the JSON response
             String jsonResponse = "";
             try {
+
                 url = createUrl("http://guittone.ddns.net:8081/power");
-                if(url == null){}else{jsonResponse = makeHttpRequest(url);}
+                if(url != null){jsonResponse = makeHttpRequest(url);}
+
             } catch (IOException e) {
                 // TODO Handle the IOException
             }
 
-            // Return the {@link Event} object as the result fo the {@link TsunamiAsyncTask}
+
             return jsonResponse;
         }
 
 
         @Override
         protected void onPostExecute(String pow) {
+            //Checking for data
             if (pow == null) {
                 return;
             }
-            Log.e("pow",pow + "");
+
+            //Parsing the jsonresponse
             JSONparser(pow);
+
+            //Actually populating the chart with data
             Draw();
-            //Log.e("power",power + "");
-            //powerTextView.setText(power);
-            //Log.e("power",JSONparser(pow));
+
         }
 
         private URL createUrl(String stringUrl) {
-            URL url = null;
+            URL url;
+
             try {
+
                 url = new URL(stringUrl);
+
             } catch (MalformedURLException exception) {
+
                 Log.e("", "Error with creating URL", exception);
                 return null;
             }
@@ -144,7 +165,7 @@ public class PowerFragment extends Fragment {
             //    return jsonResponse;
             //}
             HttpURLConnection urlConnection = null;
-            InputStream inputStream = null;
+            InputStream inputStream;
             try {
                 urlConnection = (HttpURLConnection) url.openConnection();
                 //urlConnection.setRequestMethod("GET");
@@ -204,7 +225,8 @@ public class PowerFragment extends Fragment {
 
     }
     public void JSONparser(String json){
-        List<BarEntry> entries = new ArrayList<>();
+
+        //Check data integrity
         if (TextUtils.isEmpty(json)) {
             Log.e("null","ss");
             return;
@@ -212,48 +234,59 @@ public class PowerFragment extends Fragment {
 
 
         JSONObject object;
-        Log.e("powerarray", "");
+
         try {
+
+            //retrieves a JSONArray from the API json response
             JSONArray baseJsonResponse = new JSONArray(json);
             int size = baseJsonResponse.length();
+
+            //repeats for every item of the JSONArray
             for (int i=0; i<size; i++) {
+
+                //get object n. i from the JSONArray
                 object = baseJsonResponse.getJSONObject(i);
+
+                //get the id JSONObject from the current object
                 JSONObject _id = object.getJSONObject("_id");
-                power.add(new PowerChart(object.getDouble("totalPower"), _id.getInt("day"),_id.getInt("month")));
-                Log.e("powerchart", object.getDouble("totalPower") + "ss");
-                Log.e("powerchart", power + "");
-                Log.e("id", _id+ " id");
-                Log.e("id", _id.getInt("day") + "day" + _id.getInt("month") +"month" );
+
+                //create a new PowerChart object with power per day
+                power.add(new PowerChart(object.getInt("totalPower"), _id.getInt("day"),_id.getInt("month")));
+
+                Log.d("powerchart", object.getDouble("totalPower") + "ss");
+                Log.d("powerchart", power + "");
+                Log.d("id", _id+ " id");
+                Log.d("id", _id.getInt("day") + "day" + _id.getInt("month") +"month" );
+
             }
         }catch (JSONException e){Log.e("1","d");}
-
-
-        // If there are results in the features array
-        //Log.e("powerarray",value + "");
-        //Log.e("powerss",pow);
-        //return pow ;
-
-
-        return;
-
 
     }
 
     public void Draw(){
+        totalpower = 0;
         List<BarEntry> entries = new ArrayList<>();
-        int a = 0;
-        for (int zz = 0; zz<30; zz++){
-            entries.add(new BarEntry( (float) zz, (float) zz*4+1/*power.get(a).getPower()*/));
-            Log.e("a", (float) zz +  "  x  " + (float) zz*4 );
-            Log.e("entrie", entries.get(zz).getY() + "y" + entries.get(zz).getX() );
+        entries.clear();
+        for (int zz = 0; zz< power.size(); zz++){
+            //add elements to the chart data
+            if(zz<30){
+                entries.add(new BarEntry( (float) zz, (float) power.get(zz).getPower()));
+                totalpower += power.get(zz).getPower();
+            }
 
         }
 
+        //power textviews assignment
+        today_textview.setText(String.valueOf(power.get(0).getPower()));
+        last30_textview.setText(String.valueOf(totalpower));
+
+
+        //just some strange variables
         Description desc = new Description();
         desc.setText("");
 
         // Data Configuration
-        BarDataSet set = new BarDataSet(entries, "Power");
+        BarDataSet set = new BarDataSet(entries, "kWh");
         BarData data = new BarData(set);
         data.setValueTextSize(0f);
         data.setValueTextColor(Color.WHITE);

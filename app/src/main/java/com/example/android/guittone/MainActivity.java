@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,20 +19,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.webkit.WebView;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -43,21 +31,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-
-import static android.R.attr.fragment;
-import static com.example.android.guittone.MainFragment.adapter;
-import static com.example.android.guittone.MainFragment.devices;
-import static com.example.android.guittone.MainFragment.webView;
 import static com.example.android.guittone.R.menu.toolbar;
-import static java.security.AccessController.getContext;
+
 
 
 public class MainActivity extends AppCompatActivity {
 
-
-    public String newName = "";
     public static ArrayList <Device> devices = MainFragment.devices;
-    String SAVE = "sirup";
     //DeviceAdapter adapter = MainFragment.adapter;
     public static WebView webView;
     //ListView listView = MainFragment.listView;
@@ -153,8 +133,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.power:
-                Intent deviceIntent = new Intent(this, PowerActivity.class);
-                this.startActivity(deviceIntent);
+                //Intent deviceIntent = new Intent(this, PowerActivity.class);
+                //this.startActivity(deviceIntent);
 
             default:
                 // If we got here, the user's action was not recognized.
@@ -202,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String json = gson.toJson(devices);
         prefsEditor.putString("Devices", json);
-        prefsEditor.commit();
+        prefsEditor.apply();
 
     }
 
@@ -210,6 +190,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.e("asoi", " forze non va una pe");
+        if(!isNetworkAvailable()){
+            Toast toast = Toast.makeText(this, "Could not connect to server - Check your internet connection", Toast.LENGTH_SHORT);
+            toast.show();
+        }
         /*SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
         Gson gson = new Gson();
         String json = appSharedPrefs.getString("Devices", "");
@@ -378,7 +362,7 @@ public class MainActivity extends AppCompatActivity {
             // Perform HTTP request to the URL and receive a JSON response back
             String jsonResponse = "";
             try {
-                url = createUrl("http://piblock.altervista.org/prova.html");//devices.get(e).getCheckUrl
+                url = createUrl("http://192.168.1.1");//devices.get(e).getCheckUrl
                 jsonResponse = makeHttpRequest(url);
             } catch (IOException e) {
                 // TODO Handle the IOException
@@ -436,7 +420,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             for (int i = 0;i<OffUrl.size();i++){
-                devices.add(new Device("New Guittone",OnUrl.get(i),OffUrl.get(i),CheckUrl.get(i)));
+                devices.add(new Device("New plug",OnUrl.get(i),OffUrl.get(i),CheckUrl.get(i)));
                 //MainFragment.dataNotify(devices);
                 Save();
             }

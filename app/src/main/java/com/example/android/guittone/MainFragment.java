@@ -114,7 +114,7 @@ public class MainFragment extends Fragment {
         Gson gson = new Gson();
         String json = gson.toJson(devices);
         prefsEditor.putString("Devices", json);
-        prefsEditor.commit();
+        prefsEditor.apply();
 
     }
 
@@ -136,13 +136,7 @@ public class MainFragment extends Fragment {
         ListView listView = (ListView) getActivity().findViewById(R.id.list_item);
         listView.setClickable(true);
         listView.setAdapter(adapter);
-        if(isNetworkAvailable()){
-            //CheckAsyncTask task = new CheckAsyncTask();
-            //task.execute();
-        }else{
-            Toast toast = Toast.makeText(getActivity(), "Could not connect to server - Check your internet connection", Toast.LENGTH_SHORT);
-            toast.show();
-        }
+
         adapter.notifyDataSetChanged();
         listView.requestFocus();
         if(devices.size()>0){

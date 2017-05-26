@@ -29,15 +29,12 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 /**
- * Created by Giacomo on 26/12/2016.
+ * Created by ${Giacomo} on ${26/12/2016}
  */
 
 public class DeviceAdapter extends ArrayAdapter<Device> {
 
-    String mUrl;
-    URL url;
     Device currentDevice;
-    String responseFromServer="";
     private static final String LOG_TAG = DeviceAdapter.class.getSimpleName();
 
         public DeviceAdapter(Activity context, ArrayList<Device> devices) {

@@ -3,30 +3,19 @@ package com.example.android.guittone;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.os.Handler;
 import android.widget.Toast;
-
 import com.google.gson.Gson;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,22 +24,17 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
 
-import static android.R.attr.value;
-import static com.example.android.guittone.MainFragment.adapter;
 import static com.example.android.guittone.MainFragment.devices;
 
 /**
- * Created by Giacomo on 04/01/2017.
+ * Created by ${Giacomo} on ${04/01/2017}
  */
 
 public class DeviceActivity extends AppCompatActivity {
 
-    private int m_interval = 5000; // 5 seconds by default, can be changed later
-    private Handler m_handler;
+
     int position = 0;
-    ArrayList<PowerChart> power = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -143,7 +127,7 @@ public class DeviceActivity extends AppCompatActivity {
         String json = gson.toJson(devices);
         Log.w(""+devices.size(),"array size on save");
         prefsEditor.putString("Devices", json);
-        prefsEditor.commit();
+        prefsEditor.apply();
 
     }
 
@@ -159,8 +143,10 @@ public class DeviceActivity extends AppCompatActivity {
 
             String jsonResponse = "";
             try {
+
                 url = createUrl("http://guittone.ddns.net:8081/power");
-                if(url == null){}else{jsonResponse = makeHttpRequest(url);}
+                if(url != null){jsonResponse = makeHttpRequest(url);}
+
             } catch (IOException e) {
                 // TODO Handle the IOException
             }
@@ -176,14 +162,11 @@ public class DeviceActivity extends AppCompatActivity {
                 return;
             }
             Log.e("pow",pow + "");
-            String power = JSONparser(pow);
-            //Log.e("power",power + "");
-            //powerTextView.setText(power);
-            //Log.e("power",JSONparser(pow));
+
         }
 
         private URL createUrl(String stringUrl) {
-            URL url = null;
+            URL url;
             try {
                 url = new URL(stringUrl);
             } catch (MalformedURLException exception) {
@@ -202,7 +185,7 @@ public class DeviceActivity extends AppCompatActivity {
             //    return jsonResponse;
             //}
             HttpURLConnection urlConnection = null;
-            InputStream inputStream = null;
+            InputStream inputStream;
             try {
                 urlConnection = (HttpURLConnection) url.openConnection();
                 //urlConnection.setRequestMethod("GET");
@@ -261,41 +244,8 @@ public class DeviceActivity extends AppCompatActivity {
 
 
     }
-    public String JSONparser(String json){
-
-        if (TextUtils.isEmpty(json)) {
-            Log.e("null","ss");
-            return null;
-        }
-        String sirup = null;
-
-        JSONObject object;
-        JSONArray pow ;
-        Log.e("powerarray", "jj");
-        try {
-            JSONArray baseJsonResponse = new JSONArray(json);
-            int size = baseJsonResponse.length();
-            for (int i=0; i<size; i++) {
-                object = baseJsonResponse.getJSONObject(i);
-                //power.add(new PowerChart(Double.parseDouble(object.getJSONArray("value").getString(0)),Long.parseLong(object.getString("_id"))));
-                //Log.e("powerchart",object.getJSONArray("value").getString(0)+object.getString("_id")+ "ss" );
-            }
-            //Log.e("powerchart", power + "");
-        }catch (JSONException e){Log.e("1","d");}
 
 
-        // If there are results in the features array
-        //Log.e("powerarray",value + "");
-        //Log.e("powerss",pow);
-        //return pow ;
-
-
-
-        Log.e("notworking","ss");
-        return sirup;
-
-
-    }
 
 
 }

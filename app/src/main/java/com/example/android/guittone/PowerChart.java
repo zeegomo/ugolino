@@ -6,17 +6,17 @@ package com.example.android.guittone;
 
 public class PowerChart {
 
-    private double power;
+    private int power;
     private int day;
     private int month;
 
-    public PowerChart(double pow, int mday, int mmonth) {
+    public PowerChart(int pow, int mday, int mmonth) {
         power = pow;
         day = mday;
         month = mmonth;
     }
 
-    public double getPower() {
+    public int getPower() {
         return power;
     }
 

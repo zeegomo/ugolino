@@ -5,201 +5,64 @@
     density="560dpi"
     format="8"
     plugin-version="2.2.3"
-    timestamp="948729948236041"
+    timestamp="12030721957963"
     token="-6811697708832997587"
     verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="416" />
+        duration="0" />
     <task
         name="instant-run-dex"
-        duration="66" />
+        duration="0" />
     <task
         name="instant-run-transform"
-        duration="28" />
+        duration="0" />
     <task
         name="verifier"
-        duration="3" />
+        duration="0" />
 
     <artifact
-        location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\reload-dex\debug\classes.dex"
-        type="RELOAD_DEX" />
+        location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+        type="RESOURCES" />
 
     <build
-        timestamp="944845675470235"
+        timestamp="4166353556104"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="944923943876564"
+        timestamp="10624350899982"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+            type="DEX" />
+        <artifact
+            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="11888408179037"
+        verifier="PARENT_CLASS_CHANGED" >
+        <artifact
+            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="12008250144540"
         verifier="COMPATIBLE" >
         <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\944923943876564\classes.dex"
+            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\12008250144540\classes.dex"
             type="RELOAD_DEX" />
     </build>
     <build
-        timestamp="944929278807768"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\944929278807768\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="944990846589033"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\944990846589033\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="945085664771162"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\945085664771162\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="945143913324646"
+        timestamp="12030721957963"
         verifier="COMPATIBLE" >
         <artifact
             location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
             type="RESOURCES" />
-    </build>
-    <build
-        timestamp="945251522955590"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\945251522955590\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="945301329279928"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\945301329279928\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="945337796165795"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\945337796165795\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="945495727007718"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\945495727007718\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="945675813152805"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\945675813152805\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="945904658310118"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\945904658310118\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="945950291700435"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\945950291700435\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="946117434076037"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\946117434076037\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="946129806668840"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\946129806668840\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="946237553237928"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\946237553237928\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="947545994903965"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\947545994903965\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="947642244475218"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\947642244475218\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="947992571514000"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\947992571514000\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="948008259841323"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\948008259841323\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="948055810725894"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\948055810725894\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="948093789852883"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\948093789852883\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="948133110109039"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\948133110109039\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="948196309044606"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\builds\debug\948196309044606\classes.dex"
-            type="RELOAD_DEX" />
-    </build>
-    <build
-        timestamp="948729948236041"
-        verifier="COMPATIBLE" >
-        <artifact
-            location="C:\Users\Giacomo\Downloads\Guittone\Guittone\app\build\intermediates\reload-dex\debug\classes.dex"
-            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

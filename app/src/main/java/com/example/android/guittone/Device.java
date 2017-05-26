@@ -1,18 +1,12 @@
 package com.example.android.guittone;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.webkit.WebView;
-
-import java.io.Serializable;
-
 import static android.view.View.GONE;
 
 /**
- * Created by Giacomo on 26/12/2016.
+ * Created by ${Giacomo} on ${26/10/2016}
  */
 
-public class Device {
+ class Device {
 
 
     private String mName;
@@ -21,7 +15,7 @@ public class Device {
     private String mOffUrl;
     private String mCheckUrl;
 
-    public Device(String name, String OnUrl, String OffUrl, String CheckUrl) {
+    Device(String name, String OnUrl, String OffUrl, String CheckUrl) {
         mName = name;
         mStatus = false;
         mOffUrl = OffUrl;
@@ -30,34 +24,34 @@ public class Device {
     }
 
     //GET METHODS
-    public String getmName() {
+    String getmName() {
         return mName;
     }
 
-    public String getOnUrl() {
+    String getOnUrl() {
         return mOnUrl;
     }
 
-    public String getOffUrl() {
+    String getOffUrl() {
         return mOffUrl;
     }
 
-    public String getCheckUrl() {
+    String getCheckUrl() {
         return mCheckUrl;
     }
 
-    public boolean getmStatus() {
+    boolean getmStatus() {
         return mStatus;
     }
 
 
 
     //SET METHODS
-    public void setmName(String name) {
+    void setmName(String name) {
         mName = name;
     }
 
-    public void setmStatus(Boolean status) {
+    void setmStatus(Boolean status) {
         mStatus = status;
     }
 
@@ -69,7 +63,7 @@ public class Device {
         setmStatus(true);
     }
 
-    public void off(String url) {
+    void off(String url) {
         MainFragment.webView.loadUrl(url);
         MainFragment.webView.setVisibility(GONE);
         setmStatus(false);

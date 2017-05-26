@@ -1,4 +1,4 @@
-#Fri Feb 17 15:35:34 CET 2017
+#Fri May 26 14:49:32 CEST 2017
 base.0=C\:\\Users\\Giacomo\\Downloads\\Guittone\\Guittone\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_aac64d23244e42448cb479e6a63b9fda41763d8c
 renamed.1=classes.dex
 renamed.0=classes2.dex
