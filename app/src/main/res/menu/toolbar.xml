@@ -4,7 +4,7 @@
     <!-- "Mark Favorite", should appear as action button if possible -->
     <item android:title="addDevice"
         android:id="@+id/action_add"
-        android:icon="@drawable/ic_add_white_36dp"
+        android:icon="@drawable/ic_add_white_24dp"
         Guittone:showAsAction="always"/>
 
     <item android:title="Reconnect device"
