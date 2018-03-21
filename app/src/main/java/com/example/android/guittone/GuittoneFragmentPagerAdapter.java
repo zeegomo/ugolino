@@ -16,7 +16,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
  */
 class GuittoneFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
-    private String tabTitles[] = new String[] { "Plugs", "Power Consumption"};
+    private String tabTitles[] = new String[]{"Interact", "Read"};
     GuittoneFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -25,11 +25,11 @@ class GuittoneFragmentPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
 
         if (position == 0){
-            return  new MainFragment();
+            return new InteractFragment();
         }else if(position ==1) {
-            return  new PowerFragment();
+            return new ReadFragment();
         }else {
-            return  new MainFragment();
+            return new InteractFragment();
         }
 
     }

@@ -68,7 +68,7 @@ MERGED from [com.android.support:support-compat:25.1.1] C:\Users\Giacomo\.gradle
 	android:supportsRtl
 		ADDED from C:\Users\Giacomo\StudioProjects\Guittone\app\src\main\AndroidManifest.xml:11:9-35
 	android:label
-		ADDED from C:\Users\Giacomo\StudioProjects\Guittone\app\src\main\AndroidManifest.xml:10:9-33
+		ADDED from C:\Users\Giacomo\StudioProjects\Guittone\app\src\main\AndroidManifest.xml:10:9-32
 	android:icon
 		ADDED from C:\Users\Giacomo\StudioProjects\Guittone\app\src\main\AndroidManifest.xml:9:9-38
 	android:allowBackup
@@ -78,7 +78,7 @@ MERGED from [com.android.support:support-compat:25.1.1] C:\Users\Giacomo\.gradle
 activity#com.example.android.guittone.MainActivity
 ADDED from C:\Users\Giacomo\StudioProjects\Guittone\app\src\main\AndroidManifest.xml:13:9-17:20
 	android:label
-		ADDED from C:\Users\Giacomo\StudioProjects\Guittone\app\src\main\AndroidManifest.xml:15:13-37
+		ADDED from C:\Users\Giacomo\StudioProjects\Guittone\app\src\main\AndroidManifest.xml:15:13-36
 	android:name
 		ADDED from C:\Users\Giacomo\StudioProjects\Guittone\app\src\main\AndroidManifest.xml:14:13-41
 activity#com.example.android.guittone.DeviceActivity

@@ -4,12 +4,16 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <application
+
         android:allowBackup="true"
         android:icon="@drawable/plug"
         android:label="Ugolino"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
         <activity
             android:name=".MainActivity"
             android:label="Ugolino">
@@ -19,11 +23,6 @@
         <activity
             android:name=".DeviceActivity"
             android:label="Device"
-            android:parentActivityName=".MainActivity"/>
-
-        <activity
-            android:name=".PowerActivity"
-            android:label="Power"
             android:parentActivityName=".MainActivity"/>
 
         <activity android:name=".Splash"

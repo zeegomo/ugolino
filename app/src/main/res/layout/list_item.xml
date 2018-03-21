@@ -49,6 +49,15 @@
             android:trackTint="@color/colorAccent"
             android:id="@+id/on_switch" />
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="68dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif"
+            android:id="@+id/read_value"
+            android:textColor="@android:color/darker_gray" />
+
     </LinearLayout>
 
 

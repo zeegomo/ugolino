@@ -15,12 +15,12 @@
         android:allowBackup="true"
         android:debuggable="true"
         android:icon="@drawable/plug"
-        android:label="Guittone"
+        android:label="Ugolino"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.android.guittone.MainActivity"
-            android:label="Guittone" >
+            android:label="Ugolino" >
         </activity>
         <activity
             android:name="com.example.android.guittone.DeviceActivity"

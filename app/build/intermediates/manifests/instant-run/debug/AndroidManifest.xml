@@ -12,15 +12,16 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name="com.android.tools.fd.runtime.BootstrapApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/plug"
-        android:label="Guittone"
+        android:debuggable="true"
+        android:icon="@drawable/plug"
+        android:label="Ugolino"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.android.guittone.MainActivity"
-            android:label="Guittone" >
+            android:label="Ugolino" >
         </activity>
         <activity
             android:name="com.example.android.guittone.DeviceActivity"
@@ -39,6 +40,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="com.android.tools.ir.server.InstantRunContentProvider"
+            android:authorities="com.example.android.didyoufeelit.com.android.tools.ir.server.InstantRunContentProvider"
+            android:multiprocess="true" />
     </application>
 
 </manifest>
