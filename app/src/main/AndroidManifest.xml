@@ -7,12 +7,12 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/plug"
-        android:label="Guittone"
+        android:label="Ugolino"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="Guittone">
+            android:label="Ugolino">
 
         </activity>
 
