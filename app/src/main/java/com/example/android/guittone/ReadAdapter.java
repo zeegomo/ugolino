@@ -59,8 +59,8 @@ public class ReadAdapter extends ArrayAdapter<Device> {
 
         // Get the {@link AndroidFlavor} object located ate this position in the list
         currentDevice = getItem(position);
-        final String OnUrl = currentDevice.getOnUrl();
-        final String OffUrl = currentDevice.getOffUrl();
+        //final String OnUrl = currentDevice.getOnUrl();
+        //final String OffUrl = currentDevice.getOffUrl();
         Switch statusSwitch = (Switch) listItemView.findViewById(R.id.on_switch);
         TextView readTextView = (TextView) listItemView.findViewById(R.id.read_value);
         if (currentDevice.getmType()) {
@@ -77,19 +77,19 @@ public class ReadAdapter extends ArrayAdapter<Device> {
             statusSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked) {
-                        currentDevice.on(OnUrl);
+                        currentDevice.on();
                         Log.d("on", "MainActivity");
-                        Log.e(OnUrl, "onurl");
+                        //Log.e(OnUrl, "onurl");
                     } else {
-                        currentDevice.off(OffUrl);
+                        currentDevice.off();
                         Log.d("off", "MainActivity");
-                        Log.e(OffUrl, "onurl");
+                        //Log.e(OffUrl, "onurl");
                     }
                 }
             });
         } else {
             statusSwitch.setVisibility(GONE);
-            readTextView.setText("ciao");
+            readTextView.setText(currentDevice.getmRead());
         }
 
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.image_id);

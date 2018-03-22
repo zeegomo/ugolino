@@ -10,6 +10,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
@@ -17,7 +19,10 @@
         android:icon="@drawable/plug"
         android:label="Ugolino"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
+
         <activity
             android:name="com.example.android.guittone.MainActivity"
             android:label="Ugolino" >
@@ -25,10 +30,6 @@
         <activity
             android:name="com.example.android.guittone.DeviceActivity"
             android:label="Device"
-            android:parentActivityName="com.example.android.guittone.MainActivity" />
-        <activity
-            android:name="com.example.android.guittone.PowerActivity"
-            android:label="Power"
             android:parentActivityName="com.example.android.guittone.MainActivity" />
         <activity
             android:name="com.example.android.guittone.Splash"

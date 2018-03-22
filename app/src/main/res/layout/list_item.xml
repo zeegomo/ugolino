@@ -50,8 +50,11 @@
             android:id="@+id/on_switch" />
 
         <TextView
+            android:layout_marginLeft="16dp"
             android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="68dp"
+            android:gravity="center_vertical"
             android:textSize="18dp"
             android:textStyle="bold"
             android:fontFamily="sans-serif"

@@ -1,6 +1,13 @@
 package com.example.android.guittone;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.MqttCallback;
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import static android.view.View.GONE;
 
@@ -13,87 +20,116 @@ import static android.view.View.GONE;
 
     private String mName;
     private boolean mStatus;
-    private String mOnUrl;
-    private String mOffUrl;
-    private String mCheckUrl;
+    private String mWrite_topic;
+    //private String mW
+    private String mRead_topic;
+    private String mBroker;
     private boolean mType;
-    private int mRead;
+    private String mRead;
 
-    Device(String name, String OnUrl, String OffUrl, String CheckUrl, boolean Type) {
+    Device(String name, String read_topic, String broker, String write_topic, boolean Type) {
         mName = name;
         mStatus = false;
-        mOffUrl = OffUrl;
-        mOnUrl = OnUrl;
-        mCheckUrl = CheckUrl;
-        mRead = 0;
+        mRead_topic = read_topic;
+        mWrite_topic = write_topic;
+        mRead = "";
+        mBroker = broker;
         mType = Type;
     }
 
     //GET METHODS
     String getmName() {
-        return mName;
+        return this.mName;
     }
 
-    String getOnUrl() {
-        return mOnUrl;
+    String getmWrite_topic() {
+        return this.mWrite_topic;
     }
 
-    String getOffUrl() {
-        return mOffUrl;
+    String getmRead_topic() {
+        return this.mRead_topic;
     }
 
-    String getCheckUrl() {
-        return mCheckUrl;
-    }
+    String getmBroker() {return  this.mBroker;}
 
     boolean getmStatus() {
-        return mStatus;
+        return this.mStatus;
     }
 
     boolean getmType() {
-        return mType;
+        return this.mType;
     }
 
-    int getmRead() {
-        return mRead;
+    String getmRead() {
+        return this.mRead;
     }
 
 
 
     //SET METHODS
     void setmName(String name) {
-        mName = name;
+        this.mName = name;
     }
 
     void setmStatus(Boolean status) {
-        mStatus = status;
+        this.mStatus = status;
     }
 
-    void setmOnUrl(String url) {
-        mOnUrl = url;
+    public void setmBroker(String mBroker) {
+        this.mBroker = mBroker;
     }
 
-    void setmOffUrl(String url) {
-        mOffUrl = url;
+    void setmRead(String read) {
+        this.mRead = read;
     }
 
-    void setmRead(int read) {
-        mRead = read;
-    }
-    public void on(String url) {
-        MqttAndroidClient mqttAndroidClient;
-
-        final String serverUri = "tcp://iot.eclipse.org:1883";
-        String clientId = "ExampleAndroidClient";
-        final String subscriptionTopic = "exampleAndroidTopic";
-        final String publishTopic = "exampleAndroidPublishTopic";
-        final String publishMessage = "Hello World!";
+    public void on() {
+        int qos = 0;
+        String clientId = "paho-java-client";
+        String content = "1";
+        try {
+            final MqttClient sampleClient = new MqttClient(mBroker, clientId, new MemoryPersistence());
+            MqttConnectOptions connOpts = new MqttConnectOptions();
+            connOpts.setCleanSession(true);
+            //System.out.println("paho-client connecting to broker: " + broker);
+            sampleClient.connect(connOpts);
+            //System.out.println("paho-client connected to broker");
+            //System.out.println("paho-client publishing message: " + content);
+            MqttMessage message = new MqttMessage(content.getBytes());
+            message.setQos(qos);
+            sampleClient.publish(mWrite_topic, message);
+            //System.out.println("paho-client message published");
+            sampleClient.disconnect();
+            //System.out.println("paho-client disconnected");
+        } catch (MqttException me) {
+            me.printStackTrace();
+        }
 
 
         setmStatus(true);
     }
 
-    void off(String url) {
+    void off() {
+        int qos = 0;
+        String clientId = "paho-java-client";
+        String content = "0";
+        try {
+            final MqttClient sampleClient = new MqttClient(mBroker, clientId, new MemoryPersistence());
+            MqttConnectOptions connOpts = new MqttConnectOptions();
+            connOpts.setCleanSession(true);
+            //System.out.println("paho-client connecting to broker: " + broker);
+            sampleClient.connect(connOpts);
+            //System.out.println("paho-client connected to broker");
+            //System.out.println("paho-client publishing message: " + content);
+            MqttMessage message = new MqttMessage(content.getBytes());
+            message.setQos(qos);
+            sampleClient.publish(mWrite_topic, message);
+            //System.out.println("paho-client message published");
+            sampleClient.disconnect();
+            //System.out.println("paho-client disconnected");
+        } catch (MqttException me) {
+            me.printStackTrace();
+        }
 
         setmStatus(false);
     }

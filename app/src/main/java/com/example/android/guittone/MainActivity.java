@@ -25,6 +25,17 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.eclipse.paho.android.service.MqttAndroidClient;
+import org.eclipse.paho.client.mqttv3.DisconnectedBufferOptions;
+import org.eclipse.paho.client.mqttv3.IMqttActionListener;
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
+import org.eclipse.paho.client.mqttv3.IMqttToken;
+import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -45,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
     //List of devices meant to retrieve data from Arduino
     public static ArrayList<Device> read_devices = new ArrayList<>();
     public static WebView webView;
-
 
 
     @Override
@@ -82,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
         }
         //View initialization
         webView = (WebView) findViewById(R.id.webview);
+
+        //MQTT Callback
     }
 
 
@@ -151,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW);
                 browserIntent.setData(Uri.parse(url));
                 startActivity(browserIntent);*/
-                interact_devices.add(new Device("New Switch Widget", "", "", "", true));
+                interact_devices.add(new Device("New Switch Widget", "mario", "test.mosquitto.org", "banana", true));
                 InteractFragment.dataNotify(interact_devices);
                 Save();
                 Log.d("interact_device" + interact_devices, "AddDevice");
@@ -161,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
         alert.setNegativeButton("Read", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 // what ever you want to do with No option.
-                read_devices.add(new Device("New Read Widget", "", "", "", false));
+                read_devices.add(new Device("New Read Widget", "mario", "test.mosquitto.org", "banana", false));
                 ReadFragment.dataNotify(read_devices);
                 Log.d("read_device" + read_devices, "AddDevice");
                 Save();
