@@ -2,20 +2,20 @@
     xmlns:Guittone="http://schemas.android.com/apk/res-auto/res-auto">
 
     <!-- "Mark Favorite", should appear as action button if possible -->
-    <item android:title="addDevice"
-        android:id="@+id/action_add"
+    <item android:title="Switch"
+        android:id="@+id/action_add_switch"
         android:icon="@drawable/ic_add_white_24dp"
-        Guittone:showAsAction="always"/>
+        Guittone:showAsAction="ifRoom"/>
 
-    <item android:title="Reconnect device"
-        android:id="@+id/action_reconnect"
-        Guittone:showAsAction="never"/>
+    <item android:title="Read"
+        android:id="@+id/action_add_read"
+        Guittone:showAsAction="ifRoom"/>
 
     <item android:title="Info"
         android:id="@+id/action_info"
         Guittone:showAsAction="never"/>
 
-    <item android:title="Power"
+    <item android:title=""
         android:id="@+id/power"
         Guittone:showAsAction="never"/>
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -11,45 +11,106 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
-        app:navigationIcon="?homeAsUpIndicator"
-        android:theme="@style/ToolBarStyle.Event"
         android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        />
+        android:theme="@style/ToolBarStyle.Event"
+        app:navigationIcon="?homeAsUpIndicator" />
 
     <ImageView
-        android:layout_marginTop="16dp"
-        android:layout_below="@id/my_toolbar"
+        android:id="@+id/device_image"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:layout_below="@id/my_toolbar"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/phone"
-        android:id="@+id/device_image"/>
+        android:layout_marginTop="16dp"
+        android:src="@drawable/phone" />
+
     <TextView
+        android:id="@+id/device_name_activity"
+        style="@style/subheading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/device_name_activity"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/device_image"
-        android:padding="6dp"
-        style="@style/subheading"/>
+        android:layout_centerHorizontal="true"
+        android:padding="6dp" />
 
     <LinearLayout
+        android:id="@+id/button_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_layout"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/device_name_activity">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/delete_button"
-            android:text="Delete"/>
+        android:layout_below="@id/device_name_activity"
+        android:layout_centerHorizontal="true">
 
         <Button
+            android:id="@+id/delete_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Delete" />
+
+        <Button
             android:id="@+id/modify_button"
-            android:text="Rename"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rename" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_layout"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:id="@+id/write_address_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/write_address"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="write server"/>
+
+            <Button
+                android:id="@+id/write_change_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:id="@+id/read_address_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/read_address"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="read server"/>
+
+            <Button
+                android:id="@+id/read_change_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change" />
+
+
+        </LinearLayout>
+
     </LinearLayout>
 
 

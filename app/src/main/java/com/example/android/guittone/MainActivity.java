@@ -16,10 +16,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -106,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_add:
+            case R.id.action_add_switch:
 
                 AddDevice();
                 //InteractFragment.dataNotify(interact_devices);
@@ -117,27 +121,8 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
 
-            case R.id.action_reconnect:
-                android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(this);
-                alert.setMessage("Make sure you are connected to GuittoneWiFi");
-                alert.setTitle("Reconnect device");
-
-                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        String url = "http://192.168.1.1";
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW);
-                        browserIntent.setData(Uri.parse(url));
-                        startActivity(browserIntent);
-                    }
-                });
-
-                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        // what ever you want to do with No option.
-                    }
-                });
-                alert.show();
-                return true;
+            case R.id.action_add_read:
+                AddReadDevice();
 
             case R.id.power:
 
@@ -148,6 +133,44 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    public void AddReadDevice(){
+        android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(this);
+        alert.setMessage("Specify read address");
+        alert.setTitle("New Widget");
+
+        final LinearLayout linear = new LinearLayout(MainActivity.this);
+        linear.setOrientation(LinearLayout.VERTICAL);
+        //linear.setHorizontalGravity(0);
+        final EditText topicEditText = new EditText(MainActivity.this);
+        topicEditText.setHint("topic");
+        topicEditText.setGravity(Gravity.CENTER);
+        final EditText maskEditText = new EditText(MainActivity.this);
+        maskEditText.setHint("mask");
+        maskEditText.setGravity(Gravity.CENTER);
+        linear.addView(topicEditText);
+        linear.addView(maskEditText);
+        alert.setView(linear);
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                String topic = topicEditText.getText().toString();
+                String mask = maskEditText.getText().toString();
+                topic = mask + '/' + topic;
+                read_devices.add(new Device("New Read Widget", topic, "", "", false));
+                ReadFragment.dataNotify(read_devices);
+                Log.d("read_device" + read_devices, "AddDevice");
+                Log.e("server: " +topic,"ADD READ");
+                Save();
+            }
+        });
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // what ever you want to do with No option.
+            }
+        });
+        alert.show();
     }
 
 
@@ -173,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         alert.setNegativeButton("Read", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 // what ever you want to do with No option.
-                read_devices.add(new Device("New Read Widget", "mario", "test.mosquitto.org", "banana", false));
+                read_devices.add(new Device("New Read Widget", "read_devices", "test.mosquitto.org", "banana", false));
                 ReadFragment.dataNotify(read_devices);
                 Log.d("read_device" + read_devices, "AddDevice");
                 Save();

@@ -50,7 +50,14 @@ public class DeviceActivity extends AppCompatActivity {
 
         final TextView deviceName = (TextView) findViewById(R.id.device_name_activity);
         deviceName.setText(devices.get(position).getmName());
+        //TODO Uniform write_address/read_address/server/broker/topic/mask
+         //U
+        //
+        final TextView topic = (TextView) findViewById(R.id.write_address);
+        deviceName.setText(devices.get(position).getmName());
 
+        final TextView mask = (TextView) findViewById(R.id.read_address);
+        deviceName.setText(devices.get(position).getmName());
 
 
         Button deleteButton = (Button) findViewById(R.id.delete_button);

@@ -68,7 +68,7 @@ public class ReadFragment extends Fragment {
         final MqttAndroidClient mqttAndroidClient;
         final String serverUri = "tcp://test.mosquitto.org:1883";
         String clientId = "ExampleAndroidClient";
-        final String subscriptionTopic = "read_devices";
+        final String subscriptionTopic = "read_devices/#";
         final String publishTopic = "banana";
         final String publishMessage = "I'm alive";
 
