@@ -36,7 +36,7 @@ public class InteractFragment extends Fragment {
     public static ArrayList<Device> interact_devices = /*MainActivity.interact_devices*/new ArrayList<>();
 
     //Device visualizer
-    public static ReadAdapter adapter;
+    public static InteractAdapter adapter;
     public static WebView webView;
     public static ListView listView;
     public static TextView instructionsTextView;
@@ -50,7 +50,7 @@ public class InteractFragment extends Fragment {
 
         //View initialization
         webView = (WebView) rootView.findViewById(R.id.webview);
-        adapter = new ReadAdapter(getActivity(), interact_devices);
+        adapter = new InteractAdapter(getActivity(), interact_devices);
         listView = (ListView) rootView.findViewById(R.id.list_item);
         listView.setAdapter(adapter);
         instructionsTextView = (TextView) rootView.findViewById(R.id.instructions_textView);
@@ -72,7 +72,7 @@ public class InteractFragment extends Fragment {
         super.onResume();
         //dataNotify(interact_devices);
         interact_devices = MainActivity.interact_devices;
-        adapter = new ReadAdapter(getActivity(), interact_devices);
+        adapter = new InteractAdapter(getActivity(), interact_devices);
         //ListView listView = (ListView) getActivity().findViewById(R.id.list_item);
         listView.setClickable(true);
         listView.setAdapter(adapter);

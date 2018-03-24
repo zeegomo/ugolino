@@ -34,12 +34,12 @@ import static android.view.View.GONE;
  * Created by ${Giacomo} on ${26/12/2016}
  */
 
-public class ReadAdapter extends ArrayAdapter<Device> {
+public class InteractAdapter extends ArrayAdapter<Device> {
 
     private Device currentDevice;
-    final ArrayList<Device> devices = MainActivity.read_devices;
+    final ArrayList<Device> devices = MainActivity.interact_devices;
 
-    public ReadAdapter(Activity context, ArrayList<Device> devices) {
+    public InteractAdapter(Activity context, ArrayList<Device> devices) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
         // the second argument is used when the ArrayAdapter is populating a single TextView.
         // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not
@@ -65,8 +65,28 @@ public class ReadAdapter extends ArrayAdapter<Device> {
         Switch statusSwitch = (Switch) listItemView.findViewById(R.id.on_switch);
         TextView readTextView = (TextView) listItemView.findViewById(R.id.read_value);
 
-        statusSwitch.setVisibility(GONE);
-        readTextView.setText(currentDevice.getmRead());
+        readTextView.setVisibility(GONE);
+
+        boolean response = currentDevice.getmStatus();
+        if (response) {
+            statusSwitch.setChecked(true);
+        }
+        if (!response) {
+            statusSwitch.setChecked(false);
+        }
+        //Log.e("boh", "MainActivity");
+        statusSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                currentDevice = devices.get(position);
+                if (isChecked)
+                    currentDevice.on();
+
+                else
+                    currentDevice.off();
+
+
+            }
+        });
 
 
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.image_id);

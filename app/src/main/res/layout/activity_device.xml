@@ -64,21 +64,21 @@
         <LinearLayout
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
-            android:id="@+id/write_address_layout"
+            android:id="@+id/topic_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
 
             <TextView
                 android:gravity="center"
-                android:id="@+id/write_address"
+                android:id="@+id/topic"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:hint="write server"/>
+                android:hint="topic"/>
 
             <Button
-                android:id="@+id/write_change_button"
+                android:id="@+id/topic_change_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Change" />
@@ -89,27 +89,53 @@
         <LinearLayout
             android:paddingLeft="24dp"
             android:paddingRight="24dp"
-            android:id="@+id/read_address_layout"
+            android:id="@+id/mask_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true">
 
             <TextView
                 android:gravity="center"
-                android:id="@+id/read_address"
+                android:id="@+id/mask"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:hint="read server"/>
+                android:hint="mask"/>
 
             <Button
-                android:id="@+id/read_change_button"
+                android:id="@+id/mask_change_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Change" />
 
 
         </LinearLayout>
+
+        <LinearLayout
+            android:paddingLeft="24dp"
+            android:paddingRight="24dp"
+            android:id="@+id/broker_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/broker"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="broker"/>
+
+            <Button
+                android:id="@+id/broker_change_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change" />
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

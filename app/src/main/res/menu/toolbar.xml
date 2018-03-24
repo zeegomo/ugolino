@@ -5,7 +5,7 @@
     <item android:title="Switch"
         android:id="@+id/action_add_switch"
         android:icon="@drawable/ic_add_white_24dp"
-        Guittone:showAsAction="ifRoom"/>
+        Guittone:showAsAction="always"/>
 
     <item android:title="Read"
         android:id="@+id/action_add_read"

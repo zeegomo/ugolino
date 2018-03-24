@@ -32,9 +32,10 @@ public class DeviceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_device);
 
-        position = getIntent().getIntExtra("position", 0);
         final boolean type = getIntent().getBooleanExtra("type", false);
         getDevices(type);
+        position = getIntent().getIntExtra("position", 0);
+
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setTitleTextAppearance(this, R.style.MyTitleTextAppearance);
@@ -50,16 +51,22 @@ public class DeviceActivity extends AppCompatActivity {
 
         final TextView deviceName = (TextView) findViewById(R.id.device_name_activity);
         deviceName.setText(devices.get(position).getmName());
-        //TODO Uniform write_address/read_address/server/broker/topic/mask
-         //U
-        //
-        final TextView topic = (TextView) findViewById(R.id.write_address);
-        deviceName.setText(devices.get(position).getmName());
 
-        final TextView mask = (TextView) findViewById(R.id.read_address);
-        deviceName.setText(devices.get(position).getmName());
+        final TextView topicTextView = (TextView) findViewById(R.id.topic);
+        if(type)
+            topicTextView.setText(devices.get(position).getmWrite_topic());
+        else
+            topicTextView.setText(devices.get(position).getmRead_topic());
 
 
+        final TextView maskTextView = (TextView) findViewById(R.id.mask);
+        maskTextView.setText(devices.get(position).getmMask());
+
+        final TextView brokerTextView = (TextView) findViewById(R.id.broker);
+        brokerTextView.setText(devices.get(position).getmBroker());
+
+
+        //Delete Device
         Button deleteButton = (Button) findViewById(R.id.delete_button);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers View is clicked on.
@@ -87,6 +94,8 @@ public class DeviceActivity extends AppCompatActivity {
             }
         });
 
+
+        //Change Device Name
         Button modifyButton = (Button) findViewById(R.id.modify_button);
         modifyButton.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers View is clicked on.
@@ -103,6 +112,7 @@ public class DeviceActivity extends AppCompatActivity {
                         String name = edittext.getText().toString();
                         devices.get(position).setmName(name);
                         deviceName.setText(devices.get(position).getmName());
+                        Save(type);
                     }
                 });
 
@@ -114,6 +124,104 @@ public class DeviceActivity extends AppCompatActivity {
                 alert.show();
             }
         });
+
+        //Change Device Topicx
+        final Button topicButton = (Button) findViewById(R.id.topic_change_button);
+        topicButton.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the numbers View is clicked on.
+            @Override
+            public void onClick(View view) {
+                android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(DeviceActivity.this);
+                final EditText edittext = new EditText(DeviceActivity.this);
+                alert.setMessage("Enter new Topic");
+                alert.setTitle("Change Topic");
+                alert.setView(edittext);
+
+                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String topic = edittext.getText().toString();
+                        if(type) {
+                            devices.get(position).setmWrite_topic(topic);
+                            topicTextView.setText(devices.get(position).getmWrite_topic());
+
+                        }else {
+                            devices.get(position).setmRead_topic(topic);
+                            topicTextView.setText(devices.get(position).getmRead_topic());
+                        }
+                        Save(type);
+                    }
+                });
+
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // what ever you want to do with No option.
+                    }
+                });
+                alert.show();
+            }
+        });
+
+        //Change Device Mask
+        final Button maskButton = (Button) findViewById(R.id.mask_change_button);
+        maskButton.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the numbers View is clicked on.
+            @Override
+            public void onClick(View view) {
+                android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(DeviceActivity.this);
+                final EditText edittext = new EditText(DeviceActivity.this);
+                alert.setMessage("Enter new Mask");
+                alert.setTitle("Change Mask");
+                alert.setView(edittext);
+
+                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String mask = edittext.getText().toString();
+                        devices.get(position).setmMask(mask);
+                        maskTextView.setText(devices.get(position).getmMask());
+                        Save(type);
+                    }
+                });
+
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // what ever you want to do with No option.
+                    }
+                });
+                alert.show();
+            }
+        });
+
+
+        //Change Device Broker
+        final Button brokerButton = (Button) findViewById(R.id.broker_change_button);
+        brokerButton.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the numbers View is clicked on.
+            @Override
+            public void onClick(View view) {
+                android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(DeviceActivity.this);
+                final EditText edittext = new EditText(DeviceActivity.this);
+                alert.setMessage("Enter new Broker");
+                alert.setTitle("Change Broker");
+                alert.setView(edittext);
+
+                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String broker = edittext.getText().toString();
+                        devices.get(position).setmBroker(broker);
+                        brokerTextView.setText(devices.get(position).getmBroker());
+                        Save(type);
+                    }
+                });
+
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // what ever you want to do with No option.
+                    }
+                });
+                alert.show();
+            }
+        });
+
 
     }
 

@@ -36,9 +36,11 @@ import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
+import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Save();
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        GuittoneFragmentPagerAdapter gadapter = new GuittoneFragmentPagerAdapter(getSupportFragmentManager());
+        UgolinoFragmentPagerAdapter gadapter = new UgolinoFragmentPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(gadapter);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
@@ -98,6 +100,81 @@ public class MainActivity extends AppCompatActivity {
         webView = (WebView) findViewById(R.id.webview);
 
         //MQTT Callback
+
+        final MqttAndroidClient mqttAndroidClient;
+        final String serverUri = "tcp://test.mosquitto.org:1883";
+        String clientId = "ExampleAndroidClient";
+        final String subscriptionTopic = "read_devices/#";
+        final String publishTopic = "banana";
+        final String publishMessage = "I'm alive";
+        String topic = "read_devices";
+
+        mqttAndroidClient = new MqttAndroidClient(getApplicationContext(), serverUri, clientId);
+        mqttAndroidClient.setCallback(new MqttCallbackExtended() {
+            @Override
+            public void connectComplete(boolean reconnect, String serverURI) {
+
+            }
+
+            @Override
+            public void connectionLost(Throwable cause) {
+            }
+
+            @Override
+            public void messageArrived(String topic, MqttMessage message) throws Exception {
+                Log.e("MESSAGE ARRIVED" + message, "MESSAGE ARRIVED");
+                updateData(topic,message);
+                //mqttAndroidClient.publish(publishTopic,new MqttMessage(publishMessage.getBytes()));
+            }
+
+            @Override
+            public void deliveryComplete(IMqttDeliveryToken token) {
+
+            }
+        });
+
+        MqttConnectOptions mqttConnectOptions = new MqttConnectOptions();
+        mqttConnectOptions.setAutomaticReconnect(true);
+        mqttConnectOptions.setCleanSession(false);
+
+
+        try {
+            //addToHistory("Connecting to " + serverUri);
+            mqttAndroidClient.connect(mqttConnectOptions, null, new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+                    DisconnectedBufferOptions disconnectedBufferOptions = new DisconnectedBufferOptions();
+                    disconnectedBufferOptions.setBufferEnabled(true);
+                    disconnectedBufferOptions.setBufferSize(100);
+                    disconnectedBufferOptions.setPersistBuffer(false);
+                    disconnectedBufferOptions.setDeleteOldestMessages(false);
+                    mqttAndroidClient.setBufferOpts(disconnectedBufferOptions);
+                    try {
+                        mqttAndroidClient.subscribe(subscriptionTopic, 0);
+                    } catch (MqttException e){
+                        e.printStackTrace();
+                    }
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                }
+            });
+
+
+        } catch (MqttException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+    void updateData(String topic, MqttMessage message){
+        int length = read_devices.size();
+        for(int i = 0; i < length; i++){
+            if((read_devices.get(i).getmMask() + '/' +read_devices.get(i).getmRead_topic()).equals(topic)) //TODO control if effective
+                read_devices.get(i).setmRead(message.toString());
+        }
+        ReadFragment.dataNotify(read_devices);
     }
 
 
@@ -111,8 +188,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add_switch:
-
-                AddDevice();
+                AddWriteDevice();
+                //AddDevice();
                 //InteractFragment.dataNotify(interact_devices);
                 //ReadFragment.dataNotify(read_devices);
                 return true;
@@ -140,24 +217,36 @@ public class MainActivity extends AppCompatActivity {
         alert.setMessage("Specify read address");
         alert.setTitle("New Widget");
 
+        //Creating Dialog layout
         final LinearLayout linear = new LinearLayout(MainActivity.this);
         linear.setOrientation(LinearLayout.VERTICAL);
-        //linear.setHorizontalGravity(0);
+
         final EditText topicEditText = new EditText(MainActivity.this);
         topicEditText.setHint("topic");
         topicEditText.setGravity(Gravity.CENTER);
+
         final EditText maskEditText = new EditText(MainActivity.this);
         maskEditText.setHint("mask");
         maskEditText.setGravity(Gravity.CENTER);
+
+        final EditText brokerEditText = new EditText(MainActivity.this);
+        brokerEditText.setHint("broker");
+        brokerEditText.setGravity(Gravity.CENTER);
+
+
         linear.addView(topicEditText);
         linear.addView(maskEditText);
+        linear.addView(brokerEditText);
+
         alert.setView(linear);
+
         alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 String topic = topicEditText.getText().toString();
                 String mask = maskEditText.getText().toString();
-                topic = mask + '/' + topic;
-                read_devices.add(new Device("New Read Widget", topic, "", "", false));
+                //topic = mask + '/' + topic;
+                String broker = brokerEditText.getText().toString();
+                read_devices.add(new Device("New Read Widget",mask, topic , broker, "",false));
                 ReadFragment.dataNotify(read_devices);
                 Log.d("read_device" + read_devices, "AddDevice");
                 Log.e("server: " +topic,"ADD READ");
@@ -174,8 +263,59 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void AddDevice() {
+    public void AddWriteDevice(){
+        android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(this);
+        alert.setMessage("Specify write address");
+        alert.setTitle("New Widget");
 
+        //Creating Dialog layout
+        final LinearLayout linear = new LinearLayout(MainActivity.this);
+        linear.setOrientation(LinearLayout.VERTICAL);
+        //linear.setHorizontalGravity(0);
+
+        final EditText topicEditText = new EditText(MainActivity.this);
+        topicEditText.setHint("topic");
+        topicEditText.setGravity(Gravity.CENTER);
+
+        final EditText maskEditText = new EditText(MainActivity.this);
+        maskEditText.setHint("mask");
+        maskEditText.setGravity(Gravity.CENTER);
+
+        final EditText brokerEditText = new EditText(MainActivity.this);
+        brokerEditText.setHint("broker");
+        brokerEditText.setGravity(Gravity.CENTER);
+
+
+        linear.addView(topicEditText);
+        linear.addView(maskEditText);
+        linear.addView(brokerEditText);
+
+        alert.setView(linear);
+
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                String topic = topicEditText.getText().toString();
+                String mask = maskEditText.getText().toString();
+                String broker = brokerEditText.getText().toString();
+                //topic = mask + '/' + topic;
+                interact_devices.add(new Device("New Write Widget",mask, "" , broker, topic,true));
+                InteractFragment.dataNotify(read_devices);
+                Log.d("intereat_device" + interact_devices, "AddDevice");
+                Log.e("topic: " +topic,"ADD INTERACT");
+                Save();
+            }
+        });
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                // what ever you want to do with No option.
+            }
+        });
+        alert.show();
+    }
+
+    public void AddDevice() {
+        /*
         android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(this);
         alert.setMessage("Choose the widget type");
         alert.setTitle("New Widget");
@@ -185,7 +325,7 @@ public class MainActivity extends AppCompatActivity {
                 /*String url = "http://192.168.1.1";
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW);
                 browserIntent.setData(Uri.parse(url));
-                startActivity(browserIntent);*/
+                startActivity(browserIntent);*//*
                 interact_devices.add(new Device("New Switch Widget", "mario", "test.mosquitto.org", "banana", true));
                 InteractFragment.dataNotify(interact_devices);
                 Save();
@@ -203,7 +343,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         alert.show();
-
+    */
     }
 
     @Override

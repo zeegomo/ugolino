@@ -46,6 +46,8 @@ public class ReadFragment extends Fragment {
     public static ArrayList<Device> read_devices = MainActivity.read_devices;
 
     //Device visualizer
+    public static String topic;
+    public static String mask;
     public static ReadAdapter adapter;
     public static WebView webView;
     public static ListView listView;
@@ -65,80 +67,10 @@ public class ReadFragment extends Fragment {
         listView.setAdapter(adapter);
         instructionsTextView = (TextView) rootView.findViewById(R.id.instructions_textView);
 
-        final MqttAndroidClient mqttAndroidClient;
-        final String serverUri = "tcp://test.mosquitto.org:1883";
-        String clientId = "ExampleAndroidClient";
-        final String subscriptionTopic = "read_devices/#";
-        final String publishTopic = "banana";
-        final String publishMessage = "I'm alive";
-
-        mqttAndroidClient = new MqttAndroidClient(getContext(), serverUri, clientId);
-        mqttAndroidClient.setCallback(new MqttCallbackExtended() {
-            @Override
-            public void connectComplete(boolean reconnect, String serverURI) {
-
-            }
-
-            @Override
-            public void connectionLost(Throwable cause) {
-            }
-
-            @Override
-            public void messageArrived(String topic, MqttMessage message) throws Exception {
-                Log.e("MESSAGE ARRIVED" + message, "MESSAGE ARRIVED");
-                updateData(topic,message);
-                //mqttAndroidClient.publish(publishTopic,new MqttMessage(publishMessage.getBytes()));
-            }
-
-            @Override
-            public void deliveryComplete(IMqttDeliveryToken token) {
-
-            }
-        });
-
-        MqttConnectOptions mqttConnectOptions = new MqttConnectOptions();
-        mqttConnectOptions.setAutomaticReconnect(true);
-        mqttConnectOptions.setCleanSession(false);
-
-
-        try {
-            //addToHistory("Connecting to " + serverUri);
-            mqttAndroidClient.connect(mqttConnectOptions, null, new IMqttActionListener() {
-                @Override
-                public void onSuccess(IMqttToken asyncActionToken) {
-                    DisconnectedBufferOptions disconnectedBufferOptions = new DisconnectedBufferOptions();
-                    disconnectedBufferOptions.setBufferEnabled(true);
-                    disconnectedBufferOptions.setBufferSize(100);
-                    disconnectedBufferOptions.setPersistBuffer(false);
-                    disconnectedBufferOptions.setDeleteOldestMessages(false);
-                    mqttAndroidClient.setBufferOpts(disconnectedBufferOptions);
-                    try {
-                        mqttAndroidClient.subscribe(subscriptionTopic, 0);
-                    } catch (MqttException e){
-                        e.printStackTrace();
-                    }
-                }
-
-                @Override
-                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                }
-            });
-
-
-        } catch (MqttException ex) {
-            ex.printStackTrace();
-        }
         return rootView;
     }
 
-    void updateData(String topic, MqttMessage message){
-        int length = read_devices.size();
-        for(int i = 0; i < length; i++){
-            if(read_devices.get(i).getmRead_topic().equals(topic))
-                read_devices.get(i).setmRead(message.toString());
-        }
-        dataNotify(read_devices);
-    }
+
 
     public static void dataNotify(ArrayList<Device> device) {
         read_devices = MainActivity.read_devices;
