@@ -1,4 +1,4 @@
-package com.example.android.guittone;
+package com.example.android.ugolino;
 
 import android.util.Log;
 
@@ -110,8 +110,12 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
             sampleClient.connect(connOpts);
             MqttMessage message = new MqttMessage(content.getBytes());
             message.setQos(qos);
-
-            sampleClient.publish(mMask + '/' +mWrite_topic, message);
+            String topic;
+            if(mMask.equals(""))
+                topic = mWrite_topic;
+            else
+                topic = mMask + '/' + mWrite_topic;
+            sampleClient.publish(topic, message);
             sampleClient.disconnect();
         } catch (MqttException me) {
             me.printStackTrace();
@@ -132,8 +136,12 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
             sampleClient.connect(connOpts);
             MqttMessage message = new MqttMessage(content.getBytes());
             message.setQos(qos);
-
-            sampleClient.publish(mMask + '/' + mWrite_topic, message);
+            String topic;
+            if(mMask.equals(""))
+                topic = mWrite_topic;
+            else
+                topic = mMask + '/' + mWrite_topic;
+            sampleClient.publish(topic, message);
             sampleClient.disconnect();
         } catch (MqttException me) {
             me.printStackTrace();

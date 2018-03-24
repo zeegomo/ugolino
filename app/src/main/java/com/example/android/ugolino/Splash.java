@@ -1,4 +1,4 @@
-package com.example.android.guittone;
+package com.example.android.ugolino;
 
 import android.content.Intent;
 import android.os.Bundle;

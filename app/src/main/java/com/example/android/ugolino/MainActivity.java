@@ -1,4 +1,4 @@
-package com.example.android.guittone;
+package com.example.android.ugolino;
 
 
 import android.content.Context;
@@ -52,7 +52,7 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
-import static com.example.android.guittone.R.menu.toolbar;
+import static com.example.android.ugolino.R.menu.toolbar;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -171,7 +171,17 @@ public class MainActivity extends AppCompatActivity {
     void updateData(String topic, MqttMessage message){
         int length = read_devices.size();
         for(int i = 0; i < length; i++){
-            if((read_devices.get(i).getmMask() + '/' +read_devices.get(i).getmRead_topic()).equals(topic)) //TODO control if effective
+
+            String deviceTopic;
+            Device currentDevice = read_devices.get(i);
+            if(currentDevice.getmMask().equals(""))
+                deviceTopic = currentDevice.getmRead_topic();
+            else
+                deviceTopic = currentDevice.getmMask() + '/' + currentDevice.getmRead_topic();
+
+            Log.e("deviceTopic" + deviceTopic, "updateData");
+            Log.e("topic" + topic, "updateData");
+            if((deviceTopic).equals(topic)) //TODO control if effective
                 read_devices.get(i).setmRead(message.toString());
         }
         ReadFragment.dataNotify(read_devices);

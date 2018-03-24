@@ -1,4 +1,4 @@
-package com.example.android.guittone;
+package com.example.android.ugolino;
 
 /**
  * Created by ${Giacomo} on ${14/02/2017}
@@ -14,10 +14,10 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 /**
  * Provides the appropriate {@link Fragment} for a view pager.
  */
-class GuittoneFragmentPagerAdapter extends FragmentStatePagerAdapter {
+class UgolinoFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
     private String tabTitles[] = new String[]{"Interact", "Read"};
-    GuittoneFragmentPagerAdapter(FragmentManager fm) {
+    UgolinoFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 

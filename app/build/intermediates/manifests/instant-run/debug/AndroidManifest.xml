@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.didyoufeelit"
+    package="com.example.android.ugolino"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -24,15 +24,15 @@
         <service android:name="org.eclipse.paho.android.service.MqttService" />
 
         <activity
-            android:name="com.example.android.guittone.MainActivity"
+            android:name="com.example.android.ugolino.MainActivity"
             android:label="Ugolino" >
         </activity>
         <activity
-            android:name="com.example.android.guittone.DeviceActivity"
+            android:name="com.example.android.ugolino.DeviceActivity"
             android:label="Device"
-            android:parentActivityName="com.example.android.guittone.MainActivity" />
+            android:parentActivityName="com.example.android.ugolino.MainActivity" />
         <activity
-            android:name="com.example.android.guittone.Splash"
+            android:name="com.example.android.ugolino.Splash"
             android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,7 +43,7 @@
 
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"
-            android:authorities="com.example.android.didyoufeelit.com.android.tools.ir.server.InstantRunContentProvider"
+            android:authorities="com.example.android.ugolino.com.android.tools.ir.server.InstantRunContentProvider"
             android:multiprocess="true" />
     </application>
 

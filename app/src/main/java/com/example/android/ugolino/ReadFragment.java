@@ -1,4 +1,4 @@
-package com.example.android.guittone;
+package com.example.android.ugolino;
 
 /**
  * Created by Giacomo on 21/03/2018.
@@ -21,22 +21,34 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+import org.eclipse.paho.android.service.MqttAndroidClient;
+import org.eclipse.paho.client.mqttv3.DisconnectedBufferOptions;
+import org.eclipse.paho.client.mqttv3.IMqttActionListener;
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.IMqttToken;
+import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+
 import java.util.ArrayList;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class InteractFragment extends Fragment {
+public class ReadFragment extends Fragment {
 
-    public InteractFragment() {
+    public ReadFragment() {
         // Required empty public constructor
     }
 
-    public static ArrayList<Device> interact_devices = /*MainActivity.interact_devices*/new ArrayList<>();
+    public static ArrayList<Device> read_devices = MainActivity.read_devices;
 
     //Device visualizer
-    public static InteractAdapter adapter;
+    public static String topic;
+    public static String mask;
+    public static ReadAdapter adapter;
     public static WebView webView;
     public static ListView listView;
     public static TextView instructionsTextView;
@@ -50,7 +62,7 @@ public class InteractFragment extends Fragment {
 
         //View initialization
         webView = (WebView) rootView.findViewById(R.id.webview);
-        adapter = new InteractAdapter(getActivity(), interact_devices);
+        adapter = new ReadAdapter(getActivity(), read_devices);
         listView = (ListView) rootView.findViewById(R.id.list_item);
         listView.setAdapter(adapter);
         instructionsTextView = (TextView) rootView.findViewById(R.id.instructions_textView);
@@ -58,33 +70,36 @@ public class InteractFragment extends Fragment {
         return rootView;
     }
 
+
+
     public static void dataNotify(ArrayList<Device> device) {
-        interact_devices = device;
+        read_devices = MainActivity.read_devices;
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        Log.e("notify", "InteractFrament");
-        Log.e("interact_device" + interact_devices, "InteractFrament");
-        Log.e("interact_devices size: " + interact_devices.size(), "InteractFrament");
+        Log.e("notify", "ReadFrament");
+        Log.e("read_device" + read_devices, "ReadFrament");
+        Log.e("read_devices size: " + read_devices.size(), "ReadFrament");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        //dataNotify(interact_devices);
-        interact_devices = MainActivity.interact_devices;
-        adapter = new InteractAdapter(getActivity(), interact_devices);
-        //ListView listView = (ListView) getActivity().findViewById(R.id.list_item);
+        //dataNotify(MainActivity.read_devices);
+        read_devices = MainActivity.read_devices;
+        adapter = new ReadAdapter(getActivity(), read_devices);
         listView.setClickable(true);
         listView.setAdapter(adapter);
 
         adapter.notifyDataSetChanged();
         listView.requestFocus();
-        if (interact_devices.size() > 0) {
+        if (read_devices.size() > 0) {
             listView.setVisibility(View.VISIBLE);
             instructionsTextView.setVisibility(View.GONE);
         } else {
             listView.setVisibility(View.GONE);
             instructionsTextView.setVisibility(View.VISIBLE);
         }
+
     }
+
 }
