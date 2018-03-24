@@ -40,17 +40,22 @@
         android:layout_below="@id/device_name_activity"
         android:layout_centerHorizontal="true">
 
-        <Button
+        <ImageView
+            android:layout_margin="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:id="@+id/delete_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Delete" />
+            android:src="@drawable/ic_delete_black_24dp"/>
 
-        <Button
-            android:id="@+id/modify_button"
+        <ImageView
+            android:layout_margin="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rename" />
+            android:layout_gravity="center"
+            android:id="@+id/modify_button"
+            android:src="@drawable/ic_create_black_24dp"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -66,22 +71,23 @@
             android:paddingRight="24dp"
             android:id="@+id/topic_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:gravity="center"
+            android:layout_height="48dp">
 
             <TextView
                 android:gravity="center"
                 android:id="@+id/topic"
-                android:layout_weight="1"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:hint="topic"/>
 
-            <Button
-                android:id="@+id/topic_change_button"
+            <ImageView
+                android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Change" />
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:id="@+id/topic_change_button"
+                android:src="@drawable/ic_create_black_24dp"/>
 
 
         </LinearLayout>
@@ -91,22 +97,23 @@
             android:paddingRight="24dp"
             android:id="@+id/mask_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true">
+            android:layout_height="48dp"
+            android:gravity="center">
 
             <TextView
                 android:gravity="center"
                 android:id="@+id/mask"
-                android:layout_weight="1"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:hint="mask"/>
 
-            <Button
-                android:id="@+id/mask_change_button"
+            <ImageView
+                android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Change" />
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:id="@+id/mask_change_button"
+                android:src="@drawable/ic_create_black_24dp"/>
 
 
         </LinearLayout>
@@ -116,22 +123,23 @@
             android:paddingRight="24dp"
             android:id="@+id/broker_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true">
+            android:layout_height="48dp"
+            android:gravity="center">
 
             <TextView
                 android:gravity="center"
                 android:id="@+id/broker"
-                android:layout_weight="1"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:hint="broker"/>
 
-            <Button
-                android:id="@+id/broker_change_button"
+            <ImageView
+                android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Change" />
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:id="@+id/broker_change_button"
+                android:src="@drawable/ic_create_black_24dp"/>
 
 
         </LinearLayout>

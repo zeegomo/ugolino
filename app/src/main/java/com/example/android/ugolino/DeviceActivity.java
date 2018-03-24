@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.google.gson.Gson;
 
@@ -67,7 +68,7 @@ public class DeviceActivity extends AppCompatActivity {
 
 
         //Delete Device
-        Button deleteButton = (Button) findViewById(R.id.delete_button);
+        ImageView deleteButton = (ImageView) findViewById(R.id.delete_button);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers View is clicked on.
             @Override
@@ -96,7 +97,7 @@ public class DeviceActivity extends AppCompatActivity {
 
 
         //Change Device Name
-        Button modifyButton = (Button) findViewById(R.id.modify_button);
+        ImageView modifyButton = (ImageView) findViewById(R.id.modify_button);
         modifyButton.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers View is clicked on.
             @Override
@@ -126,7 +127,7 @@ public class DeviceActivity extends AppCompatActivity {
         });
 
         //Change Device Topicx
-        final Button topicButton = (Button) findViewById(R.id.topic_change_button);
+        final ImageView topicButton = (ImageView) findViewById(R.id.topic_change_button);
         topicButton.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers View is clicked on.
             @Override
@@ -162,7 +163,7 @@ public class DeviceActivity extends AppCompatActivity {
         });
 
         //Change Device Mask
-        final Button maskButton = (Button) findViewById(R.id.mask_change_button);
+        final ImageView maskButton = (ImageView) findViewById(R.id.mask_change_button);
         maskButton.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers View is clicked on.
             @Override
@@ -193,7 +194,7 @@ public class DeviceActivity extends AppCompatActivity {
 
 
         //Change Device Broker
-        final Button brokerButton = (Button) findViewById(R.id.broker_change_button);
+        final ImageView brokerButton = (ImageView) findViewById(R.id.broker_change_button);
         brokerButton.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers View is clicked on.
             @Override

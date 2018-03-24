@@ -10,7 +10,7 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     android:descendantFocusability="blocksDescendants"
-    tools:context="com.example.android.guittone.MainActivity">
+    tools:context="com.example.android.ugolino.MainActivity">
 
 
     <WebView
