@@ -76,18 +76,12 @@
 
             <TextView
                 android:gravity="center"
+                android:focusable="true"
+                android:clickable="true"
                 android:id="@+id/topic"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:hint="topic"/>
-
-            <ImageView
-                android:layout_marginLeft="16dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:id="@+id/topic_change_button"
-                android:src="@drawable/ic_create_black_24dp"/>
 
 
         </LinearLayout>
@@ -102,18 +96,12 @@
 
             <TextView
                 android:gravity="center"
+                android:focusable="true"
+                android:clickable="true"
                 android:id="@+id/mask"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:hint="mask"/>
-
-            <ImageView
-                android:layout_marginLeft="16dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:id="@+id/mask_change_button"
-                android:src="@drawable/ic_create_black_24dp"/>
 
 
         </LinearLayout>
@@ -131,15 +119,11 @@
                 android:id="@+id/broker"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:focusable="true"
+                android:clickable="true"
                 android:hint="broker"/>
 
-            <ImageView
-                android:layout_marginLeft="16dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:id="@+id/broker_change_button"
-                android:src="@drawable/ic_create_black_24dp"/>
+
 
 
         </LinearLayout>

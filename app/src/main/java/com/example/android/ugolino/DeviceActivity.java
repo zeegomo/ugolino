@@ -9,6 +9,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -127,13 +128,13 @@ public class DeviceActivity extends AppCompatActivity {
         });
 
         //Change Device Topicx
-        final ImageView topicButton = (ImageView) findViewById(R.id.topic_change_button);
-        topicButton.setOnClickListener(new View.OnClickListener() {
+        topicTextView.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers View is clicked on.
             @Override
             public void onClick(View view) {
                 android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(DeviceActivity.this);
                 final EditText edittext = new EditText(DeviceActivity.this);
+                edittext.setGravity(Gravity.CENTER);
                 alert.setMessage("Enter new Topic");
                 alert.setTitle("Change Topic");
                 alert.setView(edittext);
@@ -163,13 +164,13 @@ public class DeviceActivity extends AppCompatActivity {
         });
 
         //Change Device Mask
-        final ImageView maskButton = (ImageView) findViewById(R.id.mask_change_button);
-        maskButton.setOnClickListener(new View.OnClickListener() {
+        maskTextView.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers View is clicked on.
             @Override
             public void onClick(View view) {
                 android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(DeviceActivity.this);
                 final EditText edittext = new EditText(DeviceActivity.this);
+                edittext.setGravity(Gravity.CENTER);
                 alert.setMessage("Enter new Mask");
                 alert.setTitle("Change Mask");
                 alert.setView(edittext);
@@ -194,13 +195,14 @@ public class DeviceActivity extends AppCompatActivity {
 
 
         //Change Device Broker
-        final ImageView brokerButton = (ImageView) findViewById(R.id.broker_change_button);
-        brokerButton.setOnClickListener(new View.OnClickListener() {
+
+        brokerTextView.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers View is clicked on.
             @Override
             public void onClick(View view) {
                 android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(DeviceActivity.this);
                 final EditText edittext = new EditText(DeviceActivity.this);
+                edittext.setGravity(Gravity.CENTER);
                 alert.setMessage("Enter new Broker");
                 alert.setTitle("Change Broker");
                 alert.setView(edittext);
