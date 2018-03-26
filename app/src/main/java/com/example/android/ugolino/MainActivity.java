@@ -300,10 +300,11 @@ public class MainActivity extends AppCompatActivity {
                 String broker = brokerEditText.getText().toString();
                 //topic = mask + '/' + topic;
                 interact_devices.add(new Device("New Write Widget",mask, "" , broker, topic,true));
-                InteractFragment.dataNotify(read_devices);
+                Save();
+                InteractFragment.dataNotify(interact_devices);
                 Log.d("intereat_device" + interact_devices, "AddDevice");
                 Log.e("topic: " +topic,"ADD INTERACT");
-                Save();
+
             }
         });
 
