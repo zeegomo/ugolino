@@ -190,9 +190,8 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_add_switch:
                 AddWriteDevice();
-                //AddDevice();
-                //InteractFragment.dataNotify(interact_devices);
-                //ReadFragment.dataNotify(read_devices);
+                reload();
+                InteractFragment.dataNotify(interact_devices);
                 return true;
 
             case R.id.action_info:
@@ -201,6 +200,8 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.action_add_read:
                 AddReadDevice();
+                reload();
+                ReadFragment.dataNotify(read_devices);
 
             case R.id.power:
 
@@ -315,43 +316,34 @@ public class MainActivity extends AppCompatActivity {
         });
         alert.show();
     }
-
-    public void AddDevice() {
-        /*
-        android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(this);
-        alert.setMessage("Choose the widget type");
-        alert.setTitle("New Widget");
-
-        alert.setPositiveButton("Switch", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                /*String url = "http://192.168.1.1";
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW);
-                browserIntent.setData(Uri.parse(url));
-                startActivity(browserIntent);*//*
-                interact_devices.add(new Device("New Switch Widget", "mario", "test.mosquitto.org", "banana", true));
-                InteractFragment.dataNotify(interact_devices);
-                Save();
-                Log.d("interact_device" + interact_devices, "AddDevice");
-            }
-        });
-
-        alert.setNegativeButton("Read", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                // what ever you want to do with No option.
-                read_devices.add(new Device("New Read Widget", "read_devices", "test.mosquitto.org", "banana", false));
-                ReadFragment.dataNotify(read_devices);
-                Log.d("read_device" + read_devices, "AddDevice");
-                Save();
-            }
-        });
-        alert.show();
-    */
-    }
-
     @Override
     protected void onPause() {
         Save();
         super.onPause();
+    }
+
+    public void reload(){
+        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        Gson gson = new Gson();
+
+        //Loading interact_devices from memory
+        String interact_json = appSharedPrefs.getString("interact_devices", "");
+        interact_devices.clear();
+        if (interact_json.equals("")) {
+        } else {
+            interact_devices = gson.fromJson(interact_json, new TypeToken<ArrayList<Device>>() {
+            }.getType());
+        }
+        Log.e("interact_size: " + interact_devices.size(), "MainActivity");
+        //Loading read_devices from memory
+        String read_json = appSharedPrefs.getString("read_devices", "");
+        read_devices.clear();
+        if (read_json.equals("")) {
+        } else {
+            read_devices = gson.fromJson(read_json, new TypeToken<ArrayList<Device>>() {
+            }.getType());
+        }
+        Log.e("read_size: " + read_devices.size(), "MainActivity");
     }
 
     public void Save() {
