@@ -20,7 +20,6 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -33,14 +32,11 @@ import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.DisconnectedBufferOptions;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
-import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
-import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import java.util.ArrayList;
 
 import static com.example.android.ugolino.R.menu.toolbar;
@@ -91,14 +87,14 @@ public class MainActivity extends AppCompatActivity {
         webView = (WebView) findViewById(R.id.webview);
 
         //MQTT Callback
-
+        MqttThread mqtt = new MqttThread("tcp://test.mosquitto.org",getApplicationContext(),"");
+        mqtt.start();
+        /*
         final MqttAndroidClient mqttAndroidClient;
         final String serverUri = "tcp://test.mosquitto.org:1883";
         String clientId = "ExampleAndroidClient";
         final String subscriptionTopic = "read_devices/#";
-        final String publishTopic = "banana";
-        final String publishMessage = "I'm alive";
-        String topic = "read_devices";
+
 
         mqttAndroidClient = new MqttAndroidClient(getApplicationContext(), serverUri, clientId);
         mqttAndroidClient.setCallback(new MqttCallbackExtended() {
@@ -155,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
         } catch (MqttException ex) {
             ex.printStackTrace();
-        }
+        }*/
 
     }
 
