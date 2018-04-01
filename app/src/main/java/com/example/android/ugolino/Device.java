@@ -1,7 +1,14 @@
 package com.example.android.ugolino;
 
+import android.content.Context;
 import android.util.Log;
 
+import org.eclipse.paho.android.service.MqttAndroidClient;
+import org.eclipse.paho.client.mqttv3.DisconnectedBufferOptions;
+import org.eclipse.paho.client.mqttv3.IMqttActionListener;
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.IMqttToken;
+import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -96,7 +103,6 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
     void setmMask(String mask){mMask = mask;
     }
-
     public void on() {
         int qos = 0;
         String clientId = "paho-java-client";

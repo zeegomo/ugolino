@@ -24,7 +24,6 @@ import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -34,9 +33,12 @@ import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
+import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+
 import java.util.ArrayList;
 
 import static com.example.android.ugolino.R.menu.toolbar;
@@ -44,11 +46,12 @@ import static com.example.android.ugolino.R.menu.toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
-    //List of devices meant to send data to Arduino
+    //List of devices meant to send data
     public static ArrayList<Device> interact_devices = new ArrayList<>();
-    //List of devices meant to retrieve data from Arduino
+    //List of devices meant to retrieve data
     public static ArrayList<Device> read_devices = new ArrayList<>();
     public static WebView webView;
+    public static MqttHandler mqttHandler;
 
 
     @Override
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         myToolbar.setTitleTextAppearance(getApplicationContext(), R.style.MyTitleTextAppearance);
         setSupportActionBar(myToolbar);
 
+        mqttHandler = new MqttHandler(getApplicationContext());
         //Save();
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         UgolinoFragmentPagerAdapter gadapter = new UgolinoFragmentPagerAdapter(getSupportFragmentManager());
@@ -83,77 +87,17 @@ public class MainActivity extends AppCompatActivity {
             read_devices = gson.fromJson(json_interact, new TypeToken<ArrayList<Device>>() {
             }.getType());
         }
+
+        //MqttThread mqtt = new MqttThread("test.mosquitto.org",getApplicationContext(), "read_devices");
+        //mqtt.connect();
+
+
+
+        //mqttHandler.updateConnections();
         //View initialization
         webView = (WebView) findViewById(R.id.webview);
-
-        //MQTT Callback
-        MqttThread mqtt = new MqttThread("tcp://test.mosquitto.org",getApplicationContext(),"");
-        mqtt.start();
-        /*
-        final MqttAndroidClient mqttAndroidClient;
-        final String serverUri = "tcp://test.mosquitto.org:1883";
-        String clientId = "ExampleAndroidClient";
-        final String subscriptionTopic = "read_devices/#";
-
-
-        mqttAndroidClient = new MqttAndroidClient(getApplicationContext(), serverUri, clientId);
-        mqttAndroidClient.setCallback(new MqttCallbackExtended() {
-            @Override
-            public void connectComplete(boolean reconnect, String serverURI) {
-
-            }
-
-            @Override
-            public void connectionLost(Throwable cause) {
-            }
-
-            @Override
-            public void messageArrived(String topic, MqttMessage message) throws Exception {
-                Log.e("MESSAGE ARRIVED" + message, "MESSAGE ARRIVED");
-                updateData(topic,message);
-                //mqttAndroidClient.publish(publishTopic,new MqttMessage(publishMessage.getBytes()));
-            }
-
-            @Override
-            public void deliveryComplete(IMqttDeliveryToken token) {
-
-            }
-        });
-
-        MqttConnectOptions mqttConnectOptions = new MqttConnectOptions();
-        mqttConnectOptions.setAutomaticReconnect(true);
-        mqttConnectOptions.setCleanSession(false);
-
-
-        try {
-            //addToHistory("Connecting to " + serverUri);
-            mqttAndroidClient.connect(mqttConnectOptions, null, new IMqttActionListener() {
-                @Override
-                public void onSuccess(IMqttToken asyncActionToken) {
-                    DisconnectedBufferOptions disconnectedBufferOptions = new DisconnectedBufferOptions();
-                    disconnectedBufferOptions.setBufferEnabled(true);
-                    disconnectedBufferOptions.setBufferSize(100);
-                    disconnectedBufferOptions.setPersistBuffer(false);
-                    disconnectedBufferOptions.setDeleteOldestMessages(false);
-                    mqttAndroidClient.setBufferOpts(disconnectedBufferOptions);
-                    try {
-                        mqttAndroidClient.subscribe(subscriptionTopic, 0);
-                    } catch (MqttException e){
-                        e.printStackTrace();
-                    }
-                }
-
-                @Override
-                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                }
-            });
-
-
-        } catch (MqttException ex) {
-            ex.printStackTrace();
-        }*/
-
     }
+
 
     void updateData(String topic, MqttMessage message){
         int length = read_devices.size();
@@ -171,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
             if((deviceTopic).equals(topic)) //TODO control if effective
                 read_devices.get(i).setmRead(message.toString());
         }
+        mqttHandler.updateConnections();
         ReadFragment.dataNotify(read_devices);
     }
 
@@ -248,6 +193,7 @@ public class MainActivity extends AppCompatActivity {
                 ReadFragment.dataNotify(read_devices);
                 Log.d("read_device" + read_devices, "AddDevice");
                 Log.e("server: " +topic,"ADD READ");
+                mqttHandler.addConnection(broker, mask);
                 Save();
             }
         });
@@ -339,6 +285,7 @@ public class MainActivity extends AppCompatActivity {
             read_devices = gson.fromJson(read_json, new TypeToken<ArrayList<Device>>() {
             }.getType());
         }
+        mqttHandler.updateConnections();
         Log.e("read_size: " + read_devices.size(), "MainActivity");
     }
 
@@ -388,8 +335,14 @@ public class MainActivity extends AppCompatActivity {
             }.getType());
         }
         Log.e("read_size: " + read_devices.size(), "MainActivity");
+        mqttHandler.updateConnections();
+        //mqttHandler.init();
         //InteractFragment.dataNotify(interact_devices);
         //ReadFragment.dataNotify(read_devices);
+        for(int i = 0; i < mqttHandler.getSize(); i++){
+            Log.e("mqttHandler: " + mqttHandler.connections.get(i).getBroker() + mqttHandler.connections.get(i).getMask(),"Main Activity");
+
+        }
     }
 
     private boolean isNetworkAvailable() {

@@ -8,6 +8,7 @@ import org.eclipse.paho.client.mqttv3.DisconnectedBufferOptions;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
+import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -19,40 +20,59 @@ import static com.example.android.ugolino.MainActivity.read_devices;
  * Created by zeegomo on 27/03/18.
  */
 
-public class MqttThread extends Thread {
+public class MqttThread{
     private String broker;
     private String id = "ugolino";
     private String mask;
     private Context context;
+    private MqttAndroidClient mqttAndroidClient;
 
-    MqttThread(String broker, Context context, String mask) {
+    MqttThread(String broker, Context context, String mMask) {
         this.broker = broker;
         this.context = context;
-        if (mask.equals(""))
-            this.mask = "#";
-        else
-            this.mask = mask;
+        this.mask = mMask;
+        this.mask = mMask;
+        mqttAndroidClient =  new MqttAndroidClient(context, "tcp://" + broker, "id");
     }
 
-    public void run() {
+    String getBroker(){
+        return this.broker;
+    }
 
-        final MqttAndroidClient mqttAndroidClient;
-        mqttAndroidClient = new MqttAndroidClient(context, broker, id);
-        mqttAndroidClient.setCallback(new MqttCallbackExtended() {
-            @Override
-            public void connectComplete(boolean reconnect, String serverURI) {
+    String getMask(){
+        return  this.mask;
+    }
 
-            }
+    boolean isConnected(){
+        return  mqttAndroidClient.isConnected();
+    }
 
+
+    void close(){
+        try{
+        mqttAndroidClient.disconnect();
+        //mqttAndroidClient.close();
+        }catch (MqttException e){
+            e.printStackTrace();
+        }
+    }
+
+    void connect(){
+        final String mMask;
+        if (this.mask.equals(""))
+            mMask = "#";
+        else
+            mMask = this.mask + "/#";
+        mqttAndroidClient.setCallback(new MqttCallback() {
             @Override
             public void connectionLost(Throwable cause) {
+
             }
 
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
-                Log.e("MESSAGE ARRIVED" + message, "MESSAGE ARRIVED");
-                updateData(topic, message);
-                //mqttAndroidClient.publish(publishTopic,new MqttMessage(publishMessage.getBytes()));
+                Log.e("Message arrived","mqtt thread");
+                //updateData(topic, message);
             }
 
             @Override
@@ -61,14 +81,8 @@ public class MqttThread extends Thread {
             }
         });
 
-        MqttConnectOptions mqttConnectOptions = new MqttConnectOptions();
-        mqttConnectOptions.setAutomaticReconnect(true);
-        mqttConnectOptions.setCleanSession(false);
-
-
-        try {
-            //addToHistory("Connecting to " + serverUri);
-            mqttAndroidClient.connect(mqttConnectOptions, null, new IMqttActionListener() {
+        try{
+            mqttAndroidClient.connect(new MqttConnectOptions(), null, new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
                     DisconnectedBufferOptions disconnectedBufferOptions = new DisconnectedBufferOptions();
@@ -78,7 +92,9 @@ public class MqttThread extends Thread {
                     disconnectedBufferOptions.setDeleteOldestMessages(false);
                     mqttAndroidClient.setBufferOpts(disconnectedBufferOptions);
                     try {
-                        mqttAndroidClient.subscribe(mask, 0);
+                        //Log.e("MASK:" +mask, "MQTT_THREAD");
+                        //Log.e("MASK:" +mqttAndroidClient.getServerURI(), "MQTT_THREAD");
+                        mqttAndroidClient.subscribe(mMask, 0);
                     } catch (MqttException e) {
                         e.printStackTrace();
                     }
@@ -88,13 +104,11 @@ public class MqttThread extends Thread {
                 public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
                 }
             });
-
-
-        } catch (MqttException ex) {
-            ex.printStackTrace();
+        }catch(MqttException e){
+            e.printStackTrace();
         }
-
     }
+
 
 
     void updateData(String topic, MqttMessage message) {

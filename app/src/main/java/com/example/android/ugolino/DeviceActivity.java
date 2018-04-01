@@ -27,6 +27,7 @@ import java.util.ArrayList;
 
 public class DeviceActivity extends AppCompatActivity {
 
+    MqttHandler mqttHandler = MainActivity.mqttHandler;
     ArrayList<Device> devices = new ArrayList<>();
     int position = 0;
     @Override
@@ -127,7 +128,7 @@ public class DeviceActivity extends AppCompatActivity {
             }
         });
 
-        //Change Device Topicx
+        //Change Device Topic
         topicTextView.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers View is clicked on.
             @Override
@@ -149,6 +150,7 @@ public class DeviceActivity extends AppCompatActivity {
                         }else {
                             devices.get(position).setmRead_topic(topic);
                             topicTextView.setText(devices.get(position).getmRead_topic());
+
                         }
                         Save(type);
                     }
@@ -180,6 +182,7 @@ public class DeviceActivity extends AppCompatActivity {
                         String mask = edittext.getText().toString();
                         devices.get(position).setmMask(mask);
                         maskTextView.setText(devices.get(position).getmMask());
+                        mqttHandler.updateConnections();
                         Save(type);
                     }
                 });
@@ -212,6 +215,7 @@ public class DeviceActivity extends AppCompatActivity {
                         String broker = edittext.getText().toString();
                         devices.get(position).setmBroker(broker);
                         brokerTextView.setText(devices.get(position).getmBroker());
+                        mqttHandler.updateConnections();
                         Save(type);
                     }
                 });
