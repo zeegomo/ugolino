@@ -3,12 +3,9 @@ package com.example.android.ugolino;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -26,19 +23,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import org.eclipse.paho.android.service.MqttAndroidClient;
-import org.eclipse.paho.client.mqttv3.DisconnectedBufferOptions;
-import org.eclipse.paho.client.mqttv3.IMqttActionListener;
-import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
-import org.eclipse.paho.client.mqttv3.IMqttToken;
-import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
-import org.eclipse.paho.client.mqttv3.MqttClient;
-import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
-import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
-
 import java.util.ArrayList;
 
 import static com.example.android.ugolino.R.menu.toolbar;
@@ -74,17 +58,15 @@ public class MainActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String json_interact = appSharedPrefs.getString("interact_devices", "");
         interact_devices.clear();
-        if (json_interact.equals("")) {
-        } else {
+        if (!json_interact.equals("")) {
             interact_devices = gson.fromJson(json_interact, new TypeToken<ArrayList<Device>>() {
             }.getType());
         }
 
         String json_read = appSharedPrefs.getString("read_devices", "");
         read_devices.clear();
-        if (json_interact.equals("")) {
-        } else {
-            read_devices = gson.fromJson(json_interact, new TypeToken<ArrayList<Device>>() {
+        if (!json_interact.equals("")) {
+            read_devices = gson.fromJson(json_read, new TypeToken<ArrayList<Device>>() {
             }.getType());
         }
 
@@ -98,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         webView = (WebView) findViewById(R.id.webview);
     }
 
-
+    /*
     void updateData(String topic, MqttMessage message){
         int length = read_devices.size();
         for(int i = 0; i < length; i++){
@@ -116,8 +98,8 @@ public class MainActivity extends AppCompatActivity {
                 read_devices.get(i).setmRead(message.toString());
         }
         mqttHandler.updateConnections();
-        ReadFragment.dataNotify(read_devices);
-    }
+        ReadFragment.dataNotify();
+    }*/
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -141,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.action_add_read:
                 AddReadDevice();
-                reload();
+                //reload();
                 ReadFragment.dataNotify(read_devices);
 
             case R.id.power:
@@ -271,8 +253,7 @@ public class MainActivity extends AppCompatActivity {
         //Loading interact_devices from memory
         String interact_json = appSharedPrefs.getString("interact_devices", "");
         interact_devices.clear();
-        if (interact_json.equals("")) {
-        } else {
+        if (!interact_json.equals("")) {
             interact_devices = gson.fromJson(interact_json, new TypeToken<ArrayList<Device>>() {
             }.getType());
         }
@@ -280,8 +261,7 @@ public class MainActivity extends AppCompatActivity {
         //Loading read_devices from memory
         String read_json = appSharedPrefs.getString("read_devices", "");
         read_devices.clear();
-        if (read_json.equals("")) {
-        } else {
+        if (!read_json.equals("")) {
             read_devices = gson.fromJson(read_json, new TypeToken<ArrayList<Device>>() {
             }.getType());
         }
@@ -320,8 +300,7 @@ public class MainActivity extends AppCompatActivity {
         //Loading interact_devices from memory
         String interact_json = appSharedPrefs.getString("interact_devices", "");
         interact_devices.clear();
-        if (interact_json.equals("")) {
-        } else {
+        if (!interact_json.equals("")) {
             interact_devices = gson.fromJson(interact_json, new TypeToken<ArrayList<Device>>() {
             }.getType());
         }
@@ -329,8 +308,7 @@ public class MainActivity extends AppCompatActivity {
         //Loading read_devices from memory
         String read_json = appSharedPrefs.getString("read_devices", "");
         read_devices.clear();
-        if (read_json.equals("")) {
-        } else {
+        if (!read_json.equals("")) {
             read_devices = gson.fromJson(read_json, new TypeToken<ArrayList<Device>>() {
             }.getType());
         }

@@ -1,9 +1,5 @@
 package com.example.android.ugolino;
 
-/**
- * Created by ${Giacomo} on ${14/02/2017}
- */
-
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

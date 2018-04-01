@@ -4,29 +4,26 @@ import android.content.Context;
 
 import java.util.ArrayList;
 
-/**
- * Created by Giacomo on 01/04/2018.
- */
 
-public class MqttHandler {
+class MqttHandler {
     ArrayList<MqttThread> connections = new ArrayList<>();
     private Context context;
-    private boolean found;
 
     MqttHandler(Context mContext){
         this.context = mContext;
     }
 
+    /*
     void init(){
         for(int i = 0; i < connections.size(); i++)
             if(!connections.get(i).isConnected())
                 connections.get(i).connect();
-    }
+    }*/
 
     int getSize(){return connections.size();}
 
     void addConnection(String broker, String mask) {
-        found = false;
+        boolean found = false;
         int size = connections.size();
         for (int i = 0; i < size && !found; i++) {
             if (broker.equals(connections.get(i).getBroker()) && mask.equals(connections.get(i).getMask()))
@@ -38,6 +35,7 @@ public class MqttHandler {
         }
     }
 
+    /*
     void removeConnection(String broker, String mask) {
         int size = connections.size();
         for (int i = 0; i < size && !found; i++) {
@@ -46,7 +44,7 @@ public class MqttHandler {
                 connections.remove(i);
             }
         }
-    }
+    }*/
 
     private boolean search(MqttThread mqtt, ArrayList<String>  broker, ArrayList<String> mask){
         for(int i = 0; i < broker.size(); i++)
