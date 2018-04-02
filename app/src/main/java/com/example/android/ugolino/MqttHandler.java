@@ -9,7 +9,7 @@ class MqttHandler {
     ArrayList<MqttThread> connections = new ArrayList<>();
     private Context context;
 
-    MqttHandler(Context mContext){
+    MqttHandler(Context mContext) {
         this.context = mContext;
     }
 
@@ -20,7 +20,9 @@ class MqttHandler {
                 connections.get(i).connect();
     }*/
 
-    int getSize(){return connections.size();}
+    int getSize() {
+        return connections.size();
+    }
 
     void addConnection(String broker, String mask) {
         boolean found = false;
@@ -32,6 +34,20 @@ class MqttHandler {
         if (!found) {
             connections.add(new MqttThread(broker, context, mask));
             connections.get(size).connect();
+            if(connections.get(size).isConnected())
+                updateReadDeviceStatus(broker, mask, true);
+        }
+    }
+
+    private void updateReadDeviceStatus(String broker, String mask, boolean on) {
+        ArrayList<Device> devices = MainActivity.read_devices;
+        for (int i = 0; i < devices.size(); i++) {
+            if (devices.get(i).getmBroker().equals(broker) && devices.get(i).getmMask().equals(mask)) {
+                if (on)
+                    devices.get(i).setmStatus(true);
+                else
+                    devices.get(i).setmStatus(false);
+            }
         }
     }
 
@@ -46,43 +62,43 @@ class MqttHandler {
         }
     }*/
 
-    private boolean search(MqttThread mqtt, ArrayList<String>  broker, ArrayList<String> mask){
-        for(int i = 0; i < broker.size(); i++)
+    private boolean search(MqttThread mqtt, ArrayList<String> broker, ArrayList<String> mask) {
+        for (int i = 0; i < broker.size(); i++)
             if (mqtt.getBroker().equals(broker.get(i)) && mqtt.getMask().equals(mask.get(i)))
                 return true;
 
         return false;
     }
 
-    private  ArrayList<String> getBrokers(){
+    private ArrayList<String> getBrokers() {
         ArrayList<Device> devices = MainActivity.read_devices;
         ArrayList<String> broker = new ArrayList<>();
-        for(int i = 0; i < devices.size(); i++){
+        for (int i = 0; i < devices.size(); i++) {
             broker.add(devices.get(i).getmBroker());
         }
         return broker;
     }
 
 
-    private  ArrayList<String> getMasks(){
+    private ArrayList<String> getMasks() {
         ArrayList<Device> devices = MainActivity.read_devices;
         ArrayList<String> masks = new ArrayList<>();
-        for(int i = 0; i < devices.size(); i++){
+        for (int i = 0; i < devices.size(); i++) {
             masks.add(devices.get(i).getmMask());
         }
         return masks;
     }
 
-    void updateConnections(){
-        ArrayList<String> broker =  getBrokers();
-        ArrayList<String> mask =  getMasks();
+    void updateConnections() {
+        ArrayList<String> broker = getBrokers();
+        ArrayList<String> mask = getMasks();
 
-        for(int i = 0; i < broker.size(); i++){
+        for (int i = 0; i < broker.size(); i++) {
             addConnection(broker.get(i), mask.get(i));
         }
 
-        for(int i = 0; i < connections.size(); i++){
-            if(!search(connections.get(i), broker, mask)){
+        for (int i = 0; i < connections.size(); i++) {
+            if (!search(connections.get(i), broker, mask)) {
                 connections.get(i).close();
                 connections.remove(i);
             }

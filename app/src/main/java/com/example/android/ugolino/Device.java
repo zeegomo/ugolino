@@ -75,7 +75,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
         mName = name;
     }
 
-    private void setmStatus(Boolean status) {
+    void setmStatus(Boolean status) {
         mStatus = status;
     }
 

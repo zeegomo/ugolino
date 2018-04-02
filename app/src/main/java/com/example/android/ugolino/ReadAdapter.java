@@ -46,9 +46,14 @@ public class ReadAdapter extends ArrayAdapter<Device> {
         currentDevice = devices.get(position);
         //final String OnUrl = currentDevice.getOnUrl();
         //final String OffUrl = currentDevice.getOffUrl();
+        ImageView statusImageView = (ImageView) listItemView.findViewById(R.id.status_image);
         Switch statusSwitch = (Switch) listItemView.findViewById(R.id.on_switch);
         TextView readTextView = (TextView) listItemView.findViewById(R.id.read_value);
 
+        if(currentDevice.getmStatus())
+            statusImageView.setImageResource(R.drawable.ic_brightness_1_red_24dp);
+        else
+            statusImageView.setImageResource(R.drawable.ic_brightness_1_black_24dp);
         statusSwitch.setVisibility(GONE);
         readTextView.setText(currentDevice.getmRead());
 
