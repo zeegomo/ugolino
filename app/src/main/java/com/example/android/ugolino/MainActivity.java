@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_add_switch:
                 AddWriteDevice();
-                reload();
+                //reload();
                 InteractFragment.dataNotify(interact_devices);
                 return true;
 
