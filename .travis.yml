@@ -20,3 +20,5 @@ android:
     #- junit:junit:4.12
     #- org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0
     #- org.eclipse.paho:org.eclipse.paho.android.service:1.1.1
+    - extra-google-m2repository
+    - extra-android-m2repository
