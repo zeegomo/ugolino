@@ -22,3 +22,5 @@ android:
     #- org.eclipse.paho:org.eclipse.paho.android.service:1.1.1
     - extra-google-m2repository
     - extra-android-m2repository
+
+--info
