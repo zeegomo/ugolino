@@ -80,5 +80,6 @@ public class ReadAdapter extends ArrayAdapter<Device> {
         return listItemView;
 
     }
+
 }
 

@@ -11,6 +11,9 @@ import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+
+import java.util.ArrayList;
+
 import static com.example.android.ugolino.MainActivity.read_devices;
 
 
@@ -74,6 +77,7 @@ class MqttThread{
         });
 
         try{
+
             mqttAndroidClient.connect(new MqttConnectOptions(), null, new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
@@ -85,16 +89,20 @@ class MqttThread{
                     mqttAndroidClient.setBufferOpts(disconnectedBufferOptions);
                     try {
                         mqttAndroidClient.subscribe(mMask, 0);
+                        updateReadDeviceStatus(broker, mask, true);
                     } catch (MqttException e) {
                         e.printStackTrace();
+                        updateReadDeviceStatus(broker, mask, false);
                     }
                 }
 
                 @Override
                 public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                    updateReadDeviceStatus(broker, mask, false);
                 }
             });
         }catch(MqttException e){
+
             e.printStackTrace();
         }
     }
@@ -118,6 +126,19 @@ class MqttThread{
                 read_devices.get(i).setmRead(message.toString());
         }
         ReadFragment.dataNotify(read_devices);
+    }
+
+    private void updateReadDeviceStatus(String broker, String mask, boolean on) {
+        ArrayList<Device> devices = MainActivity.read_devices;
+        for (int i = 0; i < devices.size(); i++) {
+            if (devices.get(i).getmBroker().equals(broker) && devices.get(i).getmMask().equals(mask)) {
+                if (on)
+                    devices.get(i).setmStatus(true);
+                else
+                    devices.get(i).setmStatus(false);
+            }
+        }
+        ReadFragment.dataNotify(devices);
     }
 
 }

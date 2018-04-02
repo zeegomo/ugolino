@@ -34,20 +34,8 @@ class MqttHandler {
         if (!found) {
             connections.add(new MqttThread(broker, context, mask));
             connections.get(size).connect();
-            if(connections.get(size).isConnected())
-                updateReadDeviceStatus(broker, mask, true);
-        }
-    }
-
-    private void updateReadDeviceStatus(String broker, String mask, boolean on) {
-        ArrayList<Device> devices = MainActivity.read_devices;
-        for (int i = 0; i < devices.size(); i++) {
-            if (devices.get(i).getmBroker().equals(broker) && devices.get(i).getmMask().equals(mask)) {
-                if (on)
-                    devices.get(i).setmStatus(true);
-                else
-                    devices.get(i).setmStatus(false);
-            }
+            //if(connections.get(size).isConnected())
+            //    updateReadDeviceStatus(broker, mask, true);
         }
     }
 
