@@ -7,5 +7,6 @@ Currently supports (v 0.1.0 stable/testing):
 * Send simple switch(0/1) to custom broker and topic (Add->Switch)
 * Display text read from custom topic and broker (Add->Read)
 
-Future features:
+Changelog (//TODO):
 * Support for encrypted mqtt
+* Display connection status for read_devices
