@@ -13,10 +13,10 @@ android:
     - android-25
 
     # Additional component
-    com.android.support:appcompat-v7:25.1.1
-    com.google.code.gson:gson:2.6.2
-    com.android.support:design:25.1.1
-    com.android.support:support-v4:25.1.1
-    junit:junit:4.12
-    org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0
-    org.eclipse.paho:org.eclipse.paho.android.service:1.1.1
+    - com.android.support:appcompat-v7:25.1.1
+    - com.google.code.gson:gson:2.6.2
+    - com.android.support:design:25.1.1
+    - com.android.support:support-v4:25.1.1
+    - junit:junit:4.12
+    - org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0
+    - org.eclipse.paho:org.eclipse.paho.android.service:1.1.1
