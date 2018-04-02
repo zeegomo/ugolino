@@ -10,3 +10,4 @@ Currently supports (v 0.1.0 stable/testing):
 Changelog (//TODO):
 * Support for encrypted mqtt
 * **Done** Display connection status for read_devices 
+* More icon and actions
