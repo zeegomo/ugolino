@@ -1,5 +1,5 @@
 # Ugolino
-Sample app for MQTT interaction.
+Sample free (as in free speech) app for MQTT interaction.
 
 Currently supports (v 0.1.0 stable):
 * Send simple switch(0/1) to custom broker and topic (Add->Switch)
