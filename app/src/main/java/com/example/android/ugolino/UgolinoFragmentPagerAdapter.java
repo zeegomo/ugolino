@@ -1,9 +1,5 @@
 package com.example.android.ugolino;
 
-/**
- * Created by ${Giacomo} on ${14/02/2017}
- */
-
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -26,10 +22,12 @@ class UgolinoFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
         if (position == 0){
             return new InteractFragment();
-        }else if(position ==1) {
-            return new ReadFragment();
         }else {
-            return new InteractFragment();
+            if(position ==1) {
+                return new ReadFragment();
+            }else {
+                return new InteractFragment();
+            }
         }
 
     }

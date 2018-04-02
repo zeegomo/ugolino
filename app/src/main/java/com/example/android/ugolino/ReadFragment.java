@@ -1,15 +1,7 @@
 package com.example.android.ugolino;
 
-/**
- * Created by Giacomo on 21/03/2018.
- */
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,18 +10,6 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import com.google.gson.Gson;
-
-import org.eclipse.paho.android.service.MqttAndroidClient;
-import org.eclipse.paho.client.mqttv3.DisconnectedBufferOptions;
-import org.eclipse.paho.client.mqttv3.IMqttActionListener;
-import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
-import org.eclipse.paho.client.mqttv3.IMqttToken;
-import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
-import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
-import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import java.util.ArrayList;
 
@@ -46,10 +26,7 @@ public class ReadFragment extends Fragment {
     public static ArrayList<Device> read_devices = MainActivity.read_devices;
 
     //Device visualizer
-    public static String topic;
-    public static String mask;
     public static ReadAdapter adapter;
-    public static WebView webView;
     public static ListView listView;
     public static TextView instructionsTextView;
 
@@ -61,7 +38,6 @@ public class ReadFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.activity_main, container, false);
 
         //View initialization
-        webView = (WebView) rootView.findViewById(R.id.webview);
         adapter = new ReadAdapter(getActivity(), read_devices);
         listView = (ListView) rootView.findViewById(R.id.list_item);
         listView.setAdapter(adapter);
@@ -72,8 +48,8 @@ public class ReadFragment extends Fragment {
 
 
 
-    public static void dataNotify(ArrayList<Device> device) {
-        read_devices = MainActivity.read_devices;
+    public static void dataNotify(ArrayList<Device> devices) {
+        read_devices = devices;
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         Log.e("notify", "ReadFrament");

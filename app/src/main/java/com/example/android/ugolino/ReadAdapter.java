@@ -1,31 +1,15 @@
 package com.example.android.ugolino;
 
 import android.app.Activity;
-import android.bluetooth.BluetoothClass;
 import android.content.Intent;
-import android.os.AsyncTask;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import static android.view.View.GONE;
@@ -37,9 +21,9 @@ import static android.view.View.GONE;
 public class ReadAdapter extends ArrayAdapter<Device> {
 
     private Device currentDevice;
-    final ArrayList<Device> devices = MainActivity.read_devices;
+    private final ArrayList<Device> devices = MainActivity.read_devices;
 
-    public ReadAdapter(Activity context, ArrayList<Device> devices) {
+    ReadAdapter(Activity context, ArrayList<Device> devices) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
         // the second argument is used when the ArrayAdapter is populating a single TextView.
         // Because this is a custom adapter for two TextViews and an ImageView, the adapter is not

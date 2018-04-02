@@ -1,0 +1,24 @@
+language: android
+android:
+  components:
+    # Uncomment the lines below if you want to
+    # use the latest revision of Android SDK Tools
+    - tools
+    - platform-tools
+
+    # Additional component
+    #- com.android.support:appcompat-v7:25.1.1
+    #- com.google.code.gson:gson:2.6.2
+    #- com.android.support:design:25.1.1
+    #- com.android.support:support-v4:25.1.1
+    #- junit:junit:4.12
+    #- org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0
+    #- org.eclipse.paho:org.eclipse.paho.android.service:1.1.1
+    - extra-google-m2repository
+    - extra-android-m2repository
+before_install:
+ - chmod +x gradlew
+ - yes | sdkmanager "platforms;android-27"
+ 
+licenses:
+ - '-.+'
