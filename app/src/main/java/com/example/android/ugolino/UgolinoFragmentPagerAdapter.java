@@ -22,10 +22,12 @@ class UgolinoFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
         if (position == 0){
             return new InteractFragment();
-        }else if(position ==1) {
-            return new ReadFragment();
         }else {
-            return new InteractFragment();
+            if(position ==1) {
+                return new ReadFragment();
+            }else {
+                return new InteractFragment();
+            }
         }
 
     }

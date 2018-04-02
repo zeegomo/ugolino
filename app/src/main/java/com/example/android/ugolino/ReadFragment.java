@@ -27,7 +27,6 @@ public class ReadFragment extends Fragment {
 
     //Device visualizer
     public static ReadAdapter adapter;
-    public static WebView webView;
     public static ListView listView;
     public static TextView instructionsTextView;
 
@@ -39,7 +38,6 @@ public class ReadFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.activity_main, container, false);
 
         //View initialization
-        webView = (WebView) rootView.findViewById(R.id.webview);
         adapter = new ReadAdapter(getActivity(), read_devices);
         listView = (ListView) rootView.findViewById(R.id.list_item);
         listView.setAdapter(adapter);

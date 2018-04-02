@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
@@ -25,7 +24,6 @@ public class InteractFragment extends Fragment {
 
     //Device visualizer
     public static InteractAdapter adapter;
-    public static WebView webView;
     public static ListView listView;
     public static TextView instructionsTextView;
 
@@ -37,7 +35,7 @@ public class InteractFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.activity_main, container, false);
 
         //View initialization
-        webView = (WebView) rootView.findViewById(R.id.webview);
+
         adapter = new InteractAdapter(getActivity(), interact_devices);
         listView = (ListView) rootView.findViewById(R.id.list_item);
         listView.setAdapter(adapter);
