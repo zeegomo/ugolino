@@ -8,4 +8,5 @@ Currently supports (v 0.1.0 stable/testing):
 * Display text read from custom topic and broker (Add->Read)
 
 Future features:
-* Support for encrypted mqtt
+* TLS/SSL
+* password auth 
