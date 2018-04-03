@@ -23,12 +23,16 @@ class MqttThread{
     private String id = "ugolino";
     private String mask;
     private MqttAndroidClient mqttAndroidClient;
+    private MqttAndroidClient secureMqttAndroidClient;
+    private MqttAndroidClient secureCertMqttAndroidClient;
 
     MqttThread(String broker, Context context, String mMask) {
         this.broker = broker;
         this.mask = mMask;
         this.mask = mMask;
         mqttAndroidClient =  new MqttAndroidClient(context, "tcp://" + broker, id);
+        secureMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8883", id);
+        secureCertMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8884", id);
     }
 
     String getBroker(){
@@ -48,6 +52,65 @@ class MqttThread{
         try{
         mqttAndroidClient.disconnect();
         }catch (MqttException e){
+            e.printStackTrace();
+        }
+    }
+
+    void sslConnect(){
+        final String mMask;
+        if (this.mask.equals(""))
+            mMask = "#";
+        else
+            mMask = this.mask + "/#";
+
+        MqttConnectOptions option = new MqttConnectOptions();
+        //option.setSocketFactory(SslUtil.getSocketFactory());
+
+        mqttAndroidClient.setCallback(new MqttCallback() {
+            @Override
+            public void connectionLost(Throwable cause) {
+
+            }
+
+            @Override
+            public void messageArrived(String topic, MqttMessage message) throws Exception {
+                Log.e("Message arrived","mqtt thread");
+                updateData(topic, message);
+            }
+
+            @Override
+            public void deliveryComplete(IMqttDeliveryToken token) {
+
+            }
+        });
+
+        try{
+
+            mqttAndroidClient.connect(new MqttConnectOptions(), null, new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+                    DisconnectedBufferOptions disconnectedBufferOptions = new DisconnectedBufferOptions();
+                    disconnectedBufferOptions.setBufferEnabled(true);
+                    disconnectedBufferOptions.setBufferSize(100);
+                    disconnectedBufferOptions.setPersistBuffer(false);
+                    disconnectedBufferOptions.setDeleteOldestMessages(false);
+                    mqttAndroidClient.setBufferOpts(disconnectedBufferOptions);
+                    try {
+                        mqttAndroidClient.subscribe(mMask, 0);
+                        updateReadDeviceStatus(broker, mask, true);
+                    } catch (MqttException e) {
+                        e.printStackTrace();
+                        updateReadDeviceStatus(broker, mask, false);
+                    }
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                    updateReadDeviceStatus(broker, mask, false);
+                }
+            });
+        }catch(MqttException e){
+
             e.printStackTrace();
         }
     }
