@@ -1,5 +1,6 @@
 # Ugolino
-master: [![Build Status](https://travis-ci.org/Zeegomo/ugolino.svg?branch=master)](https://travis-ci.org/Zeegomo/ugolino)  dev:[![Build Status](https://travis-ci.org/Zeegomo/ugolino.svg?branch=dev)](https://travis-ci.org/Zeegomo/ugolino)
+master:   [![Build Status](https://travis-ci.org/Zeegomo/ugolino.svg?branch=master)](https://travis-ci.org/Zeegomo/ugolino)  
+dev:   [![Build Status](https://travis-ci.org/Zeegomo/ugolino.svg?branch=dev)](https://travis-ci.org/Zeegomo/ugolino)
 
 Free (as in free speech) app for MQTT interaction.
 
