@@ -19,6 +19,7 @@
         android:icon="@drawable/plug"
         android:label="Ugolino"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <service android:name="org.eclipse.paho.android.service.MqttService" />
 

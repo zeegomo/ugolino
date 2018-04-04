@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             }.getType());
         }
 
-        MqttThread mqtt = new MqttThread("192.168.178.79",getApplicationContext(), "read_devices");
+        MqttThread mqtt = new MqttThread("mosquitto.ddns.net",getApplicationContext(), "read_devices");
         mqtt.sslConnect();
 
 

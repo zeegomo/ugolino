@@ -86,7 +86,7 @@ class MqttThread{
         try{
             SslUtil.newInstance(context);
             MqttConnectOptions options = new MqttConnectOptions();
-            options.setSocketFactory(SslUtil.getInstance().getSocketFactory(R.raw.raw_key_file, "mykeystorepassworDd"));
+            //options.setSocketFactory(SslUtil.getInstance().getSocketFactory(R.raw.raw_key_file, "mykeystorePassword"));
             options.setCleanSession(true);
             options.setConnectionTimeout(60);
             options.setKeepAliveInterval(60);
