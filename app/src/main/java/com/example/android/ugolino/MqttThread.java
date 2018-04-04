@@ -25,11 +25,13 @@ class MqttThread{
     private MqttAndroidClient mqttAndroidClient;
     private MqttAndroidClient secureMqttAndroidClient;
     private MqttAndroidClient secureCertMqttAndroidClient;
+    private Context context;
 
     MqttThread(String broker, Context context, String mMask) {
         this.broker = broker;
         this.mask = mMask;
         this.mask = mMask;
+        this.context = context;
         mqttAndroidClient =  new MqttAndroidClient(context, "tcp://" + broker, id);
         secureMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8883", id);
         secureCertMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8884", id);
@@ -63,10 +65,7 @@ class MqttThread{
         else
             mMask = this.mask + "/#";
 
-        MqttConnectOptions option = new MqttConnectOptions();
-        //option.setSocketFactory(SslUtil.getSocketFactory());
-
-        mqttAndroidClient.setCallback(new MqttCallback() {
+        secureMqttAndroidClient.setCallback(new MqttCallback() {
             @Override
             public void connectionLost(Throwable cause) {
 
@@ -85,8 +84,14 @@ class MqttThread{
         });
 
         try{
+            SslUtil.newInstance(context);
+            MqttConnectOptions options = new MqttConnectOptions();
+            options.setSocketFactory(SslUtil.getInstance().getSocketFactory(R.raw.raw_key_file, "mykeystorepassworDd"));
+            options.setCleanSession(true);
+            options.setConnectionTimeout(60);
+            options.setKeepAliveInterval(60);
 
-            mqttAndroidClient.connect(new MqttConnectOptions(), null, new IMqttActionListener() {
+            secureMqttAndroidClient.connect(options, null, new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
                     DisconnectedBufferOptions disconnectedBufferOptions = new DisconnectedBufferOptions();
@@ -94,9 +99,9 @@ class MqttThread{
                     disconnectedBufferOptions.setBufferSize(100);
                     disconnectedBufferOptions.setPersistBuffer(false);
                     disconnectedBufferOptions.setDeleteOldestMessages(false);
-                    mqttAndroidClient.setBufferOpts(disconnectedBufferOptions);
+                    secureMqttAndroidClient.setBufferOpts(disconnectedBufferOptions);
                     try {
-                        mqttAndroidClient.subscribe(mMask, 0);
+                        secureMqttAndroidClient.subscribe(mMask, 0);
                         updateReadDeviceStatus(broker, mask, true);
                     } catch (MqttException e) {
                         e.printStackTrace();

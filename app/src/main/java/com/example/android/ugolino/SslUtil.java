@@ -1,67 +1,71 @@
 package com.example.android.ugolino;
+import java.security.KeyStore;
+import java.security.SecureRandom;
+import java.util.HashMap;
 
-import java.io.*;
-import java.nio.file.*;
-import java.security.*;
-import java.security.cert.*;
-import javax.net.ssl.*;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManagerFactory;
 
-import org.spongycastle.jce.provider.*;
-import org.spongycastle.openssl.*;
+import android.content.Context;
+import android.util.Log;
 
+public class SslUtil {
 
-public class SslUtil
-{   /*
-    static SSLSocketFactory getSocketFactory (final String caCrtFile, final String crtFile, final String keyFile,
-                                              final String password) throws Exception
-    {
-        Security.addProvider(new BouncyCastleProvider());
+    private static SslUtil	mInstance = null;
+    private Context					mContext = null;
+    private HashMap<Integer, SSLSocketFactory> mSocketFactoryMap = new HashMap<Integer, SSLSocketFactory>();
 
-        /*
-        // load CA certificate
-        PEMParser reader = new PEMParser(new InputStreamReader(new ByteArrayInputStream(Files.readAllBytes(Paths.get(caCrtFile)))));
-        X509Certificate caCert = (X509Certificate)reader.readObject();
-        reader.close();
+    public SslUtil(Context context) {
+        mContext = context;
+    }
 
+    public static SslUtil getInstance( ) {
+        if ( null == mInstance ) {
+            throw new RuntimeException("first call must be to SslUtility.newInstance(Context) ");
+        }
+        return mInstance;
+    }
 
-        /*
-        // load client certificate
-        reader = new PEMParser(new InputStreamReader(new ByteArrayInputStream(Files.readAllBytes(Paths.get(crtFile)))));
-        X509Certificate cert = (X509Certificate)reader.readObject();
-        reader.close();
+    public static SslUtil newInstance( Context context ) {
+        if ( null == mInstance ) {
+            mInstance = new SslUtil( context );
+        }
+        return mInstance;
+    }
 
-        // load client private key
-        reader = new PEMParser(
-                new InputStreamReader(new ByteArrayInputStream(Files.readAllBytes(Paths.get(keyFile)))),
-                new PasswordFinder() {
-                    @Override
-                    public char[] getPassword() {
-                        return password.toCharArray();
-                    }
-                }
-        );
-        KeyPair key = (KeyPair)reader.readObject();
-        reader.close();
+    public SSLSocketFactory getSocketFactory(int certificateId, String certificatePassword ) {
 
-        // CA certificate is used to authenticate server
-        KeyStore caKs = KeyStore.getInstance(KeyStore.getDefaultType());
-        caKs.load(null, null);
-        caKs.setCertificateEntry("ca-certificate", caCert);
-        TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-        tmf.init(caKs);
+        SSLSocketFactory result = mSocketFactoryMap.get(certificateId);  	// check to see if already created
 
-        // client key and certificates are sent to server so it can authenticate us
-        //KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
-        //ks.load(null, null);
-        //ks.setCertificateEntry("certificate", cert);
-        //ks.setKeyEntry("private-key", key.getPrivate(), password.toCharArray(), new java.security.cert.Certificate[]{cert});
-        KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-        kmf.init(/*ks, password.toCharArray());
+        if ( ( null == result) && ( null != mContext ) ) {					// not cached so need to load server certificate
 
-        // finally, create SSL socket factory
-        SSLContext context = SSLContext.getInstance("TLSv1");
-        context.init(kmf.getKeyManagers(), tmf.getTrustManagers(), null);
+            try {
+                KeyStore keystoreTrust = KeyStore.getInstance("BKS");		// Bouncy Castle
 
-        return context.getSocketFactory();
-    }*/
+                keystoreTrust.load(mContext.getResources().openRawResource(certificateId),
+                        certificatePassword.toCharArray());
+
+                TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+
+                trustManagerFactory.init(keystoreTrust);
+
+                SSLContext sslContext = SSLContext.getInstance("TLS");
+
+                sslContext.init(null, trustManagerFactory.getTrustManagers(), new SecureRandom());
+
+                result = sslContext.getSocketFactory();
+
+                mSocketFactoryMap.put( certificateId, result);	// cache for reuse
+            }
+            catch ( Exception ex ) {
+                // log exception
+                //Log.e(ex,"SslUtil");
+                ex.printStackTrace();
+            }
+        }
+
+        return result;
+    }
+
 }
