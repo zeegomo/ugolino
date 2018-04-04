@@ -2,6 +2,8 @@ package com.example.android.ugolino;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
+
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.DisconnectedBufferOptions;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
@@ -26,12 +28,29 @@ class MqttThread{
     private MqttAndroidClient secureMqttAndroidClient;
     private MqttAndroidClient secureCertMqttAndroidClient;
     private Context context;
+    //TODO safe storage
+    private String user;
+    private String password;
 
     MqttThread(String broker, Context context, String mMask) {
         this.broker = broker;
         this.mask = mMask;
         this.mask = mMask;
         this.context = context;
+        this.password = "";
+        this.user = "";
+        mqttAndroidClient =  new MqttAndroidClient(context, "tcp://" + broker, id);
+        secureMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8883", id);
+        secureCertMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8884", id);
+    }
+
+    MqttThread(String broker, Context context, String mMask, String password, String user) {
+        this.broker = broker;
+        this.mask = mMask;
+        this.mask = mMask;
+        this.context = context;
+        this.password = password;
+        this.user = user;
         mqttAndroidClient =  new MqttAndroidClient(context, "tcp://" + broker, id);
         secureMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8883", id);
         secureCertMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8884", id);
@@ -58,7 +77,7 @@ class MqttThread{
         }
     }
 
-    void sslConnect(){
+    void sslConnect(boolean pass){
         final String mMask;
         if (this.mask.equals(""))
             mMask = "#";
@@ -87,6 +106,15 @@ class MqttThread{
             SslUtil.newInstance(context);
             MqttConnectOptions options = new MqttConnectOptions();
             //options.setSocketFactory(SslUtil.getInstance().getSocketFactory(R.raw.raw_key_file, "mykeystorePassword"));
+            if(pass){
+                if(password.equals("")){
+                    Toast toast = Toast.makeText(context, "Password not set - ignoring auth", Toast.LENGTH_SHORT);
+                    toast.show();}
+                    else{
+                    options.setPassword(password.toCharArray());
+                    options.setUserName(user);
+                }
+            }
             options.setCleanSession(true);
             options.setConnectionTimeout(60);
             options.setKeepAliveInterval(60);

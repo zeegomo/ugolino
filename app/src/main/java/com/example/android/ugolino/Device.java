@@ -25,6 +25,9 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
     private String mMask;
     private boolean mType;
     private String mRead;
+    private boolean secure;
+    private String password;
+    private String user;
 
     Device(String name, String mask, String read_topic, String broker, String write_topic, boolean Type) {
         mName = name;
@@ -35,6 +38,9 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
         mMask = mask;
         mBroker = broker;
         mType = Type;
+        secure = false;
+        user = "";
+        password = "";
     }
 
     //GET METHODS
@@ -64,9 +70,15 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
         return mType;
     }
 
+    boolean getSecure(){return secure;}
+
     String getmRead() {
         return mRead;
     }
+
+    String getPassword(){return password;}
+
+    String getUser(){return user;}
 
 
 
@@ -91,11 +103,15 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
         mBroker = broker;
     }
 
-    void setmRead(String read) {mRead = read;
-    }
+    void setmRead(String read) {mRead = read;}
 
-    void setmMask(String mask){mMask = mask;
-    }
+    void setmMask(String mask){mMask = mask;}
+
+    void setSecure(boolean sec){secure = sec;}
+
+    void setUser(String newUser){user = newUser;}
+
+    void setPassword(String password){this.password = password;}
 
     void on() {
         int qos = 0;

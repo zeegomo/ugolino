@@ -24,69 +24,43 @@ class MqttHandler {
         return connections.size();
     }
 
-    void addConnection(String broker, String mask) {
+    void addConnection(Device device) {
         boolean found = false;
         int size = connections.size();
         for (int i = 0; i < size && !found; i++) {
-            if (broker.equals(connections.get(i).getBroker()) && mask.equals(connections.get(i).getMask()))
+            if (device.getmBroker().equals(connections.get(i).getBroker()) && device.getmMask().equals(connections.get(i).getMask()))
                 found = true;
         }
         if (!found) {
-            connections.add(new MqttThread(broker, context, mask));
-            connections.get(size).connect();
-            //if(connections.get(size).isConnected())
-            //    updateReadDeviceStatus(broker, mask, true);
+            if(device.getSecure()){
+                connections.add(new MqttThread(device.getmBroker(), context, device.getmMask(), device.getPassword(), device.getUser()));
+                connections.get(size).sslConnect(true);
+            }else{
+                connections.add(new MqttThread(device.getmBroker(), context, device.getmMask()));
+                connections.get(size).connect();
+            }
         }
     }
 
-    /*
-    void removeConnection(String broker, String mask) {
-        int size = connections.size();
-        for (int i = 0; i < size && !found; i++) {
-            if (broker.equals(connections.get(i).getBroker()) && mask.equals(connections.get(i).getMask())) {
-                connections.get(i).close();
-                connections.remove(i);
-            }
-        }
-    }*/
-
-    private boolean search(MqttThread mqtt, ArrayList<String> broker, ArrayList<String> mask) {
-        for (int i = 0; i < broker.size(); i++)
-            if (mqtt.getBroker().equals(broker.get(i)) && mqtt.getMask().equals(mask.get(i)))
+    private boolean search(MqttThread mqtt, ArrayList<Device> devices) {
+        for (int i = 0; i < devices.size(); i++)
+            if (mqtt.getBroker().equals(devices.get(i).getmBroker()) && mqtt.getMask().equals(devices.get(i).getmMask()))
                 return true;
 
         return false;
     }
 
-    private ArrayList<String> getBrokers() {
-        ArrayList<Device> devices = MainActivity.read_devices;
-        ArrayList<String> broker = new ArrayList<>();
-        for (int i = 0; i < devices.size(); i++) {
-            broker.add(devices.get(i).getmBroker());
-        }
-        return broker;
-    }
-
-
-    private ArrayList<String> getMasks() {
-        ArrayList<Device> devices = MainActivity.read_devices;
-        ArrayList<String> masks = new ArrayList<>();
-        for (int i = 0; i < devices.size(); i++) {
-            masks.add(devices.get(i).getmMask());
-        }
-        return masks;
-    }
-
     void updateConnections() {
-        ArrayList<String> broker = getBrokers();
-        ArrayList<String> mask = getMasks();
+        //ArrayList<String> broker = getBrokers();
+        //ArrayList<String> mask = getMasks();
+        ArrayList<Device> devices = MainActivity.read_devices;
 
-        for (int i = 0; i < broker.size(); i++) {
-            addConnection(broker.get(i), mask.get(i));
+        for (int i = 0; i < devices.size(); i++) {
+            addConnection(devices.get(i));
         }
 
         for (int i = 0; i < connections.size(); i++) {
-            if (!search(connections.get(i), broker, mask)) {
+            if (!search(connections.get(i), devices)) {
                 connections.get(i).close();
                 connections.remove(i);
             }

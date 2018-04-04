@@ -13,6 +13,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.google.gson.Gson;
 
@@ -127,6 +128,53 @@ public class DeviceActivity extends AppCompatActivity {
             }
         });
 
+        //Change Device Name
+        ImageView tlsButton = (ImageView) findViewById(R.id.tls_button);
+        modifyButton.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the numbers View is clicked on.
+            @Override
+            public void onClick(View view) {
+                android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(DeviceActivity.this);
+                alert.setMessage("Provide optional password and certificate");
+                alert.setTitle("TLS config");
+
+                LinearLayout layout = new LinearLayout(DeviceActivity.this);
+
+                final EditText passEditText = new EditText(DeviceActivity.this);
+                final EditText userEditText = new EditText(DeviceActivity.this);
+
+                passEditText.setHint("password");
+                //passEditText.setInputType();
+                userEditText.setHint("username");
+
+
+                layout.addView(passEditText);
+                layout.addView(userEditText);
+                alert.setView(layout);
+
+                alert.setPositiveButton("Enable", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String password = passEditText.getText().toString();
+                        String user = userEditText.getText().toString();
+                        devices.get(position).setUser(user);
+                        devices.get(position).setPassword(password);
+                        devices.get(position).setSecure(true);
+                        Save(type);
+
+                    }
+                });
+
+                alert.setNegativeButton("Disable", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // what ever you want to do with No option.
+                        devices.get(position).setSecure(false);
+                        Save(type);
+                    }
+                });
+                alert.show();
+            }
+        });
+
         //Change Device Topic
         topicTextView.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers View is clicked on.
@@ -181,7 +229,7 @@ public class DeviceActivity extends AppCompatActivity {
                         String mask = edittext.getText().toString();
                         devices.get(position).setmMask(mask);
                         maskTextView.setText(devices.get(position).getmMask());
-                        mqttHandler.updateConnections();
+                        //mqttHandler.updateConnections();
                         Save(type);
                     }
                 });
@@ -214,7 +262,7 @@ public class DeviceActivity extends AppCompatActivity {
                         String broker = edittext.getText().toString();
                         devices.get(position).setmBroker(broker);
                         brokerTextView.setText(devices.get(position).getmBroker());
-                        mqttHandler.updateConnections();
+                        //mqttHandler.updateConnections();
                         Save(type);
                     }
                 });

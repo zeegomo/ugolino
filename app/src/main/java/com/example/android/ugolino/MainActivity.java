@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         MqttThread mqtt = new MqttThread("mosquitto.ddns.net",getApplicationContext(), "read_devices");
-        mqtt.sslConnect();
+        mqtt.sslConnect(false);
 
 
 
@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
                 ReadFragment.dataNotify(read_devices);
                 Log.d("read_device" + read_devices, "AddDevice");
                 Log.e("server: " +topic,"ADD READ");
-                mqttHandler.addConnection(broker, mask);
+                mqttHandler.addConnection(read_devices.get(read_devices.size()));
                 Save();
             }
         });
