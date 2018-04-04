@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 
 class MqttHandler {
-    ArrayList<MqttThread> connections = new ArrayList<>();
+    static ArrayList<MqttThread> connections = new ArrayList<>();
     private Context context;
 
     MqttHandler(Context mContext) {
@@ -19,7 +19,6 @@ class MqttHandler {
             if(!connections.get(i).isConnected())
                 connections.get(i).connect();
     }*/
-
     int getSize() {
         return connections.size();
     }
@@ -28,23 +27,18 @@ class MqttHandler {
         boolean found = false;
         int size = connections.size();
         for (int i = 0; i < size && !found; i++) {
-            if (device.getmBroker().equals(connections.get(i).getBroker()) && device.getmMask().equals(connections.get(i).getMask()))
+            if (device.getmBroker().equals(connections.get(i).getBroker()) && device.getmMask().equals(connections.get(i).getMask()) && device.isSecure() == connections.get(i).isSecure())
                 found = true;
         }
         if (!found) {
-            if(device.getSecure()){
-                connections.add(new MqttThread(device.getmBroker(), context, device.getmMask(), device.getPassword(), device.getUser()));
-                connections.get(size).sslConnect(true);
-            }else{
-                connections.add(new MqttThread(device.getmBroker(), context, device.getmMask()));
+                connections.add(new MqttThread(device.getmBroker(), context, device.getmMask(), device.getPassword(), device.getUser(),device.isSecure()));
                 connections.get(size).connect();
-            }
         }
     }
 
     private boolean search(MqttThread mqtt, ArrayList<Device> devices) {
         for (int i = 0; i < devices.size(); i++)
-            if (mqtt.getBroker().equals(devices.get(i).getmBroker()) && mqtt.getMask().equals(devices.get(i).getmMask()))
+            if (mqtt.getBroker().equals(devices.get(i).getmBroker()) && mqtt.getMask().equals(devices.get(i).getmMask()) && mqtt.isSecure() == devices.get(i).isSecure())
                 return true;
 
         return false;

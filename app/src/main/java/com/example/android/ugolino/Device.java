@@ -26,6 +26,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
     private boolean mType;
     private String mRead;
     private boolean secure;
+    //TODO Safe storage
     private String password;
     private String user;
 
@@ -70,7 +71,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
         return mType;
     }
 
-    boolean getSecure(){return secure;}
+    boolean isSecure(){return secure;}
 
     String getmRead() {
         return mRead;

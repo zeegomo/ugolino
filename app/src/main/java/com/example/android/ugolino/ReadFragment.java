@@ -50,8 +50,10 @@ public class ReadFragment extends Fragment {
 
     public static void dataNotify(ArrayList<Device> devices) {
         read_devices = devices;
-        listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        if(adapter != null){
+            listView.setAdapter(adapter);
+            adapter.notifyDataSetChanged();
+        }
         Log.e("notify", "ReadFrament");
         Log.e("read_device" + read_devices, "ReadFrament");
         Log.e("read_devices size: " + read_devices.size(), "ReadFrament");

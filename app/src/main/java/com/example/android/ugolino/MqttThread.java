@@ -19,65 +19,85 @@ import java.util.ArrayList;
 import static com.example.android.ugolino.MainActivity.read_devices;
 
 
-
-class MqttThread{
+class MqttThread {
     private String broker;
     private String id = "ugolino";
     private String mask;
     private MqttAndroidClient mqttAndroidClient;
     private MqttAndroidClient secureMqttAndroidClient;
-    private MqttAndroidClient secureCertMqttAndroidClient;
+    //private MqttAndroidClient secureCertMqttAndroidClient;
     private Context context;
+    private boolean secure;
     //TODO safe storage
     private String user;
     private String password;
 
-    MqttThread(String broker, Context context, String mMask) {
-        this.broker = broker;
-        this.mask = mMask;
-        this.mask = mMask;
-        this.context = context;
-        this.password = "";
-        this.user = "";
-        mqttAndroidClient =  new MqttAndroidClient(context, "tcp://" + broker, id);
-        secureMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8883", id);
-        secureCertMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8884", id);
-    }
-
-    MqttThread(String broker, Context context, String mMask, String password, String user) {
+    //Constructor
+    //Password is used only if initialized and only in secure mode
+    MqttThread(String broker, Context context, String mMask, String password, String user, boolean secure) {
         this.broker = broker;
         this.mask = mMask;
         this.mask = mMask;
         this.context = context;
         this.password = password;
         this.user = user;
-        mqttAndroidClient =  new MqttAndroidClient(context, "tcp://" + broker, id);
+        this.secure = secure;
+        mqttAndroidClient = new MqttAndroidClient(context, "tcp://" + broker, id);
         secureMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8883", id);
-        secureCertMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8884", id);
+        //secureCertMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8884", id);
     }
 
-    String getBroker(){
+
+    //GET METHODS
+    String getBroker() {
         return this.broker;
     }
 
-    String getMask(){
-        return  this.mask;
+    String getMask() {
+        return this.mask;
     }
 
-    boolean isConnected(){
-        return  mqttAndroidClient.isConnected();
+    private boolean isConnected() {
+        if (secure)
+            return mqttAndroidClient.isConnected();
+        else
+            return secureMqttAndroidClient.isConnected();
+    }
+
+    boolean isSecure() {
+        return secure;
     }
 
 
-    void close(){
-        try{
-        mqttAndroidClient.disconnect();
-        }catch (MqttException e){
+    //-----------------------CONNECTIONS-----------------------------
+
+    //Connect
+    //Auto-detect if secure or unsecure mode was used
+    void connect() {
+        if (secure)
+            this.sslConnect();
+        else
+            this.unsecureConnect();
+    }
+
+    //Disconnect
+    //Auto-detect if secure or unsecure mode was used
+    void close() {
+        try {
+            if (secure)
+                secureMqttAndroidClient.disconnect();
+            else
+                mqttAndroidClient.disconnect();
+            updateReadDeviceStatus(broker, mask, false);
+        } catch (MqttException e) {
             e.printStackTrace();
         }
     }
 
-    void sslConnect(boolean pass){
+
+
+    //private method for secure connect
+    private void sslConnect() {
         final String mMask;
         if (this.mask.equals(""))
             mMask = "#";
@@ -92,7 +112,7 @@ class MqttThread{
 
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
-                Log.e("Message arrived","mqtt thread");
+                Log.e("Message arrived", "mqtt thread");
                 updateData(topic, message);
             }
 
@@ -102,20 +122,20 @@ class MqttThread{
             }
         });
 
-        try{
+        try {
             SslUtil.newInstance(context);
             MqttConnectOptions options = new MqttConnectOptions();
             //options.setSocketFactory(SslUtil.getInstance().getSocketFactory(R.raw.raw_key_file, "mykeystorePassword"));
-            if(pass){
-                if(password.equals("")){
-                    Toast toast = Toast.makeText(context, "Password not set - ignoring auth", Toast.LENGTH_SHORT);
-                    toast.show();}
-                    else{
-                    options.setPassword(password.toCharArray());
-                    options.setUserName(user);
-                }
+            if (password == null || password.equals("")) {
+                Toast toast = Toast.makeText(context, "Password not set - ignoring auth", Toast.LENGTH_SHORT);
+                toast.show();
+            } else {
+                options.setPassword(password.toCharArray());
+                options.setUserName(user);
             }
             options.setCleanSession(true);
+            options.setUserName("admin");
+            options.setPassword("admin".toCharArray());
             options.setConnectionTimeout(60);
             options.setKeepAliveInterval(60);
 
@@ -142,13 +162,18 @@ class MqttThread{
                     updateReadDeviceStatus(broker, mask, false);
                 }
             });
-        }catch(MqttException e){
+        } catch (MqttException e) {
 
             e.printStackTrace();
         }
+        if (isConnected())
+            updateReadDeviceStatus(broker, mask, true);
+        else
+            updateReadDeviceStatus(broker, mask, false);
     }
 
-    void connect(){
+    //private method for unsecure connect
+    private void unsecureConnect() {
         final String mMask;
         if (this.mask.equals(""))
             mMask = "#";
@@ -162,7 +187,7 @@ class MqttThread{
 
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
-                Log.e("Message arrived","mqtt thread");
+                Log.e("Message arrived", "mqtt thread");
                 updateData(topic, message);
             }
 
@@ -172,7 +197,7 @@ class MqttThread{
             }
         });
 
-        try{
+        try {
 
             mqttAndroidClient.connect(new MqttConnectOptions(), null, new IMqttActionListener() {
                 @Override
@@ -197,7 +222,7 @@ class MqttThread{
                     updateReadDeviceStatus(broker, mask, false);
                 }
             });
-        }catch(MqttException e){
+        } catch (MqttException e) {
 
             e.printStackTrace();
         }
@@ -205,6 +230,9 @@ class MqttThread{
 
 
 
+    //------------------DATA UPDATE-----------------------------
+
+    //Notify new messages
     private void updateData(String topic, MqttMessage message) {
         int length = read_devices.size();
         for (int i = 0; i < length; i++) {
@@ -224,6 +252,7 @@ class MqttThread{
         ReadFragment.dataNotify(read_devices);
     }
 
+    //Notify connection status
     private void updateReadDeviceStatus(String broker, String mask, boolean on) {
         ArrayList<Device> devices = MainActivity.read_devices;
         for (int i = 0; i < devices.size(); i++) {

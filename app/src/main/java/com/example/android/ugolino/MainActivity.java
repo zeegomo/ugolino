@@ -70,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
             }.getType());
         }
 
-        MqttThread mqtt = new MqttThread("mosquitto.ddns.net",getApplicationContext(), "read_devices");
-        mqtt.sslConnect(false);
+        //MqttThread mqtt = new MqttThread("mosquitto.ddns.net",getApplicationContext(), "read_devices");
+        //mqtt.sslConnect(false);
 
 
 

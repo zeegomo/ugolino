@@ -129,8 +129,14 @@ public class DeviceActivity extends AppCompatActivity {
         });
 
         //Change Device Name
-        ImageView tlsButton = (ImageView) findViewById(R.id.tls_button);
-        modifyButton.setOnClickListener(new View.OnClickListener() {
+        final ImageView tlsButton = (ImageView) findViewById(R.id.tls_button);
+
+        if(devices.get(position).isSecure())
+            tlsButton.setImageResource(R.drawable.ic_vpn_key_red_24dp);
+        else
+            tlsButton.setImageResource(R.drawable.ic_vpn_key_black_24dp);
+
+        tlsButton.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers View is clicked on.
             @Override
             public void onClick(View view) {
@@ -139,14 +145,17 @@ public class DeviceActivity extends AppCompatActivity {
                 alert.setTitle("TLS config");
 
                 LinearLayout layout = new LinearLayout(DeviceActivity.this);
+                layout.setOrientation(LinearLayout.VERTICAL);
 
                 final EditText passEditText = new EditText(DeviceActivity.this);
                 final EditText userEditText = new EditText(DeviceActivity.this);
 
                 passEditText.setHint("password");
                 //passEditText.setInputType();
-                userEditText.setHint("username");
+                passEditText.setGravity(Gravity.CENTER);
 
+                userEditText.setHint("username");
+                userEditText.setGravity(Gravity.CENTER);
 
                 layout.addView(passEditText);
                 layout.addView(userEditText);
@@ -154,6 +163,7 @@ public class DeviceActivity extends AppCompatActivity {
 
                 alert.setPositiveButton("Enable", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
+                        tlsButton.setImageResource(R.drawable.ic_vpn_key_red_24dp);
                         String password = passEditText.getText().toString();
                         String user = userEditText.getText().toString();
                         devices.get(position).setUser(user);
@@ -167,6 +177,7 @@ public class DeviceActivity extends AppCompatActivity {
                 alert.setNegativeButton("Disable", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         // what ever you want to do with No option.
+                        tlsButton.setImageResource(R.drawable.ic_vpn_key_black_24dp);
                         devices.get(position).setSecure(false);
                         Save(type);
                     }
