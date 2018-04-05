@@ -182,10 +182,12 @@ public class DeviceActivity extends AppCompatActivity {
 
                         //Password safe handling done by AndroidKeyStore
                         String password = null;
+                        byte[] iv = null;
                         try {
                             final byte[] encryptedText = MainActivity.encryptor
                                     .encryptText(String.valueOf(devices.get(position).getId()), passEditText.getText().toString());
                             password = (Base64.encodeToString(encryptedText, Base64.DEFAULT));
+                            iv = MainActivity.encryptor.getIv();
                         } catch (UnrecoverableEntryException | NoSuchAlgorithmException | NoSuchProviderException |
                                 KeyStoreException | IOException | NoSuchPaddingException | InvalidKeyException | InvalidAlgorithmParameterException | SignatureException |
                                 IllegalBlockSizeException | BadPaddingException e) {
@@ -194,6 +196,7 @@ public class DeviceActivity extends AppCompatActivity {
 
                         String user = userEditText.getText().toString();
                         devices.get(position).setUser(user);
+                        devices.get(position).setIv(iv);
                         if(password == null){
                             Toast toast = Toast.makeText(DeviceActivity.this, "Password encryption error - password not set", Toast.LENGTH_SHORT);
                             toast.show();

@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
+import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -31,6 +32,8 @@ class Encrypt {
     Encrypt() {
     }
 
+
+
     byte[] encryptText(final String alias, final String textToEncrypt)
             throws UnrecoverableEntryException, NoSuchAlgorithmException, KeyStoreException,
             NoSuchProviderException, NoSuchPaddingException, InvalidKeyException, IOException,
@@ -42,7 +45,7 @@ class Encrypt {
 
         iv = cipher.getIV();
 
-        return (encryption = cipher.doFinal(textToEncrypt.getBytes("UTF-8")));
+        return cipher.doFinal(textToEncrypt.getBytes("UTF-8"));
     }
 
     @NonNull

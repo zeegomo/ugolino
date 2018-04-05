@@ -3,6 +3,7 @@ package com.example.android.ugolino;
 
 import android.util.Base64;
 import android.util.Log;
+
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
@@ -27,7 +28,7 @@ import javax.crypto.NoSuchPaddingException;
  * Created by ${Giacomo} on ${26/10/2016}
  */
 
- class Device {
+class Device {
 
 
     private String mName;
@@ -44,11 +45,12 @@ import javax.crypto.NoSuchPaddingException;
     //MQTT credentials
     private String password;
     private String user;
+    private byte[] iv;
 
 
     Device(String name, String mask, String read_topic, String broker, String write_topic, boolean Type) {
         mName = name;
-        id = String.valueOf(Math.random()%1000000);
+        id = String.valueOf(Math.random() % 1000000);
         mStatus = false;
         mRead_topic = read_topic;
         mWrite_topic = write_topic;
@@ -58,7 +60,8 @@ import javax.crypto.NoSuchPaddingException;
         mType = Type;
         secure = false;
         user = "";
-        password = "";
+        password = null;
+        iv = null;
     }
 
     //GET METHODS
@@ -74,9 +77,11 @@ import javax.crypto.NoSuchPaddingException;
         return mRead_topic;
     }
 
-    String getmBroker() {return  mBroker;}
+    String getmBroker() {
+        return mBroker;
+    }
 
-    String getmMask(){
+    String getmMask() {
         return mMask;
     }
 
@@ -88,18 +93,29 @@ import javax.crypto.NoSuchPaddingException;
         return mType;
     }
 
-    boolean isSecure(){return secure;}
+    boolean isSecure() {
+        return secure;
+    }
 
     String getmRead() {
         return mRead;
     }
 
-    String getPassword(){return password;}
+    String getPassword() {
+        return password;
+    }
 
-    String getUser(){return user;}
+    String getUser() {
+        return user;
+    }
 
-    String getId(){return id;}
+    String getId() {
+        return id;
+    }
 
+    byte[] getIv(){
+        return this.iv;
+    }
 
 
     //SET METHODS
@@ -111,11 +127,11 @@ import javax.crypto.NoSuchPaddingException;
         mStatus = status;
     }
 
-    void setmWrite_topic(String topic){
+    void setmWrite_topic(String topic) {
         mWrite_topic = topic;
     }
 
-    void setmRead_topic(String topic){
+    void setmRead_topic(String topic) {
         mRead_topic = topic;
     }
 
@@ -123,31 +139,44 @@ import javax.crypto.NoSuchPaddingException;
         mBroker = broker;
     }
 
-    void setmRead(String read) {mRead = read;}
+    void setIv(byte[] iv){this.iv = iv;}
 
-    void setmMask(String mask){mMask = mask;}
+    void setmRead(String read) {
+        mRead = read;
+    }
 
-    void setSecure(boolean sec){secure = sec;}
+    void setmMask(String mask) {
+        mMask = mask;
+    }
 
-    void setUser(String newUser){user = newUser;}
+    void setSecure(boolean sec) {
+        secure = sec;
+    }
 
-    void setPassword(String password){this.password = password;}
+    void setUser(String newUser) {
+        user = newUser;
+    }
+
+    void setPassword(String password) {
+
+        this.password = password;
+    }
 
     void on() {
         int qos = 0;
         String clientId = "paho-java-client";
         String content = "1";
 
-        Log.e("topic: " + mWrite_topic +"mask:  " + mMask + " broker: " + mBroker,"DEVICE");
+        Log.e("topic: " + mWrite_topic + "mask:  " + mMask + " broker: " + mBroker, "DEVICE");
         try {
-            final MqttClient sampleClient = new MqttClient("tcp://"+mBroker, clientId, new MemoryPersistence());
+            final MqttClient sampleClient = new MqttClient("tcp://" + mBroker, clientId, new MemoryPersistence());
             MqttConnectOptions connOpts = new MqttConnectOptions();
             connOpts.setCleanSession(true);
             sampleClient.connect(connOpts);
             MqttMessage message = new MqttMessage(content.getBytes());
             message.setQos(qos);
             String topic;
-            if(mMask.equals(""))
+            if (mMask.equals(""))
                 topic = mWrite_topic;
             else
                 topic = mMask + '/' + mWrite_topic;
@@ -166,14 +195,14 @@ import javax.crypto.NoSuchPaddingException;
         String clientId = "paho-java-client";
         String content = "0";
         try {
-            final MqttClient sampleClient = new MqttClient("tcp://"+ mBroker, clientId, new MemoryPersistence());
+            final MqttClient sampleClient = new MqttClient("tcp://" + mBroker, clientId, new MemoryPersistence());
             MqttConnectOptions connOpts = new MqttConnectOptions();
             connOpts.setCleanSession(true);
             sampleClient.connect(connOpts);
             MqttMessage message = new MqttMessage(content.getBytes());
             message.setQos(qos);
             String topic;
-            if(mMask.equals(""))
+            if (mMask.equals(""))
                 topic = mWrite_topic;
             else
                 topic = mMask + '/' + mWrite_topic;

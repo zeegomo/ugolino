@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -89,6 +90,25 @@ public class MainActivity extends AppCompatActivity {
                 IOException e) {
             e.printStackTrace();
         }
+
+        /*
+        String ciao = "ciao";
+        String enc = null;
+        byte[] iv= null;
+        String dec;
+        try {
+            enc = (Base64.encodeToString(encryptor.encryptText("ciao", ciao), Base64.DEFAULT));
+            iv = encryptor.getIv();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        try {
+            dec = decryptor.decryptData("ciao", Base64.decode(enc,Base64.DEFAULT),iv);
+        }catch (Exception e){
+            e.printStackTrace();
+        }*/
+
     }
 
 
@@ -165,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                 ReadFragment.dataNotify(read_devices);
                 Log.d("read_device" + read_devices, "AddDevice");
                 Log.e("server: " +topic,"ADD READ");
-                mqttHandler.addConnection(read_devices.get(read_devices.size()));
+                mqttHandler.addConnection(read_devices.get(read_devices.size()-1));
                 Save();
             }
         });
@@ -257,6 +277,9 @@ public class MainActivity extends AppCompatActivity {
         }
         mqttHandler.updateConnections();
         Log.e("read_size: " + read_devices.size(), "MainActivity");
+
+
+
     }
 
     public void Save() {
@@ -307,10 +330,10 @@ public class MainActivity extends AppCompatActivity {
         //mqttHandler.init();
         //InteractFragment.dataNotify(interact_devices);
         //ReadFragment.dataNotify(read_devices);
-        for(int i = 0; i < mqttHandler.getSize(); i++){
+        /*for(int i = 0; i < mqttHandler.getSize(); i++){
             Log.e("mqttHandler: " + mqttHandler.connections.get(i).getBroker() + mqttHandler.connections.get(i).getMask(),"Main Activity");
 
-        }
+        }*/
     }
 
     private boolean isNetworkAvailable() {

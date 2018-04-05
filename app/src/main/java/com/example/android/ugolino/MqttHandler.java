@@ -25,8 +25,8 @@ class MqttHandler {
                 found = true;
         }
         if (!found) {
-                connections.add(new MqttThread(device.getmBroker(), context, device.getmMask(), device.getPassword(), device.getUser(), device.getId(), device.isSecure()));
-                connections.get(size).connect();
+                connections.add(new MqttThread(context, device.getId(), device.getmBroker(), device.isSecure()));
+                connections.get(size).connect(device);
         }
     }
 
