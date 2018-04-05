@@ -23,6 +23,11 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
 import java.util.ArrayList;
 
 import static com.example.android.ugolino.R.menu.toolbar;
@@ -34,9 +39,10 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<Device> interact_devices = new ArrayList<>();
     //List of devices meant to retrieve data
     public static ArrayList<Device> read_devices = new ArrayList<>();
-    public static WebView webView;
     public static MqttHandler mqttHandler;
 
+    static Encrypt encryptor;
+    static Decrypt decryptor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +54,16 @@ public class MainActivity extends AppCompatActivity {
 
         mqttHandler = new MqttHandler(getApplicationContext());
         //Save();
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        ViewPager viewPager = findViewById(R.id.viewpager);
+
         UgolinoFragmentPagerAdapter gadapter = new UgolinoFragmentPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(gadapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+
+        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
+
+        //------------------RECOVERING DEVICE DATA FROM DRIVE-------------------
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Gson gson = new Gson();
         String json_interact = appSharedPrefs.getString("interact_devices", "");
@@ -70,36 +80,16 @@ public class MainActivity extends AppCompatActivity {
             }.getType());
         }
 
-        //MqttThread mqtt = new MqttThread("mosquitto.ddns.net",getApplicationContext(), "read_devices");
-        //mqtt.sslConnect(false);
+        //------------------INITIALIZING CRYPTO TOOLS TO PROTECT USERS PASSWORDS--------------
+        encryptor = new Encrypt();
 
-
-
-        //mqttHandler.updateConnections();
-        //View initialization
-        webView = (WebView) findViewById(R.id.webview);
-    }
-
-    /*
-    void updateData(String topic, MqttMessage message){
-        int length = read_devices.size();
-        for(int i = 0; i < length; i++){
-
-            String deviceTopic;
-            Device currentDevice = read_devices.get(i);
-            if(currentDevice.getmMask().equals(""))
-                deviceTopic = currentDevice.getmRead_topic();
-            else
-                deviceTopic = currentDevice.getmMask() + '/' + currentDevice.getmRead_topic();
-
-            Log.e("deviceTopic" + deviceTopic, "updateData");
-            Log.e("topic" + topic, "updateData");
-            if((deviceTopic).equals(topic)) //TODO control if effective
-                read_devices.get(i).setmRead(message.toString());
+        try {
+            decryptor = new Decrypt();
+        } catch (CertificateException | NoSuchAlgorithmException | KeyStoreException |
+                IOException e) {
+            e.printStackTrace();
         }
-        mqttHandler.updateConnections();
-        ReadFragment.dataNotify();
-    }*/
+    }
 
 
     public boolean onCreateOptionsMenu(Menu menu) {

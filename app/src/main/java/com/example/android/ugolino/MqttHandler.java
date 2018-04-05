@@ -13,12 +13,6 @@ class MqttHandler {
         this.context = mContext;
     }
 
-    /*
-    void init(){
-        for(int i = 0; i < connections.size(); i++)
-            if(!connections.get(i).isConnected())
-                connections.get(i).connect();
-    }*/
     int getSize() {
         return connections.size();
     }
@@ -27,26 +21,24 @@ class MqttHandler {
         boolean found = false;
         int size = connections.size();
         for (int i = 0; i < size && !found; i++) {
-            if (device.getmBroker().equals(connections.get(i).getBroker()) && device.getmMask().equals(connections.get(i).getMask()) && device.isSecure() == connections.get(i).isSecure())
+            if (connections.get(i).getId().equals(device.getId()) && connections.get(i).isSecure() == device.isSecure())
                 found = true;
         }
         if (!found) {
-                connections.add(new MqttThread(device.getmBroker(), context, device.getmMask(), device.getPassword(), device.getUser(),device.isSecure()));
+                connections.add(new MqttThread(device.getmBroker(), context, device.getmMask(), device.getPassword(), device.getUser(), device.getId(), device.isSecure()));
                 connections.get(size).connect();
         }
     }
 
     private boolean search(MqttThread mqtt, ArrayList<Device> devices) {
         for (int i = 0; i < devices.size(); i++)
-            if (mqtt.getBroker().equals(devices.get(i).getmBroker()) && mqtt.getMask().equals(devices.get(i).getmMask()) && mqtt.isSecure() == devices.get(i).isSecure())
+            if (mqtt.getId().equals(devices.get(i).getId()) && mqtt.isSecure() == devices.get(i).isSecure())
                 return true;
 
         return false;
     }
 
     void updateConnections() {
-        //ArrayList<String> broker = getBrokers();
-        //ArrayList<String> mask = getMasks();
         ArrayList<Device> devices = MainActivity.read_devices;
 
         for (int i = 0; i < devices.size(); i++) {

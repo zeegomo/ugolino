@@ -1,5 +1,6 @@
 package com.example.android.ugolino;
 
+import android.app.ActionBar;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -15,10 +17,23 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.gson.Gson;
 
+import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.SignatureException;
+import java.security.UnrecoverableEntryException;
 import java.util.ArrayList;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
 
 /**
@@ -164,10 +179,27 @@ public class DeviceActivity extends AppCompatActivity {
                 alert.setPositiveButton("Enable", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         tlsButton.setImageResource(R.drawable.ic_vpn_key_red_24dp);
-                        String password = passEditText.getText().toString();
+
+                        //Password safe handling done by AndroidKeyStore
+                        String password = null;
+                        try {
+                            final byte[] encryptedText = MainActivity.encryptor
+                                    .encryptText(String.valueOf(devices.get(position).getId()), passEditText.getText().toString());
+                            password = (Base64.encodeToString(encryptedText, Base64.DEFAULT));
+                        } catch (UnrecoverableEntryException | NoSuchAlgorithmException | NoSuchProviderException |
+                                KeyStoreException | IOException | NoSuchPaddingException | InvalidKeyException | InvalidAlgorithmParameterException | SignatureException |
+                                IllegalBlockSizeException | BadPaddingException e) {
+                            e.printStackTrace();
+                        }
+
                         String user = userEditText.getText().toString();
                         devices.get(position).setUser(user);
-                        devices.get(position).setPassword(password);
+                        if(password == null){
+                            Toast toast = Toast.makeText(DeviceActivity.this, "Password encryption error - password not set", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }else{
+                            devices.get(position).setPassword(password);
+                        }
                         devices.get(position).setSecure(true);
                         Save(type);
 

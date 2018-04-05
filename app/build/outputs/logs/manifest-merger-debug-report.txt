@@ -1,147 +1,147 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:2:1-39:12
-MERGED from [com.android.support:design:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\36498ea0e1b273d02f487a4d5b0497fe\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\a5af5930ba439982c5a0b7e7a2965724\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\3056c02aa05b50449063e48c1f44b3d8\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\881f16bacb0cdc3cd6383a4951258ce2\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\7123f3a362622cf54d5756c49510722b\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\6d57664a85786ff4872ecfb9961cfa39\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\8de23cb3aab85f7d0768a97a89590c22\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\6c45143320adfd1d7a35738decfc7de2\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\d36e26748d9cd9985e31706da66067b1\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\37a853ae969d3fe86bdf7d1ce5139e14\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\7a1bf0e8d0a1d6d86e5e816007d3870b\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\0809523bcc268a31cb279dd190414b1b\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\25870ddc8e46d10f2b01785acd3225fe\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\42fccd7f632a48d2552adc8e6ce8f2b2\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\4ac75f46aeaea8847bec87dbbbf7b057\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\b0fc9e1a94833de08f8c630d93138946\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:2:1-39:12
-INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:2:1-39:12
+ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:2:1-39:12
+MERGED from [com.android.support:design:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/ffd572a656d12c26ad511041e60177cc/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/d1584c2a6082ae371fe6a4ee2ddcebcb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/3a555c40cd784f6eb738407e30572af0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/ae387fce1fd4198e8955ec2e8a0b6d90/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/2099bbe597116cbad6520192a67cba01/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/754dde469c4195f515327f872b5ea220/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/e6cbe37f074d0e7d89e9c393dad9dfbf/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/d7957c41581a9c1022d0de8181040736/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/0d8fbe993a930b3267d108f619425797/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/transition-27.1.0.aar/c7d13070c5d15dc5ed2d821a926198ac/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/67bd40806bc70d5f41591a2e72a5a2b4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/5fae92f24e948c0c08b75d5d100a5bdc/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/69a5525f0f0a29d975f84939b9381616/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/75b7f6336d521dde3eef927bfd5e4d8f/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/330305d9274a78461f2cab102cdde1aa/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/d3a859d168461228fd6ef10bbde4695d/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:2:1-39:12
 	package
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:3:5-42
-		INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:3:5-42
+		INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
+		INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:2:1-39:12
-		INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
+		INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:2:1-39:12
+		INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:2:1-39:12
-		INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
+		INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:2:1-39:12
+		INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:5:5-67
+ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:5:5-67
 	android:name
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:5:22-64
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:5:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:6:5-79
+ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:6:5-79
 	android:name
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:6:22-76
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:6:22-76
 uses-permission#android.permission.WAKE_LOCK
-ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:7:5-68
+ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:7:5-68
 	android:name
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:7:22-65
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:7:22-65
 uses-permission#android.permission.READ_PHONE_STATE
-ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:8:5-75
+ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:8:5-75
 	android:name
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:8:22-72
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:8:22-72
 application
-ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:9:5-37:19
+ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:9:5-37:19
 	android:supportsRtl
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:13:9-32
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:13:9-32
 	android:icon
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:12:9-38
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:12:9-38
 	android:allowBackup
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:15:9-40
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:15:9-40
 service#org.eclipse.paho.android.service.MqttService
-ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:16:9-80
+ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:16:9-80
 	android:name
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:16:18-77
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:16:18-77
 activity#com.example.android.ugolino.MainActivity
-ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:17:9-21:20
+ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:17:9-21:20
 	android:label
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:19:13-36
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:19:13-36
 	android:name
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:18:13-41
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:18:13-41
 activity#com.example.android.ugolino.DeviceActivity
-ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:23:9-26:57
+ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:23:9-26:57
 	android:parentActivityName
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:26:13-55
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:26:13-55
 	android:label
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:25:13-35
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:25:13-35
 	android:name
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:24:13-43
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:24:13-43
 activity#com.example.android.ugolino.Splash
-ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:28:9-36:20
+ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:28:9-36:20
 	android:theme
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:29:13-47
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:29:13-47
 	android:name
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:28:19-41
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:28:19-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:30:13-34:29
+ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:30:13-34:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:31:17-69
+ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:31:17-69
 	android:name
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:31:25-66
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:31:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:33:17-77
+ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:33:17-77
 	android:name
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml:33:27-74
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml:33:27-74
 uses-sdk
-INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
-MERGED from [com.android.support:design:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\36498ea0e1b273d02f487a4d5b0497fe\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\design-27.1.0.aar\36498ea0e1b273d02f487a4d5b0497fe\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\a5af5930ba439982c5a0b7e7a2965724\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\a5af5930ba439982c5a0b7e7a2965724\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\3056c02aa05b50449063e48c1f44b3d8\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.0.aar\3056c02aa05b50449063e48c1f44b3d8\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\881f16bacb0cdc3cd6383a4951258ce2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\881f16bacb0cdc3cd6383a4951258ce2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\7123f3a362622cf54d5756c49510722b\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\7123f3a362622cf54d5756c49510722b\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\6d57664a85786ff4872ecfb9961cfa39\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.0.aar\6d57664a85786ff4872ecfb9961cfa39\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\8de23cb3aab85f7d0768a97a89590c22\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\8de23cb3aab85f7d0768a97a89590c22\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\6c45143320adfd1d7a35738decfc7de2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\6c45143320adfd1d7a35738decfc7de2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\d36e26748d9cd9985e31706da66067b1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\d36e26748d9cd9985e31706da66067b1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\37a853ae969d3fe86bdf7d1ce5139e14\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\transition-27.1.0.aar\37a853ae969d3fe86bdf7d1ce5139e14\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\7a1bf0e8d0a1d6d86e5e816007d3870b\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.0.aar\7a1bf0e8d0a1d6d86e5e816007d3870b\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\0809523bcc268a31cb279dd190414b1b\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\0809523bcc268a31cb279dd190414b1b\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\25870ddc8e46d10f2b01785acd3225fe\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\25870ddc8e46d10f2b01785acd3225fe\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\42fccd7f632a48d2552adc8e6ce8f2b2\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\42fccd7f632a48d2552adc8e6ce8f2b2\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\4ac75f46aeaea8847bec87dbbbf7b057\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\4ac75f46aeaea8847bec87dbbbf7b057\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\b0fc9e1a94833de08f8c630d93138946\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Giacomo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\b0fc9e1a94833de08f8c630d93138946\AndroidManifest.xml:20:5-44
-INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
+INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
+INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:design:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/ffd572a656d12c26ad511041e60177cc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/ffd572a656d12c26ad511041e60177cc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/d1584c2a6082ae371fe6a4ee2ddcebcb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/d1584c2a6082ae371fe6a4ee2ddcebcb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/3a555c40cd784f6eb738407e30572af0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/3a555c40cd784f6eb738407e30572af0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/ae387fce1fd4198e8955ec2e8a0b6d90/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/ae387fce1fd4198e8955ec2e8a0b6d90/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/2099bbe597116cbad6520192a67cba01/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/2099bbe597116cbad6520192a67cba01/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/754dde469c4195f515327f872b5ea220/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/754dde469c4195f515327f872b5ea220/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/e6cbe37f074d0e7d89e9c393dad9dfbf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/e6cbe37f074d0e7d89e9c393dad9dfbf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/d7957c41581a9c1022d0de8181040736/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/d7957c41581a9c1022d0de8181040736/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/0d8fbe993a930b3267d108f619425797/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/0d8fbe993a930b3267d108f619425797/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/transition-27.1.0.aar/c7d13070c5d15dc5ed2d821a926198ac/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/transition-27.1.0.aar/c7d13070c5d15dc5ed2d821a926198ac/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/67bd40806bc70d5f41591a2e72a5a2b4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/67bd40806bc70d5f41591a2e72a5a2b4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/5fae92f24e948c0c08b75d5d100a5bdc/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/5fae92f24e948c0c08b75d5d100a5bdc/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/69a5525f0f0a29d975f84939b9381616/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/69a5525f0f0a29d975f84939b9381616/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/75b7f6336d521dde3eef927bfd5e4d8f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/75b7f6336d521dde3eef927bfd5e4d8f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/330305d9274a78461f2cab102cdde1aa/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/330305d9274a78461f2cab102cdde1aa/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/d3a859d168461228fd6ef10bbde4695d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/zeegomo/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/d3a859d168461228fd6ef10bbde4695d/AndroidManifest.xml:20:5-44
+INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
+INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
+		INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
+		INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Giacomo\StudioProjects\ugolino\app\src\main\AndroidManifest.xml
+		INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
+		ADDED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml
+		INJECTED from /home/zeegomo/StudioProjects/ugolino/app/src/main/AndroidManifest.xml

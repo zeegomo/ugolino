@@ -14,14 +14,26 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
+import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.UnrecoverableEntryException;
 import java.util.ArrayList;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
+import static com.example.android.ugolino.MainActivity.decryptor;
 import static com.example.android.ugolino.MainActivity.read_devices;
 
 
 class MqttThread {
     private String broker;
-    private String id = "ugolino";
+    private String id;
     private String mask;
     private MqttAndroidClient mqttAndroidClient;
     private MqttAndroidClient secureMqttAndroidClient;
@@ -34,7 +46,7 @@ class MqttThread {
 
     //Constructor
     //Password is used only if initialized and only in secure mode
-    MqttThread(String broker, Context context, String mMask, String password, String user, boolean secure) {
+    MqttThread(String broker, Context context, String mMask, String password, String user, String id, boolean secure) {
         this.broker = broker;
         this.mask = mMask;
         this.mask = mMask;
@@ -42,20 +54,19 @@ class MqttThread {
         this.password = password;
         this.user = user;
         this.secure = secure;
-        mqttAndroidClient = new MqttAndroidClient(context, "tcp://" + broker, id);
-        secureMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8883", id);
+        this.id = id;
+        mqttAndroidClient = new MqttAndroidClient(context, "tcp://" + broker, id + "@Ugolino");
+        secureMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8883", id + "@Ugolino");
         //secureCertMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8884", id);
+
+
     }
 
 
     //GET METHODS
-    String getBroker() {
-        return this.broker;
-    }
-
-    String getMask() {
-        return this.mask;
-    }
+    String getBroker() {return this.broker;}
+    String getMask() {return this.mask;}
+    String getId() {return this.id;}
 
     private boolean isConnected() {
         if (secure)
@@ -64,9 +75,7 @@ class MqttThread {
             return secureMqttAndroidClient.isConnected();
     }
 
-    boolean isSecure() {
-        return secure;
-    }
+    boolean isSecure() {return secure;}
 
 
     //-----------------------CONNECTIONS-----------------------------
@@ -130,8 +139,24 @@ class MqttThread {
                 Toast toast = Toast.makeText(context, "Password not set - ignoring auth", Toast.LENGTH_SHORT);
                 toast.show();
             } else {
-                options.setPassword(password.toCharArray());
-                options.setUserName(user);
+                //Password safe handling by AndroidKeyStore
+
+                String password = null;
+                try {
+                    password = (decryptor
+                            .decryptData(id, MainActivity.encryptor.getEncryption(), MainActivity.encryptor.getIv()));
+                } catch (UnrecoverableEntryException | NoSuchAlgorithmException |
+                        KeyStoreException | NoSuchPaddingException | NoSuchProviderException |
+                        IOException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException e) {
+                    e.printStackTrace();
+                }
+                if (password == null){
+                    Toast toast = Toast.makeText(context, "Password decryption error - logging without credentials", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else{
+                    options.setPassword(password.toCharArray());
+                    options.setUserName(user);
+                }
             }
             options.setCleanSession(true);
             options.setUserName("admin");

@@ -1,12 +1,26 @@
 package com.example.android.ugolino;
 
 
+import android.util.Base64;
 import android.util.Log;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+
+import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.SignatureException;
+import java.security.UnrecoverableEntryException;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
 
 /**
@@ -19,19 +33,22 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
     private String mName;
     private boolean mStatus;
     private String mWrite_topic;
-    //private String mW
+    private String id;
     private String mRead_topic;
     private String mBroker;
     private String mMask;
     private boolean mType;
     private String mRead;
     private boolean secure;
-    //TODO Safe storage
+
+    //MQTT credentials
     private String password;
     private String user;
 
+
     Device(String name, String mask, String read_topic, String broker, String write_topic, boolean Type) {
         mName = name;
+        id = String.valueOf(Math.random()%1000000);
         mStatus = false;
         mRead_topic = read_topic;
         mWrite_topic = write_topic;
@@ -80,6 +97,8 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
     String getPassword(){return password;}
 
     String getUser(){return user;}
+
+    String getId(){return id;}
 
 
 
