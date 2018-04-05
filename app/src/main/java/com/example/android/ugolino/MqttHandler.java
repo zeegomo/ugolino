@@ -54,4 +54,10 @@ class MqttHandler {
 
     }
 
+    void closeAll(){
+        for(int i = 0; i < connections.size(); i++){
+            connections.get(i).close();
+        }
+    }
+
 }

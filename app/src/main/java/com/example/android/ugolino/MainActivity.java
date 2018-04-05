@@ -336,6 +336,12 @@ public class MainActivity extends AppCompatActivity {
         }*/
     }
 
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        mqttHandler.closeAll();
+    }
+
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
