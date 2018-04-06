@@ -158,26 +158,24 @@ class MqttThread {
             } else {
                 //Password safe handling by AndroidKeyStore
 
-
+                String decryptedPassword = null;
                 try {
-                    password = (decryptor
+                    decryptedPassword = (decryptor
                             .decryptData(id, Base64.decode(password, Base64.DEFAULT), iv));
                 } catch (UnrecoverableEntryException | NoSuchAlgorithmException |
                         KeyStoreException | NoSuchPaddingException | NoSuchProviderException |
                         IOException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException e) {
                     e.printStackTrace();
                 }
-                if (password == null){
+                if (decryptedPassword == null){
                     Toast toast = Toast.makeText(context, "Password decryption error - logging without credentials", Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
-                    options.setPassword(password.toCharArray());
+                    options.setPassword(decryptedPassword.toCharArray());
                     options.setUserName(user);
                 }
             }
             options.setCleanSession(true);
-            options.setUserName("admin");
-            options.setPassword("admin".toCharArray());
             options.setConnectionTimeout(60);
             options.setKeepAliveInterval(60);
 

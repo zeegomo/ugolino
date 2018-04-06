@@ -65,10 +65,10 @@ public class InteractAdapter extends ArrayAdapter<Device> {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 currentDevice = devices.get(position);
                 if (isChecked)
-                    currentDevice.on();
+                    currentDevice.on(getContext());
 
                 else
-                    currentDevice.off();
+                    currentDevice.off(getContext());
 
 
             }

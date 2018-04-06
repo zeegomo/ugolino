@@ -45,6 +45,7 @@ public class DeviceActivity extends AppCompatActivity {
     MqttHandler mqttHandler = MainActivity.mqttHandler;
     ArrayList<Device> devices = new ArrayList<>();
     int position = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +72,7 @@ public class DeviceActivity extends AppCompatActivity {
         deviceName.setText(devices.get(position).getmName());
 
         final TextView topicTextView = (TextView) findViewById(R.id.topic);
-        if(type)
+        if (type)
             topicTextView.setText(devices.get(position).getmWrite_topic());
         else
             topicTextView.setText(devices.get(position).getmRead_topic());
@@ -146,7 +147,7 @@ public class DeviceActivity extends AppCompatActivity {
         //Change Device Name
         final ImageView tlsButton = (ImageView) findViewById(R.id.tls_button);
 
-        if(devices.get(position).isSecure())
+        if (devices.get(position).isSecure())
             tlsButton.setImageResource(R.drawable.ic_vpn_key_red_24dp);
         else
             tlsButton.setImageResource(R.drawable.ic_vpn_key_black_24dp);
@@ -156,67 +157,94 @@ public class DeviceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(DeviceActivity.this);
-                alert.setMessage("Provide optional password and certificate");
-                alert.setTitle("TLS config");
 
-                LinearLayout layout = new LinearLayout(DeviceActivity.this);
-                layout.setOrientation(LinearLayout.VERTICAL);
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                    alert.setMessage("Provide optional password and certificate");
+                    alert.setTitle("TLS config");
 
-                final EditText passEditText = new EditText(DeviceActivity.this);
-                final EditText userEditText = new EditText(DeviceActivity.this);
+                    LinearLayout layout = new LinearLayout(DeviceActivity.this);
+                    layout.setOrientation(LinearLayout.VERTICAL);
 
-                passEditText.setHint("password");
-                //passEditText.setInputType();
-                passEditText.setGravity(Gravity.CENTER);
+                    final EditText passEditText = new EditText(DeviceActivity.this);
+                    final EditText userEditText = new EditText(DeviceActivity.this);
 
-                userEditText.setHint("username");
-                userEditText.setGravity(Gravity.CENTER);
+                    passEditText.setHint("password");
+                    //passEditText.setInputType();
+                    passEditText.setGravity(Gravity.CENTER);
 
-                layout.addView(passEditText);
-                layout.addView(userEditText);
-                alert.setView(layout);
+                    userEditText.setHint("username");
+                    userEditText.setGravity(Gravity.CENTER);
 
-                alert.setPositiveButton("Enable", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        tlsButton.setImageResource(R.drawable.ic_vpn_key_red_24dp);
+                    layout.addView(passEditText);
+                    layout.addView(userEditText);
+                    alert.setView(layout);
 
-                        //Password safe handling done by AndroidKeyStore
-                        String password = null;
-                        byte[] iv = null;
-                        try {
-                            final byte[] encryptedText = MainActivity.encryptor
-                                    .encryptText(String.valueOf(devices.get(position).getId()), passEditText.getText().toString());
-                            password = (Base64.encodeToString(encryptedText, Base64.DEFAULT));
-                            iv = MainActivity.encryptor.getIv();
-                        } catch (UnrecoverableEntryException | NoSuchAlgorithmException | NoSuchProviderException |
-                                KeyStoreException | IOException | NoSuchPaddingException | InvalidKeyException | InvalidAlgorithmParameterException | SignatureException |
-                                IllegalBlockSizeException | BadPaddingException e) {
-                            e.printStackTrace();
+                    alert.setPositiveButton("Enable", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            tlsButton.setImageResource(R.drawable.ic_vpn_key_red_24dp);
+
+
+                            //Password safe handling done by AndroidKeyStore
+                            String password = null;
+                            byte[] iv = null;
+                            try {
+                                final byte[] encryptedText = MainActivity.encryptor
+                                        .encryptText(String.valueOf(devices.get(position).getId()), passEditText.getText().toString());
+                                password = (Base64.encodeToString(encryptedText, Base64.DEFAULT));
+                                iv = MainActivity.encryptor.getIv();
+                            } catch (UnrecoverableEntryException | NoSuchAlgorithmException | NoSuchProviderException |
+                                    KeyStoreException | IOException | NoSuchPaddingException | InvalidKeyException | InvalidAlgorithmParameterException | SignatureException |
+                                    IllegalBlockSizeException | BadPaddingException e) {
+                                e.printStackTrace();
+                            }
+
+                            String user = userEditText.getText().toString();
+                            devices.get(position).setUser(user);
+                            devices.get(position).setIv(iv);
+                            if (password == null) {
+                                Toast toast = Toast.makeText(DeviceActivity.this, "Password encryption error - password not set", Toast.LENGTH_SHORT);
+                                toast.show();
+                            } else {
+                                devices.get(position).setPassword(password);
+                            }
+                            devices.get(position).setSecure(true);
+                            Save(type);
+
                         }
+                    });
 
-                        String user = userEditText.getText().toString();
-                        devices.get(position).setUser(user);
-                        devices.get(position).setIv(iv);
-                        if(password == null){
-                            Toast toast = Toast.makeText(DeviceActivity.this, "Password encryption error - password not set", Toast.LENGTH_SHORT);
-                            toast.show();
-                        }else{
-                            devices.get(position).setPassword(password);
+                    alert.setNegativeButton("Disable", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            // what ever you want to do with No option.
+                            tlsButton.setImageResource(R.drawable.ic_vpn_key_black_24dp);
+                            devices.get(position).setSecure(false);
+                            Save(type);
                         }
-                        devices.get(position).setSecure(true);
-                        Save(type);
+                    });
+                }else{
 
-                    }
-                });
+                    //Handling call with API < 23 where it is not possible to store passwords
+                    alert.setMessage("Password login is only available in Android 6.0 or above, Plain TLS is still supported");
+                    alert.setTitle("TLS Connection");
 
-                alert.setNegativeButton("Disable", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        // what ever you want to do with No option.
-                        tlsButton.setImageResource(R.drawable.ic_vpn_key_black_24dp);
-                        devices.get(position).setSecure(false);
-                        Save(type);
-                    }
-                });
+                    alert.setPositiveButton("Enable",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            // what ever you want to do with No option.
+                            tlsButton.setImageResource(R.drawable.ic_vpn_key_red_24dp);
+                            devices.get(position).setSecure(true);
+                            Save(type);
+                        }
+                    });
+
+                    alert.setNegativeButton("Disable", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            // what ever you want to do with No option.
+                            tlsButton.setImageResource(R.drawable.ic_vpn_key_black_24dp);
+                            devices.get(position).setSecure(false);
+                            Save(type);
+                        }
+                    });
+                }
                 alert.show();
             }
         });
@@ -236,11 +264,11 @@ public class DeviceActivity extends AppCompatActivity {
                 alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String topic = edittext.getText().toString();
-                        if(type) {
+                        if (type) {
                             devices.get(position).setmWrite_topic(topic);
                             topicTextView.setText(devices.get(position).getmWrite_topic());
 
-                        }else {
+                        } else {
                             devices.get(position).setmRead_topic(topic);
                             topicTextView.setText(devices.get(position).getmRead_topic());
 

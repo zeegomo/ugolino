@@ -1,8 +1,10 @@
 package com.example.android.ugolino;
 
 
+import android.content.Context;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
@@ -22,6 +24,8 @@ import java.security.UnrecoverableEntryException;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+
+import static com.example.android.ugolino.MainActivity.decryptor;
 
 
 /**
@@ -162,11 +166,77 @@ class Device {
         this.password = password;
     }
 
-    void on() {
-        int qos = 0;
-        String clientId = "paho-java-client";
-        String content = "1";
 
+    void on(Context context) {
+        if(secure)
+            sslPublish(context,"1");
+        else
+            publish("1");
+
+        setmStatus(true);
+    }
+
+    void off(Context context) {
+       if(secure)
+           sslPublish(context,"0");
+       else
+           publish("0");
+
+        setmStatus(false);
+    }
+
+
+    void sslPublish(Context context, String content){
+        int qos = 0;
+        String clientId = id + "@Ugolino";
+        //Log.e("topic: " + mWrite_topic + "mask:  " + mMask + " broker: " + mBroker, "DEVICE");
+        try {
+            final MqttClient sampleClient = new MqttClient("ssl://" + mBroker +":8883", clientId, new MemoryPersistence());
+            MqttConnectOptions connOpts = new MqttConnectOptions();
+            connOpts.setCleanSession(true);
+
+            if (this.password == null || this.password.equals("")) {
+                Toast toast = Toast.makeText(context, "Password not set - ignoring auth", Toast.LENGTH_SHORT);
+                toast.show();
+            } else {
+                //Password safe handling by AndroidKeyStore
+
+                String decryptedPassword = null;
+                try {
+                    decryptedPassword = (decryptor
+                            .decryptData(id, Base64.decode(this.password, Base64.DEFAULT), this.iv));
+                } catch (UnrecoverableEntryException | NoSuchAlgorithmException |
+                        KeyStoreException | NoSuchPaddingException | NoSuchProviderException |
+                        IOException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException e) {
+                    e.printStackTrace();
+                }
+                if (decryptedPassword == null){
+                    Toast toast = Toast.makeText(context, "Password decryption error - logging without credentials", Toast.LENGTH_SHORT);
+                    toast.show();
+                }else{
+                    connOpts.setPassword(decryptedPassword.toCharArray());
+                    connOpts.setUserName(user);
+                }
+            }
+
+            sampleClient.connect(connOpts);
+            MqttMessage message = new MqttMessage(content.getBytes());
+            message.setQos(qos);
+            String topic;
+            if (mMask.equals(""))
+                topic = mWrite_topic;
+            else
+                topic = mMask + '/' + mWrite_topic;
+            sampleClient.publish(topic, message);
+            sampleClient.disconnect();
+        } catch (MqttException me) {
+            me.printStackTrace();
+        }
+    }
+
+    void publish(String content){
+        int qos = 0;
+        String clientId = id + "@Ugolino";
         Log.e("topic: " + mWrite_topic + "mask:  " + mMask + " broker: " + mBroker, "DEVICE");
         try {
             final MqttClient sampleClient = new MqttClient("tcp://" + mBroker, clientId, new MemoryPersistence());
@@ -190,30 +260,6 @@ class Device {
         setmStatus(true);
     }
 
-    void off() {
-        int qos = 0;
-        String clientId = "paho-java-client";
-        String content = "0";
-        try {
-            final MqttClient sampleClient = new MqttClient("tcp://" + mBroker, clientId, new MemoryPersistence());
-            MqttConnectOptions connOpts = new MqttConnectOptions();
-            connOpts.setCleanSession(true);
-            sampleClient.connect(connOpts);
-            MqttMessage message = new MqttMessage(content.getBytes());
-            message.setQos(qos);
-            String topic;
-            if (mMask.equals(""))
-                topic = mWrite_topic;
-            else
-                topic = mMask + '/' + mWrite_topic;
-            sampleClient.publish(topic, message);
-            sampleClient.disconnect();
-        } catch (MqttException me) {
-            me.printStackTrace();
-        }
-
-        setmStatus(false);
-    }
 
 
 }
