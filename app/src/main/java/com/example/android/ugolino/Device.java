@@ -199,8 +199,8 @@ class Device {
                 Toast toast = Toast.makeText(context, "Password not set - ignoring auth", Toast.LENGTH_SHORT);
                 toast.show();
             } else {
-                //Password safe handling by AndroidKeyStore
 
+                //Password safe handling by AndroidKeyStore
                 String decryptedPassword = null;
                 try {
                     decryptedPassword = (decryptor

@@ -159,7 +159,7 @@ public class DeviceActivity extends AppCompatActivity {
                 android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(DeviceActivity.this);
 
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                    alert.setMessage("Provide optional password and certificate");
+                    alert.setMessage("Provide optional username and password");
                     alert.setTitle("TLS config");
 
                     LinearLayout layout = new LinearLayout(DeviceActivity.this);
