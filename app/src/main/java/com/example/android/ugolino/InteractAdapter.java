@@ -46,9 +46,9 @@ public class InteractAdapter extends ArrayAdapter<Device> {
         currentDevice = devices.get(position);
         //final String OnUrl = currentDevice.getOnUrl();
         //final String OffUrl = currentDevice.getOffUrl();
-        ImageView statusImageView = (ImageView) listItemView.findViewById(R.id.status_image);
-        Switch statusSwitch = (Switch) listItemView.findViewById(R.id.on_switch);
-        TextView readTextView = (TextView) listItemView.findViewById(R.id.read_value);
+        ImageView statusImageView =  listItemView.findViewById(R.id.status_image);
+        Switch statusSwitch = listItemView.findViewById(R.id.on_switch);
+        TextView readTextView =  listItemView.findViewById(R.id.read_value);
 
         readTextView.setVisibility(GONE);
         if(currentDevice.isSecure())

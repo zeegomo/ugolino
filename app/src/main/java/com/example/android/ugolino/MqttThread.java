@@ -167,7 +167,7 @@ class MqttThread {
                         IOException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException e) {
                     e.printStackTrace();
                 }
-                if (decryptedPassword == null){
+                if (decryptedPassword == null || decryptedPassword.equals("")){
                     Toast toast = Toast.makeText(context, "Password decryption error - logging without credentials", Toast.LENGTH_SHORT);
                     toast.show();
                 }else{
