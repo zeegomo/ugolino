@@ -51,7 +51,10 @@ public class InteractAdapter extends ArrayAdapter<Device> {
         TextView readTextView = (TextView) listItemView.findViewById(R.id.read_value);
 
         readTextView.setVisibility(GONE);
-        statusImageView.setVisibility(GONE);
+        if(currentDevice.isSecure())
+            statusImageView.setImageResource(R.drawable.ic_vpn_key_red_24dp);
+        else
+            statusImageView.setVisibility(GONE);
 
         boolean response = currentDevice.getmStatus();
         if (response) {

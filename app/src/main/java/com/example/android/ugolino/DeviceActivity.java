@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
@@ -169,7 +170,8 @@ public class DeviceActivity extends AppCompatActivity {
                     final EditText userEditText = new EditText(DeviceActivity.this);
 
                     passEditText.setHint("password");
-                    //passEditText.setInputType();
+                    passEditText.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
                     passEditText.setGravity(Gravity.CENTER);
 
                     userEditText.setHint("username");

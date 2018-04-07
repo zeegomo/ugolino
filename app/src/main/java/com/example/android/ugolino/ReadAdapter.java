@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 
 import static android.view.View.GONE;
@@ -50,10 +51,16 @@ public class ReadAdapter extends ArrayAdapter<Device> {
         Switch statusSwitch = (Switch) listItemView.findViewById(R.id.on_switch);
         TextView readTextView = (TextView) listItemView.findViewById(R.id.read_value);
 
-        if(currentDevice.getmStatus())
-            statusImageView.setImageResource(R.drawable.ic_brightness_1_red_24dp);
+        if (currentDevice.getmStatus())
+            if (currentDevice.isSecure())
+                statusImageView.setImageResource(R.drawable.ic_vpn_key_red_24dp);
+            else
+                statusImageView.setImageResource(R.drawable.ic_brightness_1_red_24dp);
         else
-            statusImageView.setImageResource(R.drawable.ic_brightness_1_black_24dp);
+            if(currentDevice.isSecure())
+                statusImageView.setImageResource(R.drawable.ic_vpn_key_black_24dp);
+            else
+                statusImageView.setImageResource(R.drawable.ic_brightness_1_black_24dp);
         statusSwitch.setVisibility(GONE);
         readTextView.setText(currentDevice.getmRead());
 
