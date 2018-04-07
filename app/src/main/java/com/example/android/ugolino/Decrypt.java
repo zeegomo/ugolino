@@ -51,4 +51,6 @@ class Decrypt {
             UnrecoverableEntryException, KeyStoreException {
         return ((KeyStore.SecretKeyEntry) keyStore.getEntry(alias, null)).getSecretKey();
     }
+
+
 }

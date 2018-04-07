@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        /*
+
         String ciao = "ciao";
         String enc = null;
         byte[] iv= null;
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             dec = decryptor.decryptData("ciao", Base64.decode(enc,Base64.DEFAULT),iv);
         }catch (Exception e){
             e.printStackTrace();
-        }*/
+        }
 
     }
 
@@ -336,11 +336,7 @@ public class MainActivity extends AppCompatActivity {
         }*/
     }
 
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        mqttHandler.closeAll();
-    }
+
 
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
