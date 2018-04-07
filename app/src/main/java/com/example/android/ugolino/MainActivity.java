@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         mqttHandler = new MqttHandler(getApplicationContext());
-        Save();
+        //Save();
         ViewPager viewPager = findViewById(R.id.viewpager);
 
         UgolinoFragmentPagerAdapter gadapter = new UgolinoFragmentPagerAdapter(getSupportFragmentManager());
