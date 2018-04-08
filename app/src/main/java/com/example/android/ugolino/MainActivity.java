@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_add_switch:
                 AddWriteDevice();
                 //reload();
-                InteractFragment.dataNotify(interact_devices);
+                //InteractFragment.dataNotify(interact_devices);
                 return true;
 
             case R.id.action_info:
@@ -236,7 +236,8 @@ public class MainActivity extends AppCompatActivity {
                 //topic = mask + '/' + topic;
                 interact_devices.add(new Device("New Write Widget",mask, "" , broker, topic,true));
                 Save();
-                InteractFragment.dataNotify(interact_devices);
+                //InteractFragment.dataNotify(interact_devices);
+                InteractFragment.not(MainActivity.this);
                 Log.d("intereat_device" + interact_devices, "AddDevice");
                 Log.e("topic: " +topic,"ADD INTERACT");
 

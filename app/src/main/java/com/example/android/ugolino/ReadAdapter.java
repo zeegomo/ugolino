@@ -52,15 +52,9 @@ public class ReadAdapter extends ArrayAdapter<Device> {
         TextView readTextView = (TextView) listItemView.findViewById(R.id.read_value);
 
         if (currentDevice.getmStatus())
-            if (currentDevice.isSecure())
-                statusImageView.setImageResource(R.drawable.ic_vpn_key_red_24dp);
-            else
-                statusImageView.setImageResource(R.drawable.ic_brightness_1_red_24dp);
+            statusImageView.setImageResource(R.drawable.ic_brightness_1_red_24dp);
         else
-            if(currentDevice.isSecure())
-                statusImageView.setImageResource(R.drawable.ic_vpn_key_black_24dp);
-            else
-                statusImageView.setImageResource(R.drawable.ic_brightness_1_black_24dp);
+            statusImageView.setImageResource(R.drawable.ic_brightness_1_black_24dp);
         statusSwitch.setVisibility(GONE);
         readTextView.setText(currentDevice.getmRead());
 
