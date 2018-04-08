@@ -11,3 +11,6 @@ Changelog (//TODO):
 * Support for encrypted mqtt
 * **Done** Display connection status for read_devices 
 * More icon and actions
+
+Bugs:
+* Conections update on device mask/topic change
