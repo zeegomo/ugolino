@@ -21,7 +21,7 @@ class MqttHandler {
         boolean found = false;
         int size = connections.size();
         for (int i = 0; i < size && !found; i++) {
-            if (connections.get(i).getId().equals(device.getId()) && connections.get(i).isSecure() == device.isSecure())
+            if (connections.get(i).getId().equals(device.getId()))
                 found = true;
         }
         if (!found) {
@@ -32,7 +32,7 @@ class MqttHandler {
 
     private boolean search(MqttThread mqtt, ArrayList<Device> devices) {
         for (int i = 0; i < devices.size(); i++)
-            if (mqtt.getId().equals(devices.get(i).getId()) && mqtt.isSecure() == devices.get(i).isSecure())
+            if (mqtt.getId().equals(devices.get(i).getId()))
                 return true;
 
         return false;

@@ -122,6 +122,7 @@ class MqttThread {
         String user = device.getUser();
         String password = device.getPassword();
         String topic = device.getmRead_topic();
+        String alias = device.getAlias();
 
         byte[] iv = device.getIv();
         final String mMask;
@@ -161,7 +162,7 @@ class MqttThread {
                 String decryptedPassword = null;
                 try {
                     decryptedPassword = (decryptor
-                            .decryptData(id, Base64.decode(password, Base64.DEFAULT), iv));
+                            .decryptData(alias, Base64.decode(password, Base64.DEFAULT), iv));
                 } catch (UnrecoverableEntryException | NoSuchAlgorithmException |
                         KeyStoreException | NoSuchPaddingException | NoSuchProviderException |
                         IOException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException e) {

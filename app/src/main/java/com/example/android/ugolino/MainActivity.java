@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
+        /*
         String ciao = "ciao";
         String enc = null;
         byte[] iv= null;
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             dec = decryptor.decryptData("ciao", Base64.decode(enc,Base64.DEFAULT),iv);
         }catch (Exception e){
             e.printStackTrace();
-        }
+        }*/
 
     }
 
@@ -326,6 +326,14 @@ public class MainActivity extends AppCompatActivity {
             }.getType());
         }
         Log.e("read_size: " + read_devices.size(), "MainActivity");
+
+
+        for(int i = 0; i < read_devices.size(); i++)
+            read_devices.get(i).updateId();
+
+        for(int i = 0; i < interact_devices.size(); i++)
+            interact_devices.get(i).updateId();
+
         mqttHandler.updateConnections();
         //mqttHandler.init();
         //InteractFragment.dataNotify(interact_devices);

@@ -18,7 +18,7 @@ import java.security.InvalidKeyException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
-import java.security.SignatureException;
+import java.security.MessageDigest;
 import java.security.UnrecoverableEntryException;
 
 import javax.crypto.BadPaddingException;
@@ -39,6 +39,7 @@ class Device {
     private boolean mStatus;
     private String mWrite_topic;
     private String id;
+    private String alias;
     private String mRead_topic;
     private String mBroker;
     private String mMask;
@@ -53,8 +54,8 @@ class Device {
 
 
     Device(String name, String mask, String read_topic, String broker, String write_topic, boolean Type) {
+        alias = String.valueOf(Math.random());
         mName = name;
-        id = String.valueOf(Math.random() % 1000000);
         mStatus = false;
         mRead_topic = read_topic;
         mWrite_topic = write_topic;
@@ -66,6 +67,7 @@ class Device {
         user = "";
         password = null;
         iv = null;
+        updateId();
     }
 
     //GET METHODS
@@ -116,6 +118,8 @@ class Device {
     String getId() {
         return id;
     }
+
+    String getAlias(){return this.alias;}
 
     byte[] getIv(){
         return this.iv;
@@ -186,6 +190,18 @@ class Device {
     }
 
 
+    void updateId(){
+        try {
+            MessageDigest digester = MessageDigest.getInstance("SHA-1");
+            String newid = this.mBroker + this.mMask + this.mRead_topic + this.mWrite_topic + this.secure;
+            byte[] digest = digester.digest(newid.getBytes());
+            this.id = digest.toString();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
     void sslPublish(Context context, String content){
         int qos = 0;
         String clientId = id + "@Ugolino";
@@ -204,7 +220,7 @@ class Device {
                 String decryptedPassword = null;
                 try {
                     decryptedPassword = (decryptor
-                            .decryptData(id, Base64.decode(this.password, Base64.DEFAULT), this.iv));
+                            .decryptData(alias, Base64.decode(this.password, Base64.DEFAULT), this.iv));
                 } catch (UnrecoverableEntryException | NoSuchAlgorithmException |
                         KeyStoreException | NoSuchPaddingException | NoSuchProviderException |
                         IOException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException e) {

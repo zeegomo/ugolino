@@ -170,6 +170,7 @@ public class DeviceActivity extends AppCompatActivity {
                     final EditText userEditText = new EditText(DeviceActivity.this);
 
                     passEditText.setHint("password");
+                    //NOT WORKING
                     passEditText.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
                     passEditText.setGravity(Gravity.CENTER);
@@ -191,7 +192,7 @@ public class DeviceActivity extends AppCompatActivity {
                             byte[] iv = null;
                             try {
                                 final byte[] encryptedText = MainActivity.encryptor
-                                        .encryptText(String.valueOf(devices.get(position).getId()), passEditText.getText().toString());
+                                        .encryptText(devices.get(position).getAlias(), passEditText.getText().toString());
                                 password = (Base64.encodeToString(encryptedText, Base64.DEFAULT));
                                 iv = MainActivity.encryptor.getIv();
                             } catch (UnrecoverableEntryException | NoSuchAlgorithmException | NoSuchProviderException |
