@@ -23,6 +23,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.UnrecoverableEntryException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -34,7 +35,7 @@ import static com.example.android.ugolino.MainActivity.read_devices;
 
 class MqttThread {
     //private String broker;
-    private String id;
+    private byte[] id;
     //private String mask;
     private MqttAndroidClient mqttAndroidClient;
     private MqttAndroidClient secureMqttAndroidClient;
@@ -64,7 +65,7 @@ class MqttThread {
 
 
     }*/
-    MqttThread(Context context, String id, String broker, boolean secure){
+    MqttThread(Context context, byte[] id, String broker, boolean secure){
         this.context = context;
         this.id = id;
         this.secure = secure;
@@ -76,7 +77,7 @@ class MqttThread {
     //GET METHODS
     /*String getBroker() {return this.broker;}
     String getMask() {return this.mask;}*/
-    String getId() {return this.id;}
+    byte[] getId() {return this.id;}
 
     private boolean isConnected() {
         if (secure)
@@ -283,17 +284,17 @@ class MqttThread {
         ArrayList<Device> devices = MainActivity.read_devices;
         for (int i = 0; i < length; i++) {
             devices.get(i);
-            if (devices.get(i).getId().equals(this.id))
+            if (devices.get(i).getId() == this.id)
                 devices.get(i).setmRead(message.toString());
         }
         ReadFragment.dataNotify(read_devices);
     }
 
     //Notify connection status
-    private void updateReadDeviceStatus(String id, boolean on) {
+    private void updateReadDeviceStatus(byte[] id, boolean on) {
         ArrayList<Device> devices = MainActivity.read_devices;
         for (int i = 0; i < devices.size(); i++) {
-            if (devices.get(i).getId().equals(id)) {
+            if (Arrays.equals(devices.get(i).getId(), id)) {
                 if (on)
                     devices.get(i).setmStatus(true);
                 else

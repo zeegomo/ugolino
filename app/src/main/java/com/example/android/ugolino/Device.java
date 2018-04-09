@@ -38,7 +38,6 @@ class Device {
     private String mName;
     private boolean mStatus;
     private String mWrite_topic;
-    private String id;
     private String alias;
     private String mRead_topic;
     private String mBroker;
@@ -46,6 +45,8 @@ class Device {
     private boolean mType;
     private String mRead;
     private boolean secure;
+    private byte[] id;
+
 
     //MQTT credentials
     private String password;
@@ -115,7 +116,7 @@ class Device {
         return user;
     }
 
-    String getId() {
+    byte[] getId() {
         return id;
     }
 
@@ -194,15 +195,14 @@ class Device {
         try {
             MessageDigest digester = MessageDigest.getInstance("SHA-1");
             String newid = this.mBroker + this.mMask + this.mRead_topic + this.mWrite_topic + this.secure;
-            byte[] digest = digester.digest(newid.getBytes());
-            this.id = digest.toString();
+            this.id = digester.digest(newid.getBytes("UTF-8"));
         }catch (Exception e){
             e.printStackTrace();
         }
 
     }
 
-    void sslPublish(Context context, String content){
+    private void sslPublish(Context context, String content){
         int qos = 0;
         String clientId = id + "@Ugolino";
         //Log.e("topic: " + mWrite_topic + "mask:  " + mMask + " broker: " + mBroker, "DEVICE");
@@ -250,7 +250,7 @@ class Device {
         }
     }
 
-    void publish(String content){
+    private void publish(String content){
         int qos = 0;
         String clientId = id + "@Ugolino";
         Log.e("topic: " + mWrite_topic + "mask:  " + mMask + " broker: " + mBroker, "DEVICE");

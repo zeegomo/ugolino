@@ -3,6 +3,7 @@ package com.example.android.ugolino;
 import android.content.Context;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 class MqttHandler {
@@ -12,7 +13,6 @@ class MqttHandler {
     MqttHandler(Context mContext) {
         this.context = mContext;
     }
-
     int getSize() {
         return connections.size();
     }
@@ -21,7 +21,7 @@ class MqttHandler {
         boolean found = false;
         int size = connections.size();
         for (int i = 0; i < size && !found; i++) {
-            if (connections.get(i).getId().equals(device.getId()))
+            if (Arrays.equals(connections.get(i).getId(),device.getId()))
                 found = true;
         }
         if (!found) {
@@ -32,7 +32,7 @@ class MqttHandler {
 
     private boolean search(MqttThread mqtt, ArrayList<Device> devices) {
         for (int i = 0; i < devices.size(); i++)
-            if (mqtt.getId().equals(devices.get(i).getId()))
+            if (Arrays.equals(mqtt.getId(), devices.get(i).getId()))
                 return true;
 
         return false;
