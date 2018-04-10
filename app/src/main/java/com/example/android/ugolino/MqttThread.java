@@ -1,7 +1,10 @@
 package com.example.android.ugolino;
 
 import android.content.Context;
+import android.util.Base64;
 import android.util.Log;
+import android.widget.Toast;
+
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.DisconnectedBufferOptions;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
@@ -11,51 +14,129 @@ import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
+
+import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.UnrecoverableEntryException;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
+import static com.example.android.ugolino.MainActivity.decryptor;
 import static com.example.android.ugolino.MainActivity.read_devices;
 
 
-
-class MqttThread{
-    private String broker;
-    private String id = "ugolino";
-    private String mask;
+class MqttThread {
+    //private String broker;
+    private byte[] id;
+    //private String mask;
     private MqttAndroidClient mqttAndroidClient;
+    private MqttAndroidClient secureMqttAndroidClient;
+    //private MqttAndroidClient secureCertMqttAndroidClient;
+    private Context context;
+    private boolean secure;
+    //TODO safe storage
+    /*private String user;
+    private String password;
+    private byte[] iv;*/
 
-    MqttThread(String broker, Context context, String mMask) {
+    //Constructor
+    //Password is used only if initialized and only in secure mode
+    /*MqttThread(String broker, Context context, String mMask, String password, String user, String id, byte[] iv, boolean secure) {
         this.broker = broker;
         this.mask = mMask;
         this.mask = mMask;
-        mqttAndroidClient =  new MqttAndroidClient(context, "tcp://" + broker, id);
+        this.context = context;
+        this.password = password;
+        this.user = user;
+        this.secure = secure;
+        this.id = id;
+        this.iv = iv;
+        mqttAndroidClient = new MqttAndroidClient(context, "tcp://" + broker, id + "@Ugolino");
+        secureMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8883", id + "@Ugolino");
+        //secureCertMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8884", id);
+
+
+    }*/
+    MqttThread(Context context, byte[] id, String broker, boolean secure) {
+        this.context = context;
+        this.id = id;
+        this.secure = secure;
+        mqttAndroidClient = new MqttAndroidClient(context, "tcp://" + broker, id + "@Ugolino");
+        secureMqttAndroidClient = new MqttAndroidClient(context, "ssl://" + broker + ":8883", id + "@Ugolino");
     }
 
-    String getBroker(){
-        return this.broker;
+
+    //GET METHODS
+    /*String getBroker() {return this.broker;}
+    String getMask() {return this.mask;}*/
+    byte[] getId() {
+        return this.id;
     }
 
-    String getMask(){
-        return  this.mask;
+    private boolean isConnected() {
+        if (secure)
+            return mqttAndroidClient.isConnected();
+        else
+            return secureMqttAndroidClient.isConnected();
     }
 
-    boolean isConnected(){
-        return  mqttAndroidClient.isConnected();
+    boolean isSecure() {
+        return secure;
     }
 
 
-    void close(){
-        try{
-        mqttAndroidClient.disconnect();
-        }catch (MqttException e){
+    //-----------------------CONNECTIONS-----------------------------
+
+    //Connect
+    //Auto-detect if secure or unsecure mode was used
+    void connect(Device device) {
+        if (secure)
+            this.sslConnect(device);
+        else
+            this.unsecureConnect(device);
+    }
+
+    //Disconnect
+    //Auto-detect if secure or unsecure mode was used
+    void close() {
+        try {
+            if (secure)
+                secureMqttAndroidClient.disconnect();
+            else
+                mqttAndroidClient.disconnect();
+
+            updateReadDeviceStatus(id, false);
+        } catch (MqttException e) {
             e.printStackTrace();
         }
     }
 
-    void connect(){
+
+    //private method for secure connect
+    private void sslConnect(Device device) {
+
+        String mask = device.getmMask();
+        String user = device.getUser();
+        String password = device.getPassword();
+        String topic = device.getmRead_topic();
+        String alias = device.getAlias();
+
+        byte[] iv = device.getIv();
         final String mMask;
-        if (this.mask.equals(""))
-            mMask = "#";
+        if (mask.equals(""))
+            mMask = topic;
         else
-            mMask = this.mask + "/#";
-        mqttAndroidClient.setCallback(new MqttCallback() {
+            mMask = mask + "/" + topic;
+
+        secureMqttAndroidClient.setCallback(new MqttCallback() {
             @Override
             public void connectionLost(Throwable cause) {
 
@@ -63,8 +144,8 @@ class MqttThread{
 
             @Override
             public void messageArrived(String topic, MqttMessage message) throws Exception {
-                Log.e("Message arrived","mqtt thread");
-                updateData(topic, message);
+                Log.e("Message arrived", "mqtt thread");
+                updateData(message);
             }
 
             @Override
@@ -73,7 +154,110 @@ class MqttThread{
             }
         });
 
-        try{
+        try {
+            SslUtil.newInstance(context);
+            MqttConnectOptions options = new MqttConnectOptions();
+            //options.setSocketFactory(SslUtil.getInstance().getSocketFactory(R.raw.raw_key_file, "mykeystorePassword"));
+            if (password == null || password.equals("")) {
+                Toast toast = Toast.makeText(context, "Password not set - ignoring auth", Toast.LENGTH_SHORT);
+                toast.show();
+            } else {
+                String decryptedPassword = null;
+
+                if (MainActivity.ANDROID_KEY_STORE_ENABLE) {
+                    //Password safe handling by AndroidKeyStore
+                    try {
+                        decryptedPassword = (decryptor
+                                .decryptData(alias, Base64.decode(password, Base64.DEFAULT), iv));
+                    } catch (UnrecoverableEntryException | NoSuchAlgorithmException |
+                            KeyStoreException | NoSuchPaddingException | NoSuchProviderException |
+                            IOException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    decryptedPassword = password;
+                }
+                if (decryptedPassword == null || decryptedPassword.equals("")) {
+                    Toast toast = Toast.makeText(context, "Password error - logging without credentials", Toast.LENGTH_SHORT);
+                    toast.show();
+                } else {
+                    if( user != null && !user.equals("")){
+                    options.setPassword(decryptedPassword.toCharArray());
+                    options.setUserName(user);
+                    }else{
+                        Toast toast = Toast.makeText(context, "User error - logging without credentials", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
+                }
+            }
+            options.setCleanSession(true);
+            options.setConnectionTimeout(60);
+            options.setKeepAliveInterval(60);
+
+            secureMqttAndroidClient.connect(options, null, new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+                    DisconnectedBufferOptions disconnectedBufferOptions = new DisconnectedBufferOptions();
+                    disconnectedBufferOptions.setBufferEnabled(true);
+                    disconnectedBufferOptions.setBufferSize(100);
+                    disconnectedBufferOptions.setPersistBuffer(false);
+                    disconnectedBufferOptions.setDeleteOldestMessages(false);
+                    secureMqttAndroidClient.setBufferOpts(disconnectedBufferOptions);
+                    try {
+                        secureMqttAndroidClient.subscribe(mMask, 0);
+                        updateReadDeviceStatus(id, true);
+                    } catch (MqttException e) {
+                        e.printStackTrace();
+                        updateReadDeviceStatus(id, false);
+                    }
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                    updateReadDeviceStatus(id, false);
+                }
+            });
+        } catch (MqttException e) {
+
+            e.printStackTrace();
+        }
+        if (isConnected())
+            updateReadDeviceStatus(id, true);
+        else
+            updateReadDeviceStatus(id, false);
+    }
+
+    //private method for unsecure connect
+    private void unsecureConnect(Device device) {
+
+        String mask = device.getmMask();
+        String topic = device.getmRead_topic();
+
+        final String mMask;
+        if (mask.equals(""))
+            mMask = topic;
+        else
+            mMask = mask + "/" + topic;
+        mqttAndroidClient.setCallback(new MqttCallback() {
+            @Override
+            public void connectionLost(Throwable cause) {
+
+            }
+
+            @Override
+            public void messageArrived(String topic, MqttMessage message) throws Exception {
+                Log.e("Message arrived", "mqtt thread");
+                updateData(message);
+            }
+
+            @Override
+            public void deliveryComplete(IMqttDeliveryToken token) {
+
+            }
+        });
+
+        try {
+
             mqttAndroidClient.connect(new MqttConnectOptions(), null, new IMqttActionListener() {
                 @Override
                 public void onSuccess(IMqttToken asyncActionToken) {
@@ -85,39 +269,56 @@ class MqttThread{
                     mqttAndroidClient.setBufferOpts(disconnectedBufferOptions);
                     try {
                         mqttAndroidClient.subscribe(mMask, 0);
+                        updateReadDeviceStatus(id, true);
                     } catch (MqttException e) {
                         e.printStackTrace();
+                        updateReadDeviceStatus(id, false);
                     }
                 }
 
                 @Override
                 public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+                    updateReadDeviceStatus(id, false);
                 }
             });
-        }catch(MqttException e){
+        } catch (MqttException e) {
+
             e.printStackTrace();
         }
+
+        if (isConnected())
+            updateReadDeviceStatus(id, true);
+        else
+            updateReadDeviceStatus(id, false);
     }
 
 
+    //------------------DATA UPDATE-----------------------------
 
-    private void updateData(String topic, MqttMessage message) {
-        int length = read_devices.size();
+    //Notify new messages
+    private void updateData(MqttMessage message) {
+        int length = MainActivity.read_devices.size();
+        ArrayList<Device> devices = MainActivity.read_devices;
         for (int i = 0; i < length; i++) {
-
-            String deviceTopic;
-            Device currentDevice = read_devices.get(i);
-            if (currentDevice.getmMask().equals(""))
-                deviceTopic = currentDevice.getmRead_topic();
-            else
-                deviceTopic = currentDevice.getmMask() + '/' + currentDevice.getmRead_topic();
-
-            //Log.e("deviceTopic" + deviceTopic, "updateData");
-            //Log.e("topic" + topic, "updateData");
-            if ((deviceTopic).equals(topic))
-                read_devices.get(i).setmRead(message.toString());
+            devices.get(i);
+            if (devices.get(i).getId() == this.id)
+                devices.get(i).setmRead(message.toString());
         }
         ReadFragment.dataNotify(read_devices);
+    }
+
+    //Notify connection status
+    private void updateReadDeviceStatus(byte[] id, boolean on) {
+        ArrayList<Device> devices = MainActivity.read_devices;
+        for (int i = 0; i < devices.size(); i++) {
+            if (Arrays.equals(devices.get(i).getId(), id)) {
+                if (on)
+                    devices.get(i).setmStatus(true);
+                else
+                    devices.get(i).setmStatus(false);
+            }
+        }
+        ReadFragment.dataNotify(devices);
     }
 
 }

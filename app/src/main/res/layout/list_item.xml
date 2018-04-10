@@ -9,28 +9,27 @@
 
 
 
-    <ImageView
-        android:layout_width="@dimen/list_item_height"
-        android:layout_height="@dimen/list_item_height"
-        android:src="@drawable/plug1"
-        android:id="@+id/image_id"
-        android:layout_weight="0"
 
-        />
 
     <LinearLayout
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@id/image_id"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/list_item_height"
         android:orientation = "horizontal"
-        android:layout_weight="1"
         android:gravity="center_vertical"
         android:id="@+id/text_container"
         >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_turned_in_red_24dp"
+            android:id="@+id/image_id"
+            android:layout_weight="0"
 
+            />
         <TextView
             android:layout_marginLeft="16dp"
             android:layout_width="0dp"
@@ -43,6 +42,14 @@
             android:id="@+id/device_name"
             android:textColor="@android:color/darker_gray" />
         <!-- INSERIRE PUNTINO COLORATO PER ONLINE STATUS -->
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_brightness_1_black_24dp"
+            android:id="@+id/status_image"/>
+
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="@dimen/list_item_height"

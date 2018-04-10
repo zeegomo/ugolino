@@ -2,6 +2,7 @@ package com.example.android.ugolino;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +33,7 @@ public class InteractAdapter extends ArrayAdapter<Device> {
         super(context, 0, devices);
     }
 
+    @NonNull
     @Override
     public View getView(final int position, final View convertView, final ViewGroup parent) {
         // Check if the existing view is being reused, otherwise inflate the view
@@ -46,10 +48,12 @@ public class InteractAdapter extends ArrayAdapter<Device> {
         currentDevice = devices.get(position);
         //final String OnUrl = currentDevice.getOnUrl();
         //final String OffUrl = currentDevice.getOffUrl();
-        Switch statusSwitch = (Switch) listItemView.findViewById(R.id.on_switch);
-        TextView readTextView = (TextView) listItemView.findViewById(R.id.read_value);
+        ImageView statusImageView =  listItemView.findViewById(R.id.status_image);
+        Switch statusSwitch = listItemView.findViewById(R.id.on_switch);
+        TextView readTextView =  listItemView.findViewById(R.id.read_value);
 
         readTextView.setVisibility(GONE);
+        statusImageView.setVisibility(GONE);
 
         boolean response = currentDevice.getmStatus();
         if (response) {
@@ -63,10 +67,10 @@ public class InteractAdapter extends ArrayAdapter<Device> {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 currentDevice = devices.get(position);
                 if (isChecked)
-                    currentDevice.on();
+                    currentDevice.on(getContext());
 
                 else
-                    currentDevice.off();
+                    currentDevice.off(getContext());
 
 
             }

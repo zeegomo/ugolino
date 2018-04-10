@@ -57,6 +57,15 @@
             android:id="@+id/modify_button"
             android:src="@drawable/ic_create_black_24dp"/>
 
+
+        <ImageView
+            android:layout_margin="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:id="@+id/tls_button"
+            android:src="@drawable/ic_vpn_key_black_24dp"/>
+
     </LinearLayout>
 
     <LinearLayout

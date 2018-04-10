@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -23,6 +24,11 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
 import java.util.ArrayList;
 
 import static com.example.android.ugolino.R.menu.toolbar;
@@ -34,9 +40,11 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<Device> interact_devices = new ArrayList<>();
     //List of devices meant to retrieve data
     public static ArrayList<Device> read_devices = new ArrayList<>();
-    public static WebView webView;
     public static MqttHandler mqttHandler;
+    public static boolean ANDROID_KEY_STORE_ENABLE;
 
+    static Encrypt encryptor;
+    static Decrypt decryptor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +56,16 @@ public class MainActivity extends AppCompatActivity {
 
         mqttHandler = new MqttHandler(getApplicationContext());
         //Save();
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        ViewPager viewPager = findViewById(R.id.viewpager);
+
         UgolinoFragmentPagerAdapter gadapter = new UgolinoFragmentPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(gadapter);
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
+
+        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
 
+
+        //------------------RECOVERING DEVICE DATA FROM DRIVE-------------------
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Gson gson = new Gson();
         String json_interact = appSharedPrefs.getString("interact_devices", "");
@@ -70,36 +82,40 @@ public class MainActivity extends AppCompatActivity {
             }.getType());
         }
 
-        //MqttThread mqtt = new MqttThread("test.mosquitto.org",getApplicationContext(), "read_devices");
-        //mqtt.connect();
+        //------------------INITIALIZING CRYPTO TOOLS TO PROTECT USERS PASSWORDS--------------
+        encryptor = new Encrypt();
 
-
-
-        //mqttHandler.updateConnections();
-        //View initialization
-        webView = (WebView) findViewById(R.id.webview);
-    }
-
-    /*
-    void updateData(String topic, MqttMessage message){
-        int length = read_devices.size();
-        for(int i = 0; i < length; i++){
-
-            String deviceTopic;
-            Device currentDevice = read_devices.get(i);
-            if(currentDevice.getmMask().equals(""))
-                deviceTopic = currentDevice.getmRead_topic();
-            else
-                deviceTopic = currentDevice.getmMask() + '/' + currentDevice.getmRead_topic();
-
-            Log.e("deviceTopic" + deviceTopic, "updateData");
-            Log.e("topic" + topic, "updateData");
-            if((deviceTopic).equals(topic)) //TODO control if effective
-                read_devices.get(i).setmRead(message.toString());
+        try {
+            decryptor = new Decrypt();
+        } catch (CertificateException | NoSuchAlgorithmException | KeyStoreException |
+                IOException e) {
+            e.printStackTrace();
         }
-        mqttHandler.updateConnections();
-        ReadFragment.dataNotify();
-    }*/
+        if(encryptor != null && decryptor != null && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M){
+            ANDROID_KEY_STORE_ENABLE = true;
+        }else{
+            ANDROID_KEY_STORE_ENABLE = false;
+        }
+
+        /*
+        String ciao = "ciao";
+        String enc = null;
+        byte[] iv= null;
+        String dec;
+        try {
+            enc = (Base64.encodeToString(encryptor.encryptText("ciao", ciao), Base64.DEFAULT));
+            iv = encryptor.getIv();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        try {
+            dec = decryptor.decryptData("ciao", Base64.decode(enc,Base64.DEFAULT),iv);
+        }catch (Exception e){
+            e.printStackTrace();
+        }*/
+
+    }
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -113,8 +129,8 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_add_switch:
                 AddWriteDevice();
-                reload();
-                InteractFragment.dataNotify(interact_devices);
+                //reload();
+                //InteractFragment.dataNotify(interact_devices);
                 return true;
 
             case R.id.action_info:
@@ -175,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                 ReadFragment.dataNotify(read_devices);
                 Log.d("read_device" + read_devices, "AddDevice");
                 Log.e("server: " +topic,"ADD READ");
-                mqttHandler.addConnection(broker, mask);
+                mqttHandler.addConnection(read_devices.get(read_devices.size()-1));
                 Save();
             }
         });
@@ -226,7 +242,8 @@ public class MainActivity extends AppCompatActivity {
                 //topic = mask + '/' + topic;
                 interact_devices.add(new Device("New Write Widget",mask, "" , broker, topic,true));
                 Save();
-                InteractFragment.dataNotify(interact_devices);
+                //InteractFragment.dataNotify(interact_devices);
+                InteractFragment.not(MainActivity.this);
                 Log.d("intereat_device" + interact_devices, "AddDevice");
                 Log.e("topic: " +topic,"ADD INTERACT");
 
@@ -267,6 +284,9 @@ public class MainActivity extends AppCompatActivity {
         }
         mqttHandler.updateConnections();
         Log.e("read_size: " + read_devices.size(), "MainActivity");
+
+
+
     }
 
     public void Save() {
@@ -313,15 +333,25 @@ public class MainActivity extends AppCompatActivity {
             }.getType());
         }
         Log.e("read_size: " + read_devices.size(), "MainActivity");
+
+
+        for(int i = 0; i < read_devices.size(); i++)
+            read_devices.get(i).updateId();
+
+        for(int i = 0; i < interact_devices.size(); i++)
+            interact_devices.get(i).updateId();
+
         mqttHandler.updateConnections();
         //mqttHandler.init();
         //InteractFragment.dataNotify(interact_devices);
         //ReadFragment.dataNotify(read_devices);
-        for(int i = 0; i < mqttHandler.getSize(); i++){
+        /*for(int i = 0; i < mqttHandler.getSize(); i++){
             Log.e("mqttHandler: " + mqttHandler.connections.get(i).getBroker() + mqttHandler.connections.get(i).getMask(),"Main Activity");
 
-        }
+        }*/
     }
+
+
 
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
