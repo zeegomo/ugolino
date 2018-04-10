@@ -65,7 +65,7 @@ class MqttThread {
 
 
     }*/
-    MqttThread(Context context, byte[] id, String broker, boolean secure){
+    MqttThread(Context context, byte[] id, String broker, boolean secure) {
         this.context = context;
         this.id = id;
         this.secure = secure;
@@ -77,7 +77,9 @@ class MqttThread {
     //GET METHODS
     /*String getBroker() {return this.broker;}
     String getMask() {return this.mask;}*/
-    byte[] getId() {return this.id;}
+    byte[] getId() {
+        return this.id;
+    }
 
     private boolean isConnected() {
         if (secure)
@@ -86,7 +88,9 @@ class MqttThread {
             return secureMqttAndroidClient.isConnected();
     }
 
-    boolean isSecure() {return secure;}
+    boolean isSecure() {
+        return secure;
+    }
 
 
     //-----------------------CONNECTIONS-----------------------------
@@ -115,7 +119,6 @@ class MqttThread {
     }
 
 
-
     //private method for secure connect
     private void sslConnect(Device device) {
 
@@ -127,7 +130,7 @@ class MqttThread {
 
         byte[] iv = device.getIv();
         final String mMask;
-        if(mask.equals(""))
+        if (mask.equals(""))
             mMask = topic;
         else
             mMask = mask + "/" + topic;
@@ -158,21 +161,25 @@ class MqttThread {
                 Toast toast = Toast.makeText(context, "Password not set - ignoring auth", Toast.LENGTH_SHORT);
                 toast.show();
             } else {
-                //Password safe handling by AndroidKeyStore
-
                 String decryptedPassword = null;
-                try {
-                    decryptedPassword = (decryptor
-                            .decryptData(alias, Base64.decode(password, Base64.DEFAULT), iv));
-                } catch (UnrecoverableEntryException | NoSuchAlgorithmException |
-                        KeyStoreException | NoSuchPaddingException | NoSuchProviderException |
-                        IOException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException e) {
-                    e.printStackTrace();
+
+                if (MainActivity.ANDROID_KEY_STORE_ENABLE) {
+                    //Password safe handling by AndroidKeyStore
+                    try {
+                        decryptedPassword = (decryptor
+                                .decryptData(alias, Base64.decode(password, Base64.DEFAULT), iv));
+                    } catch (UnrecoverableEntryException | NoSuchAlgorithmException |
+                            KeyStoreException | NoSuchPaddingException | NoSuchProviderException |
+                            IOException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    decryptedPassword = password;
                 }
-                if (decryptedPassword == null || decryptedPassword.equals("")){
+                if (decryptedPassword == null || decryptedPassword.equals("")) {
                     Toast toast = Toast.makeText(context, "Password decryption error - logging without credentials", Toast.LENGTH_SHORT);
                     toast.show();
-                }else{
+                } else {
                     options.setPassword(decryptedPassword.toCharArray());
                     options.setUserName(user);
                 }
@@ -221,7 +228,7 @@ class MqttThread {
         String topic = device.getmRead_topic();
 
         final String mMask;
-        if(mask.equals(""))
+        if (mask.equals(""))
             mMask = topic;
         else
             mMask = mask + "/" + topic;
@@ -273,7 +280,6 @@ class MqttThread {
             e.printStackTrace();
         }
     }
-
 
 
     //------------------DATA UPDATE-----------------------------

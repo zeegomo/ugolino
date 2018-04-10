@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     //List of devices meant to retrieve data
     public static ArrayList<Device> read_devices = new ArrayList<>();
     public static MqttHandler mqttHandler;
+    public static boolean ANDROID_KEY_STORE_ENABLE;
 
     static Encrypt encryptor;
     static Decrypt decryptor;
@@ -89,6 +90,11 @@ public class MainActivity extends AppCompatActivity {
         } catch (CertificateException | NoSuchAlgorithmException | KeyStoreException |
                 IOException e) {
             e.printStackTrace();
+        }
+        if(encryptor != null && decryptor != null){
+            ANDROID_KEY_STORE_ENABLE = true;
+        }else{
+            ANDROID_KEY_STORE_ENABLE = true;
         }
 
         /*

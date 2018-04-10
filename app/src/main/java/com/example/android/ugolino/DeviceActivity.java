@@ -159,7 +159,7 @@ public class DeviceActivity extends AppCompatActivity {
             public void onClick(View view) {
                 android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(DeviceActivity.this);
 
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+
                     alert.setMessage("Provide optional username and password");
                     alert.setTitle("TLS config");
 
@@ -186,21 +186,26 @@ public class DeviceActivity extends AppCompatActivity {
                         public void onClick(DialogInterface dialog, int whichButton) {
                             tlsButton.setImageResource(R.drawable.ic_vpn_key_red_24dp);
 
-
-                            //Password safe handling done by AndroidKeyStore
                             String password = null;
                             byte[] iv = null;
-                            try {
-                                final byte[] encryptedText = MainActivity.encryptor
-                                        .encryptText(devices.get(position).getAlias(), passEditText.getText().toString());
-                                password = (Base64.encodeToString(encryptedText, Base64.DEFAULT));
-                                iv = MainActivity.encryptor.getIv();
-                            } catch (UnrecoverableEntryException | NoSuchAlgorithmException | NoSuchProviderException |
-                                    KeyStoreException | IOException | NoSuchPaddingException | InvalidKeyException | InvalidAlgorithmParameterException | SignatureException |
-                                    IllegalBlockSizeException | BadPaddingException e) {
-                                e.printStackTrace();
-                            }
 
+                            if (MainActivity.ANDROID_KEY_STORE_ENABLE) {
+                                //Password safe handling done by AndroidKeyStore
+
+                                try {
+                                    final byte[] encryptedText = MainActivity.encryptor
+                                            .encryptText(devices.get(position).getAlias(), passEditText.getText().toString());
+                                    password = (Base64.encodeToString(encryptedText, Base64.DEFAULT));
+                                    iv = MainActivity.encryptor.getIv();
+                                } catch (UnrecoverableEntryException | NoSuchAlgorithmException | NoSuchProviderException |
+                                        KeyStoreException | IOException | NoSuchPaddingException | InvalidKeyException | InvalidAlgorithmParameterException | SignatureException |
+                                        IllegalBlockSizeException | BadPaddingException e) {
+                                    e.printStackTrace();
+                                }
+                            }else{
+
+                                password = passEditText.getText().toString();
+                            }
                             String user = userEditText.getText().toString();
                             devices.get(position).setUser(user);
                             devices.get(position).setIv(iv);
@@ -224,31 +229,7 @@ public class DeviceActivity extends AppCompatActivity {
                             Save(type);
                         }
                     });
-                }else{
 
-                    //Handling call with API < 23 where it is not possible to store passwords
-                    alert.setMessage("Password login is only available in Android 6.0 or above, Plain TLS is still supported");
-                    alert.setTitle("TLS Connection");
-
-                    alert.setPositiveButton("Enable",new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            // what ever you want to do with No option.
-                            tlsButton.setImageResource(R.drawable.ic_vpn_key_red_24dp);
-                            devices.get(position).setSecure(true);
-                            Save(type);
-                        }
-                    });
-
-                    alert.setNegativeButton("Disable", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int whichButton) {
-                            // what ever you want to do with No option.
-                            tlsButton.setImageResource(R.drawable.ic_vpn_key_black_24dp);
-                            devices.get(position).setSecure(false);
-                            Save(type);
-                        }
-                    });
-                }
-                alert.show();
             }
         });
 
