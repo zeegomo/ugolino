@@ -112,6 +112,7 @@ class MqttThread {
                 secureMqttAndroidClient.disconnect();
             else
                 mqttAndroidClient.disconnect();
+
             updateReadDeviceStatus(id, false);
         } catch (MqttException e) {
             e.printStackTrace();
@@ -177,11 +178,16 @@ class MqttThread {
                     decryptedPassword = password;
                 }
                 if (decryptedPassword == null || decryptedPassword.equals("")) {
-                    Toast toast = Toast.makeText(context, "Password decryption error - logging without credentials", Toast.LENGTH_SHORT);
+                    Toast toast = Toast.makeText(context, "Password error - logging without credentials", Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
+                    if( user != null && !user.equals("")){
                     options.setPassword(decryptedPassword.toCharArray());
                     options.setUserName(user);
+                    }else{
+                        Toast toast = Toast.makeText(context, "User error - logging without credentials", Toast.LENGTH_SHORT);
+                        toast.show();
+                    }
                 }
             }
             options.setCleanSession(true);
@@ -279,6 +285,11 @@ class MqttThread {
 
             e.printStackTrace();
         }
+
+        if (isConnected())
+            updateReadDeviceStatus(id, true);
+        else
+            updateReadDeviceStatus(id, false);
     }
 
 

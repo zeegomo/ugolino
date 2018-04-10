@@ -171,15 +171,16 @@ public class DeviceActivity extends AppCompatActivity {
 
                     passEditText.setHint("password");
                     //NOT WORKING
-                    passEditText.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    passEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
                     passEditText.setGravity(Gravity.CENTER);
 
                     userEditText.setHint("username");
                     userEditText.setGravity(Gravity.CENTER);
 
-                    layout.addView(passEditText);
                     layout.addView(userEditText);
+                    layout.addView(passEditText);
+
                     alert.setView(layout);
 
                     alert.setPositiveButton("Enable", new DialogInterface.OnClickListener() {
@@ -229,6 +230,8 @@ public class DeviceActivity extends AppCompatActivity {
                             Save(type);
                         }
                     });
+
+                    alert.show();
 
             }
         });

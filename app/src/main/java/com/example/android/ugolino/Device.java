@@ -194,11 +194,12 @@ class Device {
     void updateId(){
         try {
             MessageDigest digester = MessageDigest.getInstance("SHA-1");
-            String newid = this.mBroker + this.mMask + this.mRead_topic + this.mWrite_topic + this.secure;
+            String newid = this.mBroker + this.mMask + this.mRead_topic + this.mWrite_topic + this.secure + this.password + this.user;
             this.id = digester.digest(newid.getBytes("UTF-8"));
         }catch (Exception e){
             e.printStackTrace();
         }
+
 
     }
 

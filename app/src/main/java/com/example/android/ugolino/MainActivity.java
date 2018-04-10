@@ -91,10 +91,10 @@ public class MainActivity extends AppCompatActivity {
                 IOException e) {
             e.printStackTrace();
         }
-        if(encryptor != null && decryptor != null){
+        if(encryptor != null && decryptor != null && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M){
             ANDROID_KEY_STORE_ENABLE = true;
         }else{
-            ANDROID_KEY_STORE_ENABLE = true;
+            ANDROID_KEY_STORE_ENABLE = false;
         }
 
         /*

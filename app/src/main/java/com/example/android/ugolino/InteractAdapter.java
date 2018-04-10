@@ -2,6 +2,7 @@ package com.example.android.ugolino;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +33,7 @@ public class InteractAdapter extends ArrayAdapter<Device> {
         super(context, 0, devices);
     }
 
+    @NonNull
     @Override
     public View getView(final int position, final View convertView, final ViewGroup parent) {
         // Check if the existing view is being reused, otherwise inflate the view
