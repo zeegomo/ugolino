@@ -9,6 +9,4 @@ Currently supports (v 0.2.0 testing):
 * Display text read from custom topic and broker (Add->Read)
 * TLS/SSL encrypted connection
 * Password authentication
-
-
-
+* I'm going to implement a very useful android application to use in order to improve this app
